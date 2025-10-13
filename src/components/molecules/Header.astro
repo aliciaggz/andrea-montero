@@ -1,18 +1,32 @@
 ---
-import logo from '../assets/andrea-logo.svg';
+import logo from '../../assets/andrea-logo.svg';
 ---
 
-<header>
-  <img src={logo.src} width="115" height="48" alt="Andrea Homepage" />
-  <nav>
-    <ul>
-      <li><a href="#about">About Me</a></li>
+<header class="header">
+  <nav class="header__nav">
+    <ul class="header__nav--list">
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <img src={logo.src} width="115" height="48" alt="Andrea Homepage" />
+      <li><a href="#contact">Sobre mi</a></li>
     </ul>
   </nav>
 </header>
 
 <style lang="scss" scoped>
+.header {
+  &__nav{
+    display: flex;
+    justify-content: center;
+    padding: 1rem 2rem;
 
+    &--list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      display: flex;
+      text-decoration: none;
+    }
+  }
+
+}
 </style>
