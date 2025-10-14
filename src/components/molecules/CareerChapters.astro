@@ -1,0 +1,80 @@
+---
+import paper from '@/assets/paper.svg';
+
+const jobs = [
+  {
+    company: "Lexy",
+    role: "UX/UI Designer",
+    dates: "May 2025 – Actualmente",
+  },
+  {
+    company: "Competize",
+    role: "UX/UI Designer",
+    dates: "Feb 2024 – Mar 2025",
+  },
+  {
+    company: "Brand Dawson",
+    role: "UX/UI Designer & Graphic Designer",
+    dates: "Abr 2025 – Jul 2025",
+  },
+];
+
+---
+
+<section class="chapters">
+
+  <img class="chapters__image" src={paper.src} alt="paper" />
+
+  <h2 class="chapters__title">Los capítulos de mi carrera</h2>
+  <p class="chapters__text">Cada uno de mis capítulos ha tenido un aprendizaje que me ha ayudado a crecer como diseñadora digital y a crear con un propósito.</p>
+
+  <div class="chapters__container">
+
+    <table class="chapters__table">
+      {jobs.map((job) => (
+        <tr>
+          <td>{job.company}</td>
+          <td>{job.role}</td>
+          <td>{job.dates}</td>
+        </tr>
+      ))}
+    </table>
+
+  </div>
+
+</section>
+
+
+<style lang="scss" scoped>
+  .chapters {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+
+
+    &__container {
+      width: 50rem;
+      margin-bottom: 6rem;
+    }
+
+    &__table {
+      width: 100%;
+      border-collapse: collapse;
+
+      & tr {
+        border-bottom: 1px dashed $color-black;
+      }
+
+      & td {
+        padding: 2rem 0.5rem 0.5rem 3rem; 
+
+        &:first-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+</style>

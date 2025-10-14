@@ -1,0 +1,146 @@
+---
+import sun from '@/assets/sun.svg';
+
+
+const projects = [
+  {
+    id: 1,
+    title: 'Proyecto Aurora',
+    image: '/projects/project1.jpg',
+    color: 'rgba(255, 99, 132, 0.4)',
+    link: '/proyectos/aurora',
+  },
+  {
+    id: 2,
+    title: 'Proyecto Lumen',
+    image: '/projects/project2.jpg',
+    color: 'rgba(54, 162, 235, 0.4)',
+    link: '/proyectos/lumen',
+  },
+  {
+    id: 3,
+    title: 'Proyecto Nébula',
+    image: '/projects/project3.jpg',
+    color: 'rgba(255, 206, 86, 0.4)',
+    link: '/proyectos/nebula',
+  },
+  {
+    id: 4,
+    title: 'Proyecto Solis',
+    image: '/projects/project4.jpg',
+    color: 'rgba(75, 192, 192, 0.4)',
+    link: '/proyectos/solis',
+  },
+  {
+    id: 5,
+    title: 'Proyecto Prisma',
+    image: '/projects/project5.jpg',
+    color: 'rgba(153, 102, 255, 0.4)',
+    link: '/proyectos/prisma',
+  },
+  {
+    id: 6,
+    title: 'Proyecto Vortex',
+    image: '/projects/project6.jpg',
+    color: 'rgba(255, 159, 64, 0.4)',
+    link: '/proyectos/vortex',
+  },
+];
+--- 
+<section class="projects">
+
+    <img class="projects__image" src={sun.src} alt="sun" />
+
+    <h2 class="projects__title">Entra en mi hogar digital</h2>
+    <div class="projects__grid">
+      {projects.map((project) => (
+        <a
+          href={project.link}
+          class="project-card"
+          style={`--bg-image: url(${project.image}); --overlay-color: ${project.color}`}
+        >
+          <div class="project-card__overlay"></div>
+          <h3 class="project-card__title">{project.title}</h3>
+        </a>
+      ))}
+    </div>
+</section>
+
+<style lang="scss" scoped>
+  .projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+
+    &__image {
+      width: 2.5rem;
+    }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+  }
+}
+
+.project-card {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--overlay-color);
+    transition: background-color 0.4s ease;
+  }
+
+  &:hover .project-card__overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 400;
+    z-index: 2;
+  }
+}
+
+/* 🔸 Responsivo */
+@media (max-width: 900px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
