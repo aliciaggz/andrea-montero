@@ -5,9 +5,9 @@ import logo from '../../assets/andrea-logo.svg';
 <header class="header">
   <nav class="header__nav">
     <ul class="header__nav--list">
-      <li><a href="#projects">Projects</a></li>
+      <li class="header__nav--list-item"><a href="#projects">Proyectos</a></li>
       <img src={logo.src} width="115" height="48" alt="Andrea Homepage" />
-      <li><a href="#contact">Sobre mi</a></li>
+      <li class="header__nav--list-item"><a href="#contact">Sobre mi</a></li>
     </ul>
   </nav>
 </header>
@@ -25,6 +25,20 @@ import logo from '../../assets/andrea-logo.svg';
       list-style: none;
       display: flex;
       text-decoration: none;
+
+      &-item {
+        margin-right: auto;
+        font-size: 1.125rem;
+
+        a {
+          text-decoration: none;
+          color: $color-red;
+
+          &:hover {
+            color: #4e5056;
+          }
+        } 
+      }
     }
   }
 

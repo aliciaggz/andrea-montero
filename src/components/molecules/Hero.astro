@@ -1,0 +1,99 @@
+---
+import rainbow from '@/assets/rainbow.svg';
+import flowerLeft from '@/assets/flower-left.svg';
+import flowerRight from '@/assets/flower-right.svg';
+
+
+---
+
+<div class="hero">
+  <img class="hero__flower hero__flower--left" src={flowerLeft.src} alt="Flor izquierda" />
+  <img class="hero__flower hero__flower--right" src={flowerRight.src} alt="Flor derecha" />
+
+  <div class="hero__header">
+    <img class="hero__image" id="" src={rainbow.src} alt="rainbow" />
+    <h2 class="hero__title">Hola, soy Andrea</h2>
+	</div>
+	<section class="hero__info">
+		<h3 class="hero__subtitle">Diseñadora UX UI y de productos digitales</h3>
+		<p class="hero__text">La simplicidad es mi superpoder. Convierto ideas complejas en experiencias que los usuarios disfrutan, haciendo que cada interacción se sienta natural y sencilla</p>
+		<div class="hero__line"></div>
+		<button class="hero__button">Hablemos</button>
+	</section>
+</div>
+
+
+<style lang="scss" scoped>
+.hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__flower {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16rem; // ajusta el tamaño según necesites
+    opacity: 0.8; // opcional, para que no distraigan tanto
+
+    &--left {
+      left: 0; 
+    }
+
+    &--right {
+      right: 0;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: $font-size-sm;
+    font-weight: 100;
+  }
+
+  &__subtitle {
+    width: 18rem;
+    font-size: $font-size-xl;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    font-weight: 200;
+    margin: 1.5rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30rem;
+    text-align: center;
+  }
+
+  &__button {
+    padding: 0.5rem 1rem;
+    border-radius: 500px;
+    border: none;
+    background-color: $color-black;
+    color: $color-white;
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed $color-red;
+    margin: 1.5rem 0;
+  }
+}
+
+</style>
+
