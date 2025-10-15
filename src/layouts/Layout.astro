@@ -1,5 +1,8 @@
 ---
 import Header from '@/components/molecules/Header.astro';
+
+import flowerLeft from '@/assets/flower-left.svg';
+import flowerRight from '@/assets/flower-right.svg';
 ---
 
 <!doctype html>
@@ -13,15 +16,44 @@ import Header from '@/components/molecules/Header.astro';
 	</head>
 	<body>
 		<Header/>
-		<slot />
+		<div class="hero">
+			<img class="hero__flower hero__flower--left" src={flowerLeft.src} alt="Flor izquierda" />
+			<img class="hero__flower hero__flower--right" src={flowerRight.src} alt="Flor derecha" />
+		
+			<slot />
+		</div>
 	</body>
 </html>
 
-<style>
+<style lang="scss" scoped>
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
 	}
+
+	.hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__flower {
+    position: absolute;
+    top: 8%;
+    transform: translateY(-50%);
+    width: 16rem; 
+
+    &--left {
+      left: 0; 
+    }
+
+    &--right {
+      right: 0;
+    }
+  }
+}
+
 </style>

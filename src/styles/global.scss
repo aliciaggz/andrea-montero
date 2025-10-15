@@ -1,6 +1,6 @@
 /* global.scss */
 @use './variables' as *;
-// @use './fonts' as *;
+@use './fonts' as *;
 
 html {
   box-sizing: border-box;

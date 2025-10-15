@@ -1,12 +1,9 @@
 ---
 import rainbow from '@/assets/rainbow.svg';
-import flowerLeft from '@/assets/flower-left.svg';
-import flowerRight from '@/assets/flower-right.svg';
+
 ---
 
 <div class="hero">
-  <img class="hero__flower hero__flower--left" src={flowerLeft.src} alt="Flor izquierda" />
-  <img class="hero__flower hero__flower--right" src={flowerRight.src} alt="Flor derecha" />
 
   <div class="hero__header">
     <img class="hero__image" id="" src={rainbow.src} alt="rainbow" />
@@ -23,26 +20,26 @@ import flowerRight from '@/assets/flower-right.svg';
 
 <style lang="scss" scoped>
 .hero {
-  position: relative;
+  // position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  &__flower {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16rem; 
+  // &__flower {
+  //   position: absolute;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   width: 16rem; 
 
-    &--left {
-      left: 0; 
-    }
+  //   &--left {
+  //     left: 0; 
+  //   }
 
-    &--right {
-      right: 0;
-    }
-  }
+  //   &--right {
+  //     right: 0;
+  //   }
+  // }
 
   &__header {
     display: flex;
@@ -56,16 +53,18 @@ import flowerRight from '@/assets/flower-right.svg';
   }
 
   &__subtitle {
-    width: 18rem;
-    font-size: $font-size-xl;
+    width: 22rem;
+    font-size: $font-size-2xl;
     font-weight: 400;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   &__text {
-    font-size: $font-size-sm;
-    font-weight: 200;
+    font-size: $font-size-base;
     margin: 1.5rem;
+    font-family: $font-libre;
+    margin: 0;
+
   }
 
   &__info {
