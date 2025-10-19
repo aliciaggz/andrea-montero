@@ -1,17 +1,27 @@
 ---
-import flowers from '@/assets/flowers.svg';
+import peace from '@/assets/peace.png';
 
 ---
 
 <div class="contact">
   <div class="contact__container">
+    <img class="contact__image" src={peace.src} alt="peace-hand">
+    <p class="contact__ask">¿Crees que vibramos?</p>
     <p class="contact__text">Get in touch </p>
+  </div>
+  <div class="contact__labels-container">
+    <div class="contact__labels-container__label">Proyectos</div>
+    <div class="contact__labels-container__label">Experiencia</div>
+    <div class="contact__labels-container__label">CV</div>
+    <div class="contact__labels-container__label">linkedin</div>
+
   </div>
 </div>
 
 <style lang="scss" scoped>
   .contact {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 2.5rem;
@@ -23,11 +33,31 @@ import flowers from '@/assets/flowers.svg';
       height: 31.5rem;
       border-radius: 4rem;
       text-align: center;
-      font-size: 10rem;
+    }
+
+    &__image {
+      width: 2rem;
     }
 
     &__text {
       margin: 0;
+      font-size: 10rem;
     }
+
+    &__labels-container{
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-gap: 2rem;
+
+
+      &__label {
+        background-color: $colot-red-light;
+        width: 6rem;
+        height: 4rem;
+      }
+    }
+
+
+
   }
 </style>
