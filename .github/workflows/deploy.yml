@@ -24,6 +24,9 @@ jobs:
         uses: withastro/action@v3
         with:
           node-version: 23.7.0
+
+      - name: Add .nojekyll
+        run: touch ./dist/.nojekyll  # <-- evita que Jekyll procese los archivos
           # path: . # The root location of your Astro project inside the repository. (optional)
           # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
@@ -40,3 +43,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          branch: gh-pages  
+          folder: dist      
