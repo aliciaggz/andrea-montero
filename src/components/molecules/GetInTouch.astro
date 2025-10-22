@@ -10,10 +10,10 @@ import peace from '@/assets/peace.png';
     <p class="contact__text">Get in touch </p>
   </div>
   <div class="contact__labels-container">
-    <div class="contact__labels-container__label">Proyectos</div>
-    <div class="contact__labels-container__label">Experiencia</div>
-    <div class="contact__labels-container__label">CV</div>
-    <div class="contact__labels-container__label">linkedin</div>
+    <div class="contact__labels-container__label"><p>proyectos</p></div>
+    <div class="contact__labels-container__label"><p>experiencia</p></div>
+    <div class="contact__labels-container__label"><p>cv</p></div>
+    <div class="contact__labels-container__label"><p>linkedin</p></div>
 
   </div>
 </div>
@@ -25,6 +25,7 @@ import peace from '@/assets/peace.png';
     justify-content: center;
     align-items: center;
     margin: 0 2.5rem;
+    margin-bottom: 10rem;
 
     &__container {
       background-color: $color-red;
@@ -33,28 +34,40 @@ import peace from '@/assets/peace.png';
       height: 31.5rem;
       border-radius: 4rem;
       text-align: center;
+      font-family: $font-poppins;
     }
 
     &__image {
-      width: 2rem;
+      width: 4rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    &__ask {
+      font-size: $font-size-xl;
+      margin: 0;
     }
 
     &__text {
       margin: 0;
-      font-size: 10rem;
+      font-size: 11.25rem;
     }
 
     &__labels-container{
       display: grid;
       grid-template-columns: auto auto auto auto;
       grid-gap: 2rem;
+      font-family: $font-poppins;
 
 
       &__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: $colot-red-light;
         border-radius: 0 0 15px 15px;
-        width: 7rem;
-        height: 4rem;
+        width: 8rem;
+        height: 5rem;
       }
     }
 
