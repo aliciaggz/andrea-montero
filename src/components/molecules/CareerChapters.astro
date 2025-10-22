@@ -1,6 +1,11 @@
 ---
 import paper from '@/assets/paper.svg';
 
+import arrow1 from '@/assets/arrow-c-1.svg';
+import arrow2 from '@/assets/arrow-c-2.svg';
+import arrow3 from '@/assets/arrow-c-3.svg';
+
+
 const jobs = [
   {
     company: "Lexy",
@@ -30,6 +35,24 @@ const jobs = [
 
   <div class="chapters__container">
 
+    <img class="chapters__container__arrow chapters__container__arrow--1" src={arrow1.src} alt="arrow" />
+    <img class="chapters__container__arrow chapters__container__arrow--2" src={arrow2.src} alt="arrow" />
+    <img class="chapters__container__arrow chapters__container__arrow--3" src={arrow3.src} alt="arrow" />
+
+
+     <!-- Textos rojos -->
+     <p class="chapters__container__note chapters__container__note--1">
+      Creé el producto digital<br />desde cero
+    </p>
+
+    <p class="chapters__container__note chapters__container__note--2">
+      Trabajé con metodologías <br /> como ágiles para entender a los usuarios y<br />diseñar soluciones efectivas
+    </p>
+
+    <p class="chapters__container__note chapters__container__note--3">
+      Fusioné UX/UI y diseño gráfico<br />para crear experiencias que se<br />sienten tan fáciles como bonitas
+    </p>
+
     <table class="chapters__table">
       {jobs.map((job) => (
         <tr>
@@ -53,15 +76,86 @@ const jobs = [
     align-items: center;
     margin-top: 5rem;
 
+    &__image {
+      width: 2.5rem;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 100;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    &__text {
+      font-family: $font-poppins;
+      font-weight: 300;
+      width: 60%;
+      margin-bottom: 10rem;
+      text-align: center;
+    }
+
 
     &__container {
-      width: 50rem;
+      width: 70%;
       margin-bottom: 6rem;
+      position: relative;
+
+      &__arrow {
+        position: absolute;
+        width: 2.5rem;
+
+        &--1 {
+          top: -1rem;
+          left: 7rem;
+        }
+
+        &--2 {
+          top: 3rem;
+          right: -4rem;
+        }
+
+        &--3 {
+          bottom: -3rem;
+          left: 13rem;
+        }
+      }
+
+      &__note {
+      position: absolute;
+      font-family: $font-libre;
+      font-size: $font-size-base;
+      color: $color-red;
+      text-align: center;
+      line-height: 1.2;
+
+      &--1 {
+        top: -5rem;
+        left: 0rem;
+        transform: rotate(-10deg);
+      }
+
+      &--2 {
+        top: -4rem;
+        right: -11rem;
+        transform: rotate(8deg);
+      }
+
+      &--3 {
+        bottom: -8rem;
+        left: 9rem;
+        transform: rotate(-8deg);
+      }
+    }
+
     }
 
     &__table {
       width: 100%;
       border-collapse: collapse;
+      font-family: $font-poppins;
+      font-size: $font-size-md;
+      font-weight: 300;
 
       & tr {
         border-bottom: 1px dashed $color-black;
@@ -74,6 +168,7 @@ const jobs = [
           border-bottom: none;
         }
       }
+
     }
   }
 

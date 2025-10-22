@@ -2,17 +2,108 @@
 import box from '@/assets/box.svg';
 import arrow from '@/assets/arrow.svg';
 import boxClose from '@/assets/box-close.svg';
+import boxOpen from '@/assets/box-open.svg';
+
+import figma from '@/assets/figma.png';
+import frame from '@/assets/frame.png';
+import cloud from '@/assets/cloud.png';
+import hotjar from '@/assets/hotjar.png';
+import forms from '@/assets/forms.png';
+
+import miro from '@/assets/miro.png';
+import notion from '@/assets/notion.png';
+import misical from '@/assets/misical.png';
+import trello from '@/assets/trello.png';
+import clickup from '@/assets/clickup.png';
+import premiere from '@/assets/premiere.png';
+import indesign from '@/assets/indesign.png';
+import illustration from '@/assets/illustration.png';
+import photoshop from '@/assets/photoshop.png';
+
+import html from '@/assets/html.png';
+import css from '@/assets/css.png';
+import js from '@/assets/js.png';
+
+
+const tools = [
+  {
+    title: "Diseño de interfaces y prototipado",
+    icons: [figma.src, frame.src],
+  },
+  {
+    title: "Investigación y testing",
+    icons: [cloud.src, hotjar.src, forms.src],
+  },
+  {
+    title: "Wireframing",
+    icons: [misical.src, miro.src],
+  },
+  {
+    title: "Colaboración y handoff con developers",
+    icons: [trello.src, clickup.src, notion.src],
+  },
+  {
+    title: "Diseño gráfico",
+    icons: [premiere.src, indesign.src, illustration.src, photoshop.src],
+  },
+  {
+    title: "Programación",
+    icons: [html.src, css.src, js.src],
+  },
+];
 
 ---
-<section class="tools">
+<script lang="js">
+  document.addEventListener('DOMContentLoaded', () => {
+    const boxContainer = document.getElementById('section-tools');
+    const boxClosed = boxContainer.querySelector('.box--closed');
+    const boxOpen = boxContainer.querySelector('.box--open');
+    const content = boxContainer.querySelector('.tools__toolkit');
+
+    boxContainer.addEventListener('click', () => {
+      const isOpen = !boxOpen.classList.contains('hidden');
+
+      if (isOpen) {
+        boxOpen.classList.add('hidden');
+        boxClosed.classList.remove('hidden');
+        content.classList.add('hidden');
+      } else {
+        boxOpen.classList.remove('hidden');
+        boxClosed.classList.add('hidden');
+        content.classList.remove('hidden');
+      }
+    });
+  });
+</script>
+
+<section class="tools" id="section-tools">
   <img class="tools__image" src={box.src} alt="box" />
   <h2 class="tools__title">Mi caja de herramientas</h2>
   <p class="tools__text">Aquí guardo todo lo que necesito para que mis diseños funcionen, abre cada caja de herramientas y descubre como se hace la magia.</p>
   
-  <img class="tools__arrow" src={arrow.src} alt="arrow" />
-  <img class="tools__image" src={boxClose.src} alt="box close" />
+  <div class="tools__animate">
+    <img class="tools__animate__arrow" src={arrow.src} alt="arrow" />
+    <img class="tools__animate__box box--closed" src={boxClose.src} alt="box close" />
+    <img class="tools__animate__box box--open hidden" src={boxOpen.src} alt="box close" />
+    <p class="tools__animate__note"> ¡¡Haz click!! </p>
 
-  <!-- <img class="tools__image" src={boxOpen.src} alt="box open" /> -->
+  </div>
+
+  <section class="tools__toolkit hidden">
+      {tools.map((category) => (
+        <div class="tools__toolkit__group">
+          <h3 class="tools__toolkit__title">{category.title}</h3>
+          <div class="tools__toolkit__icons">
+            {category.icons.map((icon) => (
+              <div class="tools__toolkit__circle">
+                <img src={icon} alt="icon" />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+  </section>
+
 
 </section>
 <style lang="scss" scoped>
@@ -21,6 +112,121 @@ import boxClose from '@/assets/box-close.svg';
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 10rem;
+    margin-bottom: 12rem;
+
+    &__image {
+      width: 2.5rem;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 100;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+   
+    &__text {
+      font-family: $font-poppins;
+      font-weight: 300;
+      width: 45%;
+      margin-bottom: 10rem;
+      text-align: center;
+    }
+
+    &__animate {
+      position: relative;
+      cursor: pointer;
+
+      &__box {
+      width: 10rem;
+      }
+
+      &__arrow {
+        position: absolute;
+        top: -3rem;
+        right: -5rem;
+      }
+
+      &__note{
+        position: absolute;
+        top: -5.5rem;
+        right: -9rem;
+        transform: rotate(12deg);
+        color: $color-red;
+        font-family: $font-libre;
+        font-size: $font-size-base;
+      }
+    }
+
+    &__toolkit {
+      margin-top: 6rem;
+      max-width: 80%;
+      font-family: $font-poppins;
+      font-weight: 300;
+      font-size: $font-size-base;
+      transition: all 0.4s ease-in-out;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+      gap: 5rem;
+      justify-items: center;
+      max-width: 100rem;
+      text-align: center;
+
+      &__group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      &__title {
+        color: $color-red;
+        font-family: $font-libre;
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+
+      &__icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      &__circle {
+        background-color: #f9c8c8;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        cursor: pointer;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+          width: 2.5rem;
+          height: 2.5rem;
+          object-fit: contain;
+        }
+      }
+    }
+ 
+  }
+
+  .box--open {
+    width: 12rem;
+  }
+
+    /* 🔸 Estado oculto sin dejar hueco */
+  .hidden {
+    display: none;
   }
 </style>
