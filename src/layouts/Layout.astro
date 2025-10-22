@@ -3,6 +3,8 @@ import Header from '@/components/molecules/Header.astro';
 
 import flowerLeft from '@/assets/flower-left.svg';
 import flowerRight from '@/assets/flower-right.svg';
+
+import '../styles/global.scss';
 ---
 
 <!doctype html>
@@ -44,7 +46,8 @@ import flowerRight from '@/assets/flower-right.svg';
     position: absolute;
     top: 8%;
     transform: translateY(-50%);
-    width: 22rem; 
+		width: clamp(8rem, 30vw, 22rem);
+		height: auto;
 
     &--left {
       left: 0; 
