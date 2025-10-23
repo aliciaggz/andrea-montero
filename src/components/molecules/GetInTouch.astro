@@ -10,11 +10,9 @@ import peace from '@/assets/peace.png';
     <p class="contact__text">Get in touch </p>
   </div>
   <div class="contact__labels-container">
-    <div class="contact__labels-container__label"><p>proyectos</p></div>
-    <div class="contact__labels-container__label"><p>experiencia</p></div>
-    <div class="contact__labels-container__label"><p>cv</p></div>
-    <div class="contact__labels-container__label"><p>linkedin</p></div>
-
+    <a href="#projects" class="contact__labels-container__label">proyectos</a>
+    <a href="https://www.linkedin.com/in/andrea-montero-hernandez/" target="_blank" class="contact__labels-container__label">linkedin</a>
+    <a href="#capitulos" class="contact__labels-container__label">experiencia</a>
   </div>
 </div>
 
@@ -35,6 +33,11 @@ import peace from '@/assets/peace.png';
       border-radius: 4rem;
       text-align: center;
       font-family: $font-poppins;
+
+      &:hover {
+        background-color: rgb(35, 89, 160);
+        cursor: pointer;
+      }
     }
 
     &__image {
@@ -64,10 +67,19 @@ import peace from '@/assets/peace.png';
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $colot-red-light;
+        background-color: $color-red-light;
         border-radius: 0 0 15px 15px;
+        text-decoration: none;
+        color: $color-black;
         width: 8rem;
         height: 5rem;
+
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: $color-blue-light;
+          height: 6rem; 
+        }
       }
     }
 

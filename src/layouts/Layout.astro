@@ -18,9 +18,9 @@ import '../styles/global.scss';
 	</head>
 	<body>
 		<Header/>
-		<div class="hero">
-			<img class="hero__flower hero__flower--left" src={flowerLeft.src} alt="Flor izquierda" />
-			<img class="hero__flower hero__flower--right" src={flowerRight.src} alt="Flor derecha" />
+		<div class="container">
+			<img class="container__flower container__flower--left" src={flowerLeft.src} alt="Flor izquierda" />
+			<img class="container__flower container__flower--right" src={flowerRight.src} alt="Flor derecha" />
 		
 			<slot />
 		</div>
@@ -28,19 +28,14 @@ import '../styles/global.scss';
 </html>
 
 <style lang="scss" scoped>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-
-	.hero {
+	.container {
   position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+	overflow-x: hidden; /* recorta hijos absolutos que sobresalgan */
+
 
   &__flower {
     position: absolute;
@@ -48,6 +43,15 @@ import '../styles/global.scss';
     transform: translateY(-50%);
 		width: clamp(8rem, 30vw, 22rem);
 		height: auto;
+
+		@media (max-width: 768px) {
+    width: clamp(4rem, 20vw, 10rem); /* reducir tamaño */
+		}
+
+		@media (max-width: 480px) {
+     /* evitar que sobresalgan */
+			width: clamp(3rem, 15vw, 6rem);
+		}
 
     &--left {
       left: 0; 

@@ -1,52 +1,54 @@
 ---
 import sun from '@/assets/sun.svg';
+import pomodog from '@/assets/pomodog.png';
 
 const projects = [
   {
     id: 1,
     title: 'Proyecto Aurora',
     image: '/projects/project1.jpg',
-    color: 'rgba(255, 99, 132, 0.4)',
+    color: 'var(--color-yellow-light)',
     link: '/proyectos/aurora',
   },
   {
     id: 2,
-    title: 'Proyecto Lumen',
-    image: '/projects/project2.jpg',
-    color: 'rgba(54, 162, 235, 0.4)',
-    link: '/proyectos/lumen',
-  },
-  {
-    id: 3,
     title: 'Proyecto Nébula',
-    image: '/projects/project3.jpg',
-    color: 'rgba(255, 206, 86, 0.4)',
+    image: pomodog.src,
+    color: 'var(--color-blue-light)',
     link: '/proyectos/nebula',
   },
   {
+    id: 3,
+    title: 'Proyecto Lumen',
+    image: '/projects/project2.jpg',
+    color: 'var(--color-yellow-light)',
+    link: '/proyectos/lumen',
+  },
+  {
     id: 4,
-    title: 'Proyecto Solis',
-    image: '/projects/project4.jpg',
-    color: 'rgba(75, 192, 192, 0.4)',
-    link: '/proyectos/solis',
+    title: 'Proyecto Aurora',
+    image: '/projects/project1.jpg',
+    color: 'var(--color-red-light)',
+    link: '/proyectos/aurora',
   },
   {
     id: 5,
-    title: 'Proyecto Prisma',
-    image: '/projects/project5.jpg',
-    color: 'rgba(153, 102, 255, 0.4)',
-    link: '/proyectos/prisma',
+    title: 'Proyecto Nébula',
+    image: '/projects/project3.jpg',
+    color: 'var(--color-yellow-light)',
+    link: '/proyectos/nebula',
   },
   {
     id: 6,
-    title: 'Proyecto Vortex',
-    image: '/projects/project6.jpg',
-    color: 'rgba(255, 159, 64, 0.4)',
-    link: '/proyectos/vortex',
+    title: 'Proyecto Lumen',
+    image: '/projects/project2.jpg',
+    color: 'var(--color-red-light)',
+    link: '/proyectos/lumen',
   },
 ];
+
 --- 
-<section class="projects">
+<section class="projects" id="projects">
 
     <img class="projects__image" src={sun.src} alt="sun" />
 
@@ -57,8 +59,9 @@ const projects = [
         <a
           href={project.link}
           class="project-card"
-          style={`--bg-image: url(${project.image}); --overlay-color: ${project.color}`}
+          style={`--bg-color: ${project.color}`}
         >
+          <img src={project.image} alt={project.title} />
           <div class="project-card__overlay"></div>
           <h3 class="project-card__title">{project.title}</h3>
         </a>
@@ -73,6 +76,7 @@ const projects = [
     justify-content: center;
     align-items: center;
     margin-top: 5rem;
+    margin-inline: 6rem;
 
     &__image {
       width: 2.5rem;
@@ -89,7 +93,6 @@ const projects = [
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     width: 100%;
-    max-width: 1200px;
     margin-top: 4rem;
     margin-bottom: 6rem;
   }
@@ -99,23 +102,23 @@ const projects = [
   position: relative;
   height: 250px;
   overflow: hidden;
-  background-image: var(--bg-image);
+  background-color: var(--bg-color);
   background-size: cover;
   background-position: center;
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  }
+  // &:hover {
+  //   transform: scale(1.05);
+  //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  // }
 
-  &__overlay {
-    position: absolute;
-    inset: 0;
-    background-color: var(--overlay-color);
-    transition: background-color 0.4s ease;
-  }
+  // &__overlay {
+  //   position: absolute;
+  //   inset: 0;
+  //   background-color: var(--overlay-color, rgba(0,0,0,0.3));
+  //   transition: background-color 0.4s ease;
+  // }
 
   &:hover .project-card__overlay {
     background-color: rgba(0, 0, 0, 0.3);
@@ -143,5 +146,12 @@ const projects = [
   .projects__grid {
     grid-template-columns: 1fr;
   }
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; // ❌ se asegura que cubra todo sin deformarse
+  display: block;
 }
 </style>

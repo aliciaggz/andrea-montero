@@ -1,5 +1,18 @@
 ---
 import smile from '@/assets/smile.svg';
+import arancini from '@/assets/arancini.png';
+import futbol from '@/assets/futbol.png';
+import surf from '@/assets/surf.png';
+import bosque from '@/assets/bosque.png';
+
+import arrow1 from '@/assets/arrow-c-1.svg';
+import arrow2 from '@/assets/arrow-c-2.svg';
+import arrow3 from '@/assets/arrow-c-3.svg';
+
+import kala1 from '@/assets/kala.png';
+import kala2 from '@/assets/kala2.png';
+import kala3 from '@/assets/kala3.png';
+
 
 ---
 <section class="about-me">
@@ -17,11 +30,32 @@ import smile from '@/assets/smile.svg';
   </div>
 
   <div class="about-me__pictures">
+    
+    <img class="about-me__pictures__arrow about-me__pictures__arrow--1" src={arrow1.src} alt="arrow" />
+    <img class="about-me__pictures__arrow about-me__pictures__arrow--2" src={arrow2.src} alt="arrow" />
+    <img class="about-me__pictures__arrow about-me__pictures__arrow--3" src={arrow3.src} alt="arrow" />
+
+
+    <img class="about-me__pictures__photo about-me__pictures__photo--1" src={arancini.src} alt="arancini">
+    <img class="about-me__pictures__photo about-me__pictures__photo--2" src={futbol.src} alt="futbol">
+    <img class="about-me__pictures__photo about-me__pictures__photo--3" src={surf.src} alt="surf">
+    <img class="about-me__pictures__photo about-me__pictures__photo--4" src={bosque.src} alt="bosque">
 
   </div>
   <div class="about-me__text">
     <p>Y no estoy sola en estas locuras.</p>
     <p>Esta es mi compañera de vida; Kala. Ella es mi copiloto oficial, mi crítica de diseño silenciosa y la que asegura que nunca pierdo la energía para la siguiente aventura.</p>
+  </div>
+  <div class="about-me__pictures">
+    
+    <img class="about-me__pictures__arrow about-me__pictures__arrow--1" src={arrow1.src} alt="arrow" />
+    <img class="about-me__pictures__arrow about-me__pictures__arrow--2" src={arrow2.src} alt="arrow" />
+
+
+    <img class="about-me__pictures__photo about-me__pictures__photo--1" src={kala1.src} alt="arancini">
+    <img class="about-me__pictures__photo about-me__pictures__photo--2" src={kala2.src} alt="futbol">
+    <img class="about-me__pictures__photo about-me__pictures__photo--4" src={kala3.src} alt="bosque">
+
   </div>
 </section>
 <style lang="scss" scoped>
@@ -47,8 +81,61 @@ import smile from '@/assets/smile.svg';
       font-family: $font-poppins;
       font-weight: 300;
       width: 45%;
-      margin-bottom: 10rem;
+      margin-bottom: 5rem;
       text-align: center;
+    }
+
+    &__pictures {
+      position: relative;
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+      gap: 2rem; 
+      margin-bottom: 5rem;
+
+      &__photo {
+        width: 15%;
+        height: auto;
+        object-fit: cover;  
+          
+        &--1 {
+        }
+
+        &--2 {
+
+        }
+
+        &--3 {
+
+        }
+        &--4 {
+
+        }
+      }
+
+      &__arrow {
+        position: absolute;
+        width: 2.5rem;
+
+        &--1 {
+          top: 1rem;
+          left: 32%;
+          transform: rotate(145deg);
+        }
+
+        &--2 {
+          bottom: 0;
+          left: 50%;
+          transform: rotate(60deg);
+        }
+
+        &--3 {
+          top: 0;
+          right: 30%;
+          transform: rotate(-80deg);
+        }
+      }
+
     }
   }
 </style>
