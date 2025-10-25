@@ -19,13 +19,15 @@ import kala3 from '@/assets/kala3.png';
   <img class="about-me__image" src={smile.src} alt="box" />
   <h2 class="about-me__title">Detrás de los píxeles</h2>
 
-  <div class="about-me__text">
+  <div class="about-me__text about-me__text--1">
     <p>
       Y, ahora te dejo un pedacito de mi yo real.
-      Bienvenidx a mi mundo.
     </p>
+    <p>Bienvenidx a mi mundo.</p>
+  
 
     <p>Nací en Madrid, la ciudad que nunca deja de inspirarme con su mezcla de historia, vida urbana y rincones sorprendentes.</p>
+    <br/>
     <p>Soy apasionada del fútbol (corro detrás del balón en mi equipo), si hay olas, me verás surfeando️ y si hay una montaña, seguro que estoy explorando.</p>
   </div>
 
@@ -42,19 +44,20 @@ import kala3 from '@/assets/kala3.png';
     <img class="about-me__pictures__photo about-me__pictures__photo--4" src={bosque.src} alt="bosque">
 
   </div>
-  <div class="about-me__text">
+  <div class="about-me__text about-me__text--2">
     <p>Y no estoy sola en estas locuras.</p>
+    <br/>
     <p>Esta es mi compañera de vida; Kala. Ella es mi copiloto oficial, mi crítica de diseño silenciosa y la que asegura que nunca pierdo la energía para la siguiente aventura.</p>
   </div>
   <div class="about-me__pictures">
     
-    <img class="about-me__pictures__arrow about-me__pictures__arrow--1" src={arrow1.src} alt="arrow" />
-    <img class="about-me__pictures__arrow about-me__pictures__arrow--2" src={arrow2.src} alt="arrow" />
+    <img class="about-me__pictures__arrow-2 about-me__pictures__arrow-2--1" src={arrow1.src} alt="arrow" />
+    <img class="about-me__pictures__arrow-2 about-me__pictures__arrow-2--2" src={arrow2.src} alt="arrow" />
 
 
-    <img class="about-me__pictures__photo about-me__pictures__photo--1" src={kala1.src} alt="arancini">
-    <img class="about-me__pictures__photo about-me__pictures__photo--2" src={kala2.src} alt="futbol">
-    <img class="about-me__pictures__photo about-me__pictures__photo--4" src={kala3.src} alt="bosque">
+    <img class="about-me__pictures__photo about-me__pictures__photo--5" src={kala1.src} alt="arancini">
+    <img class="about-me__pictures__photo about-me__pictures__photo--6" src={kala2.src} alt="futbol">
+    <img class="about-me__pictures__photo about-me__pictures__photo--7" src={kala3.src} alt="bosque">
 
   </div>
 </section>
@@ -80,10 +83,20 @@ import kala3 from '@/assets/kala3.png';
     &__text {
       font-family: $font-poppins;
       font-weight: 300;
-      width: 45%;
       margin-bottom: 5rem;
       text-align: center;
+
+      &--1 {
+        width: 70%;
+        margin-bottom: 5rem;
+      }
+
+      &--2 {
+        width: 45%;
+        margin-bottom: 5rem;
+      }
     }
+    
 
     &__pictures {
       position: relative;
@@ -91,10 +104,10 @@ import kala3 from '@/assets/kala3.png';
       justify-content: center; 
       align-items: center; 
       gap: 2rem; 
-      margin-bottom: 5rem;
+      margin-bottom: 2rem;
 
       &__photo {
-        width: 15%;
+        width: 14%;
         height: auto;
         object-fit: cover;  
           
@@ -102,14 +115,19 @@ import kala3 from '@/assets/kala3.png';
         }
 
         &--2 {
-
+          padding-top: 3rem;
         }
 
         &--3 {
-
+          padding-bottom: 1.5rem;
         }
         &--4 {
+          padding-bottom: 8rem;
+        }
 
+        &--6 {
+          padding-top: 5rem;
+          width: 18%;
         }
       }
 
@@ -118,21 +136,38 @@ import kala3 from '@/assets/kala3.png';
         width: 2.5rem;
 
         &--1 {
-          top: 1rem;
+          top: 4rem;
           left: 32%;
           transform: rotate(145deg);
         }
 
         &--2 {
-          bottom: 0;
-          left: 50%;
-          transform: rotate(60deg);
+          bottom: 2.5rem;
+          left: 48.5%;
+          transform: rotate(35deg);
         }
 
         &--3 {
-          top: 0;
-          right: 30%;
-          transform: rotate(-80deg);
+          top: 2rem;
+          right: 31%;
+          transform: rotate(-88deg);
+        }
+      }
+
+      &__arrow-2 {
+        position: absolute;
+        width: 2.5rem;
+
+        &--1 {
+          top: 5rem;
+          left: 38%;
+          transform: rotate(140deg);
+        }
+
+        &--2 {
+          bottom: 2rem;
+          right: 38%;
+          transform: rotate(35deg);
         }
       }
 

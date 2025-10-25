@@ -24,14 +24,16 @@ import '../styles/global.scss';
 			<img class="container__flower container__flower--left" src={flowerLeft.src} alt="Flor izquierda" />
 			<img class="container__flower container__flower--right" src={flowerRight.src} alt="Flor derecha" />
 			<Hero>
-					<h3 class="hero__subtitle">
-						Diseñadora UX UI <br />
-						y de productos digitales
-					</h3>		
-					<p class="hero__text">
-						La simplicidad es mi superpoder. Convierto ideas complejas en experiencias 
-						que los usuarios disfrutan, haciendo que cada interacción se sienta natural y sencilla</p>
-				</Hero> 
+				<h3 class="hero__subtitle">
+					Proyecto
+				</h3>
+				<div>
+					<p class="hero__text">¿Qué diseño?</p>
+					<p class="hero__text">¿Cómo diseño?</p>
+					<p class="hero__text">¿Por qué diseño?</p>
+
+				</div>		
+			</Hero>
 			<slot />
 		</div>
 		<Footer/>
@@ -92,38 +94,11 @@ import '../styles/global.scss';
   &__text {
     font-size: $font-size-base;
     font-family: $font-poppins;
-    font-weight: 200;
+    font-weight: 400;
     line-height: 1.5rem;
-    width: 70%;
+    // width: 70%;
 
 
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    text-align: center;
-  }
-
-  &__button {
-    padding: 0.5rem 1rem;
-    border-radius: 500px;
-    border: none;
-    background-color: $color-black;
-    color: $color-white;
-    font-family: $font-poppins;
-    font-size: $font-size-md;
-    margin-top: 1rem;
-    text-decoration: none;
-  }
-
-  &__line {
-    width: 70%;
-    height: 1px;
-    border-bottom: 1px dashed $color-red;
-    margin: 1.5rem 0;
   }
 }
 

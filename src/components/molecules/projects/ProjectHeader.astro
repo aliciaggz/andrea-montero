@@ -1,0 +1,182 @@
+---
+const { 
+  logo,
+  title, 
+  text, 
+  mockup, 
+  items, 
+  details, 
+  mockupImage, 
+  metodologyText, 
+  colorVariant} = Astro.props;
+
+import { Image } from 'astro:assets';
+
+---
+
+<section class="project-header">
+  <Image src={logo} alt={title} class="project-header__logo" />
+  <p class="project-header__text">{text}</p>
+  <div>
+    <Image height={376} class={`project-header__mockup project-header__mockup--${colorVariant}`} src={mockup} alt="mockup-varios">
+  
+    <section class="project-header__grid">
+      {items.map((item: any) => (
+        <div class="project-header__grid__item">
+          <h3 class="project-header__grid__item__title">{item.title}</h3>
+          <p class="project-header__grid__item__text">{item.text}</p>
+        </div>
+      ))}
+    </section>
+
+    <button 
+      onclick="location.href='http://www.example.com'"
+      type="button"
+      class="project-header__button">
+        Ir al prototipo
+    </button>
+  </div>
+
+  <section class="project-header__grid-2">
+    {details.map((detail: any) => (
+      <div class="project-header__grid-2__item">
+        <h3 class="project-header__grid-2__item__title">{detail.title}</h3>
+        <p class="project-header__grid-2__item__text">{detail.text}</p>
+      </div>
+    ))}
+  </section>
+  
+  <Image class={`project-header__container-image project-header__container-image--${colorVariant}`} src={mockupImage} alt="mockup">
+
+  <section>
+    <h3>Metodología de trabajo</h3>
+    <p>{metodologyText}</p>
+  </section>
+
+  <button 
+      type="button"
+      class="project-header__button">
+        Fases del proyecto
+    </button>
+</section>
+
+<style lang="scss" scoped>
+.project-header {
+  margin-block: 4rem;
+  margin-inline: 4.5rem;
+
+  &__logo {
+    width: 8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__text {
+    font-size: $font-size-xl;
+    margin: 0 auto;
+    font-family: $font-poppins;;
+    color: var(--accent-color);
+  }
+
+  &__mockup {
+    width: 100%;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    background-color: $color-yellow-light;
+
+    &--red-light {
+      background-color: $color-red-light;
+    }
+
+    &--yellow-light {
+      background-color: $color-yellow-light;
+    }
+
+    &--blue-light {
+      background-color: $color-blue-light;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    // margin: 4rem 0;
+    font-family: $font-poppins;;
+
+
+    &__item {
+      padding-top: 1.5rem;
+
+      &__title {
+        font-size: $font-size-lg;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      &__text {
+        font-size: $font-size-md;
+        font-weight: 300;
+      } 
+    }
+  }
+
+
+  &__grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    // margin: 4rem 0;
+    font-family: $font-poppins;;
+
+
+    &__item {
+      padding-top: 1.5rem;
+
+      &__title {
+        font-size: $font-size-lg;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      &__text {
+        font-size: $font-size-md;
+        font-weight: 300;
+      } 
+    }
+  }
+
+  &__container-image {
+    width: 50%;
+    height: 30rem;
+    margin: 4rem 0;
+    border-radius: 1rem;
+    margin: auto;
+    background-color: $color-blue-light;
+
+    &--red-light {
+      background-color: $color-red-light;
+    }
+
+    &--yellow-light {
+      background-color: $color-yellow-light;
+    }
+
+    &--blue-light {
+      background-color: $color-blue-light;
+    }
+  }
+
+  &__button {
+    padding: 0.5rem 1rem;
+    border-radius: 500px;
+    border: none;
+    background-color: $color-black;
+    color: $color-white;
+    font-family: $font-poppins;
+    font-size: $font-size-md;
+    display: block;
+    margin: 7rem auto 6rem auto;  
+  }
+
+}
+</style>
