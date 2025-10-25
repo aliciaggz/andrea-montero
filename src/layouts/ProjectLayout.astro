@@ -6,6 +6,9 @@ import Hero from '@/components/molecules/Hero.astro';
 import flowerLeft from '@/assets/flower-left.svg';
 import flowerRight from '@/assets/flower-right.svg';
 
+
+import Arrow from '@/assets/arrow-right.svg';
+
 import '../styles/global.scss';
 ---
 
@@ -20,17 +23,25 @@ import '../styles/global.scss';
 	</head>
 	<body>
 		<Header/>
-		<div class="container">
+		<div class="container container--project">
 			<img class="container__flower container__flower--left" src={flowerLeft.src} alt="Flor izquierda" />
 			<img class="container__flower container__flower--right" src={flowerRight.src} alt="Flor derecha" />
 			<Hero>
 				<h3 class="hero__subtitle">
 					Proyecto
 				</h3>
-				<div>
+				<div class="hero__grid">
 					<p class="hero__text">¿Qué diseño?</p>
+					<Arrow class="hero__arrow"  width={62}/>
+					<p class="hero__text">Experiencias digitales para personas</p>
+
 					<p class="hero__text">¿Cómo diseño?</p>
+					<Arrow class="hero__arrow"  width={62}/>
+					<p class="hero__text">Aplicando la empatía</p>
+
 					<p class="hero__text">¿Por qué diseño?</p>
+					<Arrow class="hero__arrow" width={62}/>
+					<p class="hero__text">Para un futuro más humano</p>
 
 				</div>		
 			</Hero>
@@ -49,18 +60,19 @@ import '../styles/global.scss';
   display: flex;
   flex-direction: column;
   align-items: center;
-	overflow-x: hidden; /* recorta hijos absolutos que sobresalgan */
+	overflow-x: hidden; 
 
+	&--project {
 
-  &__flower {
+		& .container__flower {
     position: absolute;
-    top: 8%;
+    top: 15%;
     transform: translateY(-50%);
 		width: clamp(8rem, 30vw, 22rem);
 		height: auto;
 
 		@media (max-width: 768px) {
-    width: clamp(4rem, 20vw, 10rem); /* reducir tamaño */
+    width: clamp(4rem, 20vw, 10rem);
 		}
 
 		@media (max-width: 480px) {
@@ -76,6 +88,9 @@ import '../styles/global.scss';
       right: 0;
     }
   }
+	}
+
+ 
 }
 
 .hero {
@@ -85,10 +100,9 @@ import '../styles/global.scss';
   align-items: center;
 
   &__subtitle {
-    
     font-size: $font-size-2xl;
     font-weight: 400;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
   &__text {
@@ -97,9 +111,21 @@ import '../styles/global.scss';
     font-weight: 400;
     line-height: 1.5rem;
     // width: 70%;
-
-
   }
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 0.5fr 0fr 1fr; /* 3 columnas de igual tamaño */
+		grid-template-rows: 1fr 1fr 1fr;  
+		margin-bottom: 4rem;
+    align-items: center;
+		text-align: left;
+
+	}
+
+	&__arrow {
+		margin-right: 1rem;
+	}
 }
 
 </style>

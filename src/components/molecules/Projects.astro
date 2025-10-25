@@ -1,49 +1,56 @@
 ---
 import sun from '@/assets/sun.svg';
-import pomodog from '@/assets/pomodog.png';
+import pomodog from '@/assets/pomodog-frame.png';
+import homi from '@/assets/homi-frame.png';
+import lexy from '@/assets/lexy-frame.png';
+import hotel from '@/assets/hotel-frame.png';
+import footfem from '@/assets/footfem-frame.png';
+import tiempo from '@/assets/tiempo-frame.png';
+
+import { Image } from 'astro:assets';
 
 const projects = [
   {
     id: 1,
-    title: 'Proyecto Aurora',
-    image: '/projects/project1.jpg',
+    title: 'Homi',
+    image: homi,
     color: 'var(--color-yellow-light)',
-    link: '/proyectos/aurora',
+    link: '/projects/homi',
   },
   {
     id: 2,
-    title: 'Proyecto Nébula',
-    image: pomodog.src,
+    title: 'Pomodog',
+    image: pomodog,
     color: 'var(--color-blue-light)',
     link: '/projects/pomodog',
   },
   {
     id: 3,
-    title: 'Proyecto Lumen',
-    image: '/projects/project2.jpg',
+    title: 'Lexy',
+    image: lexy,
     color: 'var(--color-yellow-light)',
-    link: '/proyectos/lumen',
+    link: '/projects/lexy',
   },
   {
     id: 4,
-    title: 'Proyecto Aurora',
-    image: '/projects/project1.jpg',
-    color: 'var(--color-red-light)',
-    link: '/proyectos/aurora',
+    title: 'Posada de San Martin',
+    image: hotel,
+    color: 'var(--color-blue-light)',
+    link: '/projects/posada-de-san-martin',
   },
   {
     id: 5,
-    title: 'Proyecto Nébula',
-    image: '/projects/project3.jpg',
+    title: 'Footfem',
+    image: footfem,
     color: 'var(--color-yellow-light)',
-    link: '/proyectos/nebula',
+    link: '/projects/footfem',
   },
   {
     id: 6,
-    title: 'Proyecto Lumen',
-    image: '/projects/project2.jpg',
-    color: 'var(--color-red-light)',
-    link: '/proyectos/lumen',
+    title: 'Retratos del tiempo',
+    image: tiempo,
+    color: 'var(--color-blue-light)',
+    link: '/projects/retratos-del-tiempo',
   },
 ];
 
@@ -61,9 +68,7 @@ const projects = [
           class="project-card"
           style={`--bg-color: ${project.color}`}
         >
-          <img src={project.image} alt={project.title} />
-          <div class="project-card__overlay"></div>
-          <h3 class="project-card__title">{project.title}</h3>
+          <Image src={project.image} alt={project.title} />
         </a>
       ))}
     </div>
@@ -99,11 +104,9 @@ const projects = [
 
 .project-card {
   position: relative;
-  height: 250px;
+  height: 18.3rem;
   overflow: hidden;
   background-color: var(--bg-color);
-  background-size: cover;
-  background-position: center;
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 

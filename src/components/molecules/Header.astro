@@ -1,12 +1,12 @@
 ---
-import logo from '../../assets/andrea-logo.svg';
+import Logo from '../../assets/andrea-logo.svg';
 ---
 
 <header class="header">
   <nav class="header__nav">
     <ul class="header__nav--list">
       <li class="header__nav--list-item"><a href="#projects">proyectos</a></li>
-      <img src={logo.src} width="115" height="48" alt="Andrea Homepage" />
+      <a href="/"><Logo class="header__nav--list-item--logo"/></a> 
       <li class="header__nav--list-item"><a href="#contact">sobre mi</a></li>
     </ul>
   </nav>
@@ -17,7 +17,7 @@ import logo from '../../assets/andrea-logo.svg';
   &__nav{
     display: flex;
     justify-content: center;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 0rem 2rem;
     font-family: $font-poppins;
     font-size: $font-size-md;
     font-weight: 200;
@@ -43,6 +43,11 @@ import logo from '../../assets/andrea-logo.svg';
             color: #4e5056;
           }
         } 
+
+        &--logo {
+          width: 6rem;
+          margin: 0 4rem;
+        }
       }
     }
   }

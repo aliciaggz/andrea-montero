@@ -1,0 +1,37 @@
+---
+import Welcome from '../../components/Welcome.astro';
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import pomodog from '@/assets/pomodog.png';
+import pomodogMockup from '@/assets/pomodog-mockup.png';
+
+import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
+
+
+const gridItems = [
+  { title: 'Habilidad', text: 'UX Research, UI Design, Prototyping, Testing' },
+  { title: 'Metodología', text: 'Diseño UX/UI' },
+  { title: 'Herramientas', text: 'Figma, Whimsical, Maze' },
+  { title: 'Servicio', text: 'Diseño UX/UI, Mobile Design' },
+];
+
+const details = [
+  { title: 'Challenge', text: 'Debido a la situación actual del mercado de la vivienda, en España el 70% de los jóvenes que se independizan optan por compartir piso, una solución práctica que, sin embargo, puede generar conflictos derivados de diferentes hábitos y estilos de vida' },
+  { title: 'Objetivo', text: 'Diseñar una solución digital que facilite la convivencia entre compañeros de piso, mejorando la comunicación, la organización y la gestión de tareas compartidas para reducir conflictos y crear un entorno más equilibrado y positivo' },
+];
+
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<ProjectLayout>
+  <ProjectHeader 
+  logo={pomodog}
+  title="Pomodog"
+  text="Convierte tus sesiones de Pomodoro en motivación para ti y ayuda para perros que lo necesitan"
+  mockup={pomodogMockup}
+  items={gridItems}
+  details={details}
+  metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la metodología Design Sprint, un proceso intensivo que ayuda a resolver problemas y desarrollar soluciones eficaces de forma rápida y eficiente."
+  mockupImage={pomodogMockup}/>
+</Layout>
