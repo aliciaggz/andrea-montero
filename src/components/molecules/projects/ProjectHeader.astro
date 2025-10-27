@@ -46,11 +46,11 @@ import { Image } from 'astro:assets';
     ))}
   </section>
   
-  <Image class={`project-header__container-image project-header__container-image--${colorVariant}`} src={mockupImage} alt="mockup">
+  <Image class={`project-header__container-image project-header__container-image--${colorVariant}`} src={mockupImage} alt="mockup"/>
 
-  <section>
-    <h3>Metodología de trabajo</h3>
-    <p>{metodologyText}</p>
+  <section class="project-header__metodology">
+    <h3 class="project-header__metodology__title">Metodología de trabajo</h3>
+    <p class="project-header__metodology__text">{metodologyText}</p>
   </section>
 
   <button 
@@ -58,6 +58,11 @@ import { Image } from 'astro:assets';
       class="project-header__button">
         Fases del proyecto
     </button>
+
+    <p>Haz click si quieres ver una versión extendida del proyecto</p>
+
+
+    <p>Si prefieres una versión más corta, esto es <span style="text-transform: uppercase;">{title}</span></p>
 </section>
 
 <style lang="scss" scoped>
@@ -66,7 +71,7 @@ import { Image } from 'astro:assets';
   margin-inline: 4.5rem;
 
   &__logo {
-    width: 14rem;
+    width: 32rem;
     height: auto;
     margin-bottom: 1.5rem;
   }
@@ -80,8 +85,11 @@ import { Image } from 'astro:assets';
 
   &__mockup {
     width: 100%;
+    height: auto;
     margin-top: 3rem;
+    margin-bottom: 2rem;
     border-radius: 1rem;
+    padding: 2rem 2rem 0 2rem;
     background-color: $color-yellow-light;
 
     &--red-light {
@@ -126,13 +134,12 @@ import { Image } from 'astro:assets';
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    // margin: 4rem 0;
-    font-family: $font-poppins;;
+    font-family: $font-poppins;
+    margin-bottom: 3.5rem;
+
 
 
     &__item {
-      padding-top: 1.5rem;
-
       &__title {
         font-size: $font-size-lg;
         font-weight: 600;
@@ -147,11 +154,12 @@ import { Image } from 'astro:assets';
   }
 
   &__container-image {
-    width: 50%;
+    width: 40rem;
     height: 30rem;
-    margin: 4rem 0;
+    display: block;
     border-radius: 1rem;
     margin: auto;
+    margin-bottom: 4rem;
     background-color: $color-blue-light;
 
     &--red-light {
@@ -165,6 +173,21 @@ import { Image } from 'astro:assets';
     &--blue-light {
       background-color: $color-blue-light;
     }
+  }
+
+  &__metodology {
+    font-family: $font-poppins;
+
+    &__title {
+      font-size: $font-size-xl;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    &__text {
+      font-size: $font-size-md;
+      font-weight: 300;
+    }
+
   }
 
   &__button {

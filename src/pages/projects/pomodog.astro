@@ -1,8 +1,8 @@
 ---
-import Welcome from '../../components/Welcome.astro';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
-import pomodog from '@/assets/pomodog.png';
+import pomodog from '@/assets/pomodog-logo.png';
 import pomodogMockup from '@/assets/pomodog-mockup.png';
+import pomodogPhone from '@/assets/pomodog-phone.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
 
@@ -33,5 +33,5 @@ const details = [
   items={gridItems}
   details={details}
   metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la metodología Design Sprint, un proceso intensivo que ayuda a resolver problemas y desarrollar soluciones eficaces de forma rápida y eficiente."
-  mockupImage={pomodogMockup}/>
-</Layout>
+  mockupImage={pomodogPhone}/>
+</ProjectLayout>
