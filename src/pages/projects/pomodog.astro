@@ -5,6 +5,7 @@ import pomodogMockup from '@/assets/pomodog-mockup.png';
 import pomodogPhone from '@/assets/pomodog-phone.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
+import ProjectPhases from '@/components/molecules/projects/ProjectPhases.astro';
 
 
 const gridItems = [
@@ -19,6 +20,25 @@ const details = [
   { title: 'Objetivo', text: 'Diseñar una solución digital que facilite la convivencia entre compañeros de piso, mejorando la comunicación, la organización y la gestión de tareas compartidas para reducir conflictos y crear un entorno más equilibrado y positivo' },
 ];
 
+const points = [
+  {
+    title: "Identidad visual  motivadora:",
+    text: "Colores cálidos y detalles ilustrativos transmiten energía y cercanía. POMODOG se siente amigable y divertido, incentivando tanto la concentración como el cuidado de los cachorros.",
+  },
+  {
+    title: "Pantallas que inspiran acción:",
+    text: "Cada pantalla —temporizador, planificación, perfil de cachorros y estadísticas— guía al usuario de manera clara y sencilla. La interfaz facilita cumplir tareas, cuidar del cachorro virtual y contribuir a perros reales sin sentirse abrumado.",
+  },
+  {
+    title: "Construido como un sistema:",
+    text: "Diseñamos con propósito, combinando estética y funcionalidad a partes iguales.",
+  },
+  {
+    title: "Gamificación que motiva:",
+    text: "Transformamos ideas en realidades digitales que inspiran y aportan valor.",
+  },
+]
+
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -28,10 +48,16 @@ const details = [
   <ProjectHeader 
   logo={pomodog}
   title="Pomodog"
-  text="Convierte tus sesiones de Pomodoro en motivación para ti y ayuda para perros que lo necesitan"
+  text="Convierte tus <strong>sesiones de Pomodoro</strong> en motivación para ti y <strong>ayuda para perros</strong> que lo necesitan"
   mockup={pomodogMockup}
   items={gridItems}
   details={details}
   metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la metodología Design Sprint, un proceso intensivo que ayuda a resolver problemas y desarrollar soluciones eficaces de forma rápida y eficiente."
-  mockupImage={pomodogPhone}/>
+  mockupImage={pomodogPhone}
+  colorVariant="blue-light"/>
+
+  <ProjectPhases 
+  textCaseStudy="Con POMODOG cada Pomodoro cuenta, tanto para tu concentración como para el bienestar de cachorros reales en refugios."
+  points={points}/>
+  
 </ProjectLayout>

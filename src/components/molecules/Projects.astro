@@ -64,7 +64,7 @@ const projects = [
 
       {projects.map((project) => (
         <a
-          href={project.link}
+          href={`${import.meta.env.BASE_URL}${project.link}`}
           class="project-card"
           style={`--bg-color: ${project.color}`}
         >

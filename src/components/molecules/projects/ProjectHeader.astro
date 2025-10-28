@@ -11,20 +11,22 @@ const {
   colorVariant} = Astro.props;
 
 import { Image } from 'astro:assets';
+import Arrow from '@/assets/arrow-down.svg';
 
 ---
 
-<section class="project-header">
-  <Image src={logo} alt={title} class="project-header__logo" />
-  <p class="project-header__text">{text}</p>
+<section class="project">
+  <Image src={logo} alt={title} class="project__logo" />
+  <p class="project__text" set:html={text}></p>
+
   <div>
-    <Image height={376} class={`project-header__mockup project-header__mockup--${colorVariant}`} src={mockup} alt="mockup-varios">
+    <Image height={376} class={`project__mockup project__mockup--${colorVariant}`} src={mockup} alt="mockup-varios"/>
   
-    <section class="project-header__grid">
+    <section class="project__grid">
       {items.map((item: any) => (
-        <div class="project-header__grid__item">
-          <h3 class="project-header__grid__item__title">{item.title}</h3>
-          <p class="project-header__grid__item__text">{item.text}</p>
+        <div class="project__grid__item">
+          <h3 class="project__grid__item__title">{item.title}</h3>
+          <p class="project__grid__item__text">{item.text}</p>
         </div>
       ))}
     </section>
@@ -32,42 +34,51 @@ import { Image } from 'astro:assets';
     <button 
       onclick="location.href='http://www.example.com'"
       type="button"
-      class="project-header__button">
+      class="project__button">
         Ir al prototipo
     </button>
   </div>
 
-  <section class="project-header__grid-2">
+  <section class="project__grid-2">
     {details.map((detail: any) => (
-      <div class="project-header__grid-2__item">
-        <h3 class="project-header__grid-2__item__title">{detail.title}</h3>
-        <p class="project-header__grid-2__item__text">{detail.text}</p>
+      <div class="project__grid-2__item">
+        <h3 class="project__grid-2__item__title">{detail.title}</h3>
+        <p class="project__grid-2__item__text">{detail.text}</p>
       </div>
     ))}
   </section>
   
-  <Image class={`project-header__container-image project-header__container-image--${colorVariant}`} src={mockupImage} alt="mockup"/>
+  <Image class={`project__container-image project__container-image--${colorVariant}`} src={mockupImage} alt="mockup"/>
 
-  <section class="project-header__metodology">
-    <h3 class="project-header__metodology__title">Metodología de trabajo</h3>
-    <p class="project-header__metodology__text">{metodologyText}</p>
+  <section class="project__metodology">
+    <h3 class="project__metodology__title">Metodología de trabajo</h3>
+    <p class="project__metodology__text">{metodologyText}</p>
   </section>
 
-  <button 
+  <section class="project__continue">
+    <p class="project__continue-text">
+      Haz clic si quieres ver una versión extendida del proyecto
+    </p>
+
+    <Arrow width={62} class="project__continue-icon" />
+
+    <button 
       type="button"
-      class="project-header__button">
-        Fases del proyecto
+      class="project__button"
+      aria-label="Ver fases del proyecto">
+      Fases del proyecto
     </button>
 
-    <p>Haz click si quieres ver una versión extendida del proyecto</p>
-
-
-    <p>Si prefieres una versión más corta, esto es <span style="text-transform: uppercase;">{title}</span></p>
+    <p class="project__continue-note">
+      Si prefieres una versión más corta, esto es <span style="text-transform: uppercase;">{title}</span>
+    </p>
+  </section>
 </section>
 
 <style lang="scss" scoped>
-.project-header {
-  margin-block: 4rem;
+.project {
+  margin-top: 12rem;
+  margin-bottom: 8rem;
   margin-inline: 4.5rem;
 
   &__logo {
@@ -90,7 +101,7 @@ import { Image } from 'astro:assets';
     margin-bottom: 2rem;
     border-radius: 1rem;
     padding: 2rem 2rem 0 2rem;
-    background-color: $color-yellow-light;
+    background-color: $color-blue-light;
 
     &--red-light {
       background-color: $color-red-light;
@@ -109,7 +120,7 @@ import { Image } from 'astro:assets';
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    // margin: 4rem 0;
+    margin-bottom: 6.25rem;
     font-family: $font-poppins;;
 
 
@@ -187,7 +198,29 @@ import { Image } from 'astro:assets';
       font-size: $font-size-md;
       font-weight: 300;
     }
+  }
 
+  &__continue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 5rem;
+    color: $color-red;
+
+    &-text {
+      width: 22rem;
+      font-size: $font-size-md;
+      margin-bottom: 1rem;
+    }
+
+    &-icon {
+      margin-bottom: 1rem;
+    }
+
+    &-note {
+      font-size: $font-size-sm;
+    }
   }
 
   &__button {
@@ -199,7 +232,7 @@ import { Image } from 'astro:assets';
     font-family: $font-poppins;
     font-size: $font-size-md;
     display: block;
-    margin: 7rem auto 6rem auto;  
+    margin: 0rem auto 6.25rem auto;  
   }
 
 }
