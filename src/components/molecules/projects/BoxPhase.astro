@@ -1,0 +1,48 @@
+---
+const { 
+  text, 
+  icon, 
+  color
+  } = Astro.props;
+
+import { Image } from 'astro:assets';
+
+---
+
+<div class="box"  style={`--bg-color: ${color}`}
+>
+  <Image class="box__icon" src={icon} alt="icono" />
+  <p class="box__text">{text}</p>
+</div>
+
+<style lang="scss" scoped>
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  width: 9.25rem;
+  height: 9.25rem;
+  padding: 1rem;
+  background-color: var(--bg-color);
+  border-radius: 1rem;
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    margin: 0 auto;
+  }
+
+
+
+  &__text{
+    font-family: $font-poppins;
+    font-size: $font-size-md;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+}
+</style>

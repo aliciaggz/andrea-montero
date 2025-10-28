@@ -2,78 +2,33 @@
 const { 
   logo,
   title, 
-  textCaseStudy, 
-  points, 
- 
+  titleMethodology, 
+  phases, 
   } = Astro.props;
 
-import { Image } from 'astro:assets';
-import Flower from '@/assets/flower-blue.svg';
-
+import BoxPhase from './BoxPhase.astro';
 ---
 
-<section class="project-phase">
-  <section class="project-phase__case-study">
-    <h3 class="project-phase__case-study__title">Resumen de caso de estudio</h3>
-    <p class="project__text" set:html={textCaseStudy}></p>
-  </section>
-  <section class="project-phase__flower-list">
-    <ul class="project-phase__flower-list__container">
-      {points.map((point: any) => (
-        <li class="project-phase__flower-list__item">
-          <Flower class="project-phase__flower-list__icon" />
-          <div><h4 class="project-phase__flower-list__title">{point.title}</h4>
-          <p class="project-phase__flower-list__text">{point.text}</p>
-          </div>
-        </li>
-      ))}
-    </ul>
-  </section>
-  
- 
+<section class="project-phases">
+  <h3 class="project-phases_title">{titleMethodology}</h3>
+  <div class="project-phases__box-container">
+    {phases.map((phase:any) => (
+      <BoxPhase color={phase.color} icon={phase.icon} text={phase.text} />
+    ))}
+  </div> 
 </section>
 
 <style lang="scss" scoped>
 
-.project-phase {
-  margin-inline: 4.5rem;
+.project-phases {
 
-  &__case-study {
-    font-family: $font-poppins; 
- }
-
-  &__flower-list {
+  &__box-container {
     display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-    font-family: $font-poppins; 
-
-
-    &__container {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 2.5rem;
-      width: 100%;
-    }
-
-    &__item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    &__icon {
-      width: 1.5rem;
-      height: auto;
-      flex-shrink: 0;
-    }
-
-    &__text {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
+    gap: 4rem;
+    // margin-top: 2rem;
   }
+
+
 }
+
 </style>

@@ -52,5 +52,26 @@ import Logo from '../../assets/andrea-logo.svg';
     }
   }
 
+  /* Tablets */
+  @media (max-width: 1024px) {
+    &__nav--list-item {
+      font-size: $font-size-base;
+    }
+
+    /* Móviles */
+    @media (max-width: 640px) {
+      &__nav{
+        padding: 1rem 0 0 0;
+
+        &--list-item {
+          font-size: $font-size-sm;
+
+          &--logo {
+            margin: 0 2rem;
+          } 
+        }
+      } 
+    }
+  }
 }
 </style>

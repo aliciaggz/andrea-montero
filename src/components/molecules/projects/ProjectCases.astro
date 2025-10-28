@@ -1,0 +1,91 @@
+---
+const { 
+  logo,
+  title, 
+  textCaseStudy, 
+  points, 
+ 
+  } = Astro.props;
+
+import { Image } from 'astro:assets';
+import Flower from '@/assets/flower-blue.svg';
+import Face from '@/assets/face.svg';
+
+
+---
+
+<section class="project-phase">
+  <section class="project-phase__case-study">
+    <h3 class="project-phase__case-study__title">Resumen de caso de estudio</h3>
+    <p class="project-phase__case-study__text" set:html={textCaseStudy}></p>
+  </section>
+  <section class="project-phase__flower-list">
+    <ul class="project-phase__flower-list__container">
+      {points.map((point: any) => (
+        <li class="project-phase__flower-list__item">
+          <Flower class="project-phase__flower-list__icon" />
+          <div><h4 class="project-phase__flower-list__title">{point.title}</h4>
+          <p class="project-phase__flower-list__text">{point.text}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <Face/>
+  
+ 
+</section>
+
+<style lang="scss" scoped>
+
+.project-phase {
+  margin-inline: 4.5rem;
+
+  &__case-study {
+    font-family: $font-poppins; 
+
+    &__title {
+      font-size: $font-size-2xl;
+    }
+
+    &__text {
+      font-size: $font-size-base;
+    }
+ }
+
+  &__flower-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    font-family: $font-poppins; 
+
+
+    &__container {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 2.5rem;
+      width: 100%;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    &__icon {
+      width: 1.5rem;
+      height: auto;
+      flex-shrink: 0;
+    }
+
+    &__text {
+      font-size: 1rem;
+      color: $color-gray-light;
+    }
+  }
+}
+</style>

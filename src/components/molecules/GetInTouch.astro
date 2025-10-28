@@ -73,7 +73,7 @@ import peace from '@/assets/peace.png';
         color: $color-black;
         width: 8rem;
         height: 5rem;
-
+        font-size: $font-size-base;
         transition: all 0.3s ease;
 
         &:hover {
@@ -83,7 +83,49 @@ import peace from '@/assets/peace.png';
       }
     }
 
+    /* Tablets */
+    @media (max-width: 1024px) {
+      margin: 2rem 0.5rem;
+
+      &__text {
+        font-size: 1.25rem;
+        width: 70%;
+        top: 50%;
+      }
+    }
+
+    /* Móviles */
+    @media (max-width: 640px) {
+      margin: 2rem 0.5rem;
+
+      &__container {
+        width: 21rem;
+        height: 18rem;
+      }
+
+      &__image {
+        width: 3rem;
+      }
+
+      &__ask {
+      font-size: $font-size-md;
+      }
+
+      &__text {
+        font-size: $font-size-sm;
+      }
+
+      &__labels-container{
+      grid-template-columns: auto auto auto;
+      grid-gap: 0.5rem;
 
 
+      &__label {
+        width: 4.5rem;
+        height: 3rem;
+        font-size: $font-size-xs;
+      }
+    }
+    }
   }
 </style>

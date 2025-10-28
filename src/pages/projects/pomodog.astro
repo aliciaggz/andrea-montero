@@ -5,6 +5,7 @@ import pomodogMockup from '@/assets/pomodog-mockup.png';
 import pomodogPhone from '@/assets/pomodog-phone.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
+import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
 import ProjectPhases from '@/components/molecules/projects/ProjectPhases.astro';
 
 
@@ -22,7 +23,7 @@ const details = [
 
 const points = [
   {
-    title: "Identidad visual  motivadora:",
+    title: "Identidad visual motivadora:",
     text: "Colores cálidos y detalles ilustrativos transmiten energía y cercanía. POMODOG se siente amigable y divertido, incentivando tanto la concentración como el cuidado de los cachorros.",
   },
   {
@@ -31,13 +32,46 @@ const points = [
   },
   {
     title: "Construido como un sistema:",
-    text: "Diseñamos con propósito, combinando estética y funcionalidad a partes iguales.",
+    text: "Componentes coherentes y consistentes en todas las pantallas. Escalable, adaptable a nuevas funciones y fácil de mantener. Además de ser accesible con su modo claro/oscuro.",
   },
   {
     title: "Gamificación que motiva:",
-    text: "Transformamos ideas en realidades digitales que inspiran y aportan valor.",
+    text: "El crecimiento del cachorro virtual, los logros de productividad y la posibilidad de donar a perros reales crean un ciclo de motivación. Cada Pomodoro completado genera satisfacción personal y un impacto tangible en la vida de animales necesitados.",
   },
 ]
+
+const phasesBox = [
+  {
+    title: 'Pomodog',
+    icon: pomodog,
+    color: 'var(--color-blue-light)',
+    text: 'Empatizar',
+  },
+  {
+    title: 'Pomodog',
+    icon: pomodog,
+    color: 'var(--color-blue-light)',
+    text: 'Idear',
+  },
+  {
+    title: 'Pomodog',
+    icon: pomodog,
+    color: 'var(--color-blue-light)',
+    text: 'Decidir',
+  },
+  {
+    title: 'Pomodog',
+    icon: pomodog,
+    color: 'var(--color-blue-light)',
+    text: 'Prototipar',
+  },
+  {
+    title: 'Pomodog',
+    icon: pomodog,
+    color: 'var(--color-blue-light)',
+    text: 'Testear',
+  },
+];
 
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -56,8 +90,10 @@ const points = [
   mockupImage={pomodogPhone}
   colorVariant="blue-light"/>
 
-  <ProjectPhases 
+  <ProjectCases 
   textCaseStudy="Con POMODOG cada Pomodoro cuenta, tanto para tu concentración como para el bienestar de cachorros reales en refugios."
   points={points}/>
+
+  <ProjectPhases titleMethodology="Metodología Design Sprint" phases={phasesBox}/>
   
 </ProjectLayout>
