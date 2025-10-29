@@ -2,10 +2,12 @@
 import Header from '@/components/molecules/Header.astro';
 import Footer from '@/components/molecules/Footer.astro';
 import Hero from '@/components/molecules/Hero.astro';
+import MoreProjects from '@/components/molecules/projects/MoreProjects.astro';
 
 import flowerLeft from '@/assets/flower-left.svg';
 import flowerRight from '@/assets/flower-right.svg';
 
+import Heart from '@/assets/heart.svg';
 
 import Arrow from '@/assets/arrow-right.svg';
 
@@ -47,6 +49,12 @@ import '../styles/global.scss';
 			</Hero>
 			<slot />
 		</div>
+		<div class="text-coming">
+			<Heart fill="#FD1E1F"/>
+			<p>pronto habrá más</p>
+		</div>
+		<MoreProjects/>
+
 		<Footer/>
 
 	</body>
@@ -127,6 +135,16 @@ import '../styles/global.scss';
 	&__arrow {
 		margin-right: 1rem;
 	}
+}
+
+.text-coming{
+	display: flex;
+	gap: 1rem;
+	font-family: $font-poppins;
+	font-size: $font-size-md;
+	margin-bottom: 20rem;
+	align-items: center;
+	justify-content: center;
 }
 
 </style>
