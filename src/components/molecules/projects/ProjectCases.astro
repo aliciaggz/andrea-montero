@@ -1,15 +1,15 @@
 ---
 const { 
-  logo,
-  title, 
+  bgColorImg,
+  images, 
   textCaseStudy, 
   points, 
  
   } = Astro.props;
 
-import { Image } from 'astro:assets';
 import Flower from '@/assets/flower-blue.svg';
 import Face from '@/assets/face.svg';
+import MasonryShowcase from '@/components/molecules/projects/MasonryShowcase.astro';
 
 
 ---
@@ -31,6 +31,8 @@ import Face from '@/assets/face.svg';
       ))}
     </ul>
   </section>
+
+  <MasonryShowcase bgColorImg={bgColorImg} images={images}/>
 
   <Face/>
   

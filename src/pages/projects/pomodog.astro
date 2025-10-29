@@ -8,6 +8,25 @@ import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
 import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
 import ProjectPhases from '@/components/molecules/projects/ProjectPhases.astro';
 
+import heart from '@/assets/heart.svg';
+import lens from '@/assets/lens.svg';
+import pencil from '@/assets/pencil.svg';
+import phone from '@/assets/phone.svg';
+import bulb from '@/assets/bulb.svg';
+
+import pomodogMk1 from '@/assets/pomodog-mk-1.png';
+import pomodogMk2 from '@/assets/pomodog-mk-2.png';
+import pomodogMk3 from '@/assets/pomodog-mk-3.png';
+import pomodogMk4 from '@/assets/pomodog-mk-4.png';
+import pomodogMk5 from '@/assets/pomodog-mk-5.png';
+import pomodogMk6 from '@/assets/pomodog-mk-6.png';
+import pomodogMk7 from '@/assets/pomodog-mk-7.png';
+import pomodogMk8 from '@/assets/pomodog-mk-8.png';
+import pomodogMk9 from '@/assets/pomodog-mk-9.png';
+import pomodogMk10 from '@/assets/pomodog-mk-10.png';
+import pomodogMk11 from '@/assets/pomodog-mk-11.png';
+import pomodogMk12 from '@/assets/pomodog-mk-12.png';
+
 
 const gridItems = [
   { title: 'Habilidad', text: 'UX Research, UI Design, Prototyping, Testing' },
@@ -42,40 +61,49 @@ const points = [
 
 const phasesBox = [
   {
-    title: 'Pomodog',
-    icon: pomodog,
+    icon: heart,
     color: 'var(--color-blue-light)',
     text: 'Empatizar',
   },
   {
-    title: 'Pomodog',
-    icon: pomodog,
+    icon: bulb,
     color: 'var(--color-blue-light)',
     text: 'Idear',
   },
   {
-    title: 'Pomodog',
-    icon: pomodog,
+    icon: pencil,
     color: 'var(--color-blue-light)',
     text: 'Decidir',
   },
   {
-    title: 'Pomodog',
-    icon: pomodog,
+    icon: phone,
     color: 'var(--color-blue-light)',
     text: 'Prototipar',
   },
   {
-    title: 'Pomodog',
-    icon: pomodog,
+    icon: lens,
     color: 'var(--color-blue-light)',
     text: 'Testear',
   },
 ];
 
+const imagesMasonry = [
+  { src: pomodogMk1, alt: 'Imagen 1 de Pomodog' },
+  { src: pomodogMk2, alt: 'Imagen 2 de Pomodog' },
+  { src: pomodogMk3, alt: 'Imagen 2 de Pomodog' },
+  { src: pomodogMk4, alt: 'Imagen 2 de Pomodog' },
+  { src: pomodogMk5, alt: 'Imagen 2 de Pomodog' },
+  { src: pomodogMk6, alt: 'Imagen 2 de Pomodog' },
+  { src: pomodogMk7, alt: 'Imagen 2 de Pomodog' },
+  { src: pomodogMk8, alt: 'Imagen 2 de Pomodog' },
+  { src: pomodogMk9, alt: 'Imagen 2 de Pomodog' },
+  { src: pomodogMk10, alt: 'Imagen 2 de Pomodog' },
+  { src: pomodogMk11, alt: 'Imagen 2 de Pomodog' },
+  { src: pomodogMk12, alt: 'Imagen 2 de Pomodog' },
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+];
+
 ---
 
 <ProjectLayout>
@@ -92,7 +120,8 @@ const phasesBox = [
 
   <ProjectCases 
   textCaseStudy="Con POMODOG cada Pomodoro cuenta, tanto para tu concentración como para el bienestar de cachorros reales en refugios."
-  points={points}/>
+  points={points}
+  images={imagesMasonry}/>
 
   <ProjectPhases titleMethodology="Metodología Design Sprint" phases={phasesBox}/>
   

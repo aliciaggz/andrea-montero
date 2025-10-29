@@ -10,7 +10,7 @@ import BoxPhase from './BoxPhase.astro';
 ---
 
 <section class="project-phases">
-  <h3 class="project-phases_title">{titleMethodology}</h3>
+  <h3 class="project-phases__title">{titleMethodology}</h3>
   <div class="project-phases__box-container">
     {phases.map((phase:any) => (
       <BoxPhase color={phase.color} icon={phase.icon} text={phase.text} />
@@ -21,14 +21,20 @@ import BoxPhase from './BoxPhase.astro';
 <style lang="scss" scoped>
 
 .project-phases {
+  // width: 100%;
+  // margin-inline: 4.5rem;
+
+  &__title {
+    font-size: $font-size-xl;
+    font-family: $font-poppins;
+    margin-bottom: 5rem;
+  }
 
   &__box-container {
     display: flex;
     gap: 4rem;
     // margin-top: 2rem;
   }
-
-
 }
 
 </style>
