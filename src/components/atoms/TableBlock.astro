@@ -1,0 +1,79 @@
+---
+export interface Props {
+  headerText: string;
+  headerColor?: string; 
+  rows: string[];
+}
+
+const { headerText, headerColor = "#FFD86A", rows } = Astro.props;
+---
+
+<section class="table-block">
+  <header class="table-header" style={`--header-color:${headerColor}`}>
+    <h3>{headerText}</h3>
+  </header>
+
+  <div class="table-body">
+    {rows.map((row) => (
+      <div class="table-row">
+        <p>{row}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style lang="scss" scoped>
+.table-block {
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+.table-header {
+  background-color: var(--header-color);
+  padding: 1rem 1.5rem;
+  color: #000;
+  font-weight: 600;
+  text-align: center;
+
+  h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-row {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #333;
+
+  &:first-child {
+    border-top: none;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .table-block {
+    max-width: 100%;
+  }
+  .table-header h3 {
+    font-size: 1rem;
+  }
+}
+</style>

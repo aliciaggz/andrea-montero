@@ -5,7 +5,14 @@ import homiLogo from '@/assets/homi-logo.png';
 import pomodogMockup from '@/assets/pomodog-mockup.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
+import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
+import ProjectPhases from '@/components/molecules/projects/ProjectPhases.astro';
 
+import heart from '@/assets/heart.svg';
+import lens from '@/assets/lens.svg';
+import pencil from '@/assets/pencil.svg';
+import phone from '@/assets/phone.svg';
+import bulb from '@/assets/bulb.svg';
 
 const gridItems = [
   { title: 'Habilidad', text: 'UX Research, UI Design, Prototyping, Testing' },
@@ -17,6 +24,34 @@ const gridItems = [
 const details = [
   { title: 'Challenge', text: 'Debido a la situación actual del mercado de la vivienda, en España el 70% de los jóvenes que se independizan optan por compartir piso, una solución práctica que, sin embargo, puede generar conflictos derivados de diferentes hábitos y estilos de vida' },
   { title: 'Objetivo', text: 'Diseñar una solución digital que facilite la convivencia entre compañeros de piso, mejorando la comunicación, la organización y la gestión de tareas compartidas para reducir conflictos y crear un entorno más equilibrado y positivo' },
+];
+
+const phasesBox = [
+  {
+    icon: heart,
+    color: 'var(--color-blue-light)',
+    text: 'Empatizar',
+  },
+  {
+    icon: bulb,
+    color: 'var(--color-blue-light)',
+    text: 'Idear',
+  },
+  {
+    icon: pencil,
+    color: 'var(--color-blue-light)',
+    text: 'Decidir',
+  },
+  {
+    icon: phone,
+    color: 'var(--color-blue-light)',
+    text: 'Prototipar',
+  },
+  {
+    icon: lens,
+    color: 'var(--color-blue-light)',
+    text: 'Testear',
+  },
 ];
 
 
@@ -34,4 +69,12 @@ const details = [
   details={details}
   metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la metodología Design Sprint, un proceso intensivo que ayuda a resolver problemas y desarrollar soluciones eficaces de forma rápida y eficiente."
   mockupImage={pomodogMockup}/>
+
+  <!-- <ProjectCases 
+  textCaseStudy="Con POMODOG cada Pomodoro cuenta, tanto para tu concentración como para el bienestar de cachorros reales en refugios."
+  points={points}
+  images={imagesMasonry}/> -->
+
+  <ProjectPhases titleMethodology="Metodología Design Sprint" phases={phasesBox}/>
+
 </Layout>
