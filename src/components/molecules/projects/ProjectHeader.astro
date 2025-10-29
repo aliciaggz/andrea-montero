@@ -12,6 +12,7 @@ const {
 
 import { Image } from 'astro:assets';
 import Arrow from '@/assets/arrow-down.svg';
+import Face from '@/assets/face.svg';
 
 ---
 
@@ -55,7 +56,9 @@ import Arrow from '@/assets/arrow-down.svg';
     <p class="project__metodology__text">{metodologyText}</p>
   </section>
 
-  <section class="project__continue">
+  <Face class="project__face"/>
+
+  <!-- <section class="project__continue">
     <p class="project__continue-text">
       Haz clic si quieres ver una versión extendida del proyecto
     </p>
@@ -72,7 +75,7 @@ import Arrow from '@/assets/arrow-down.svg';
     <p class="project__continue-note">
       Si prefieres una versión más corta, esto es <span style="text-transform: uppercase;">{title}</span>
     </p>
-  </section>
+  </section> -->
 </section>
 
 <style lang="scss" scoped>
@@ -92,6 +95,11 @@ import Arrow from '@/assets/arrow-down.svg';
     margin: 0 auto;
     font-family: $font-poppins;;
     color: var(--accent-color);
+  }
+
+   &__face {
+    display: block;
+    margin: 14rem auto 10rem auto;
   }
 
   &__mockup {
@@ -190,8 +198,8 @@ import Arrow from '@/assets/arrow-down.svg';
     font-family: $font-poppins;
 
     &__title {
-      font-size: $font-size-xl;
-      font-weight: 600;
+      font-size: $font-size-2xl;
+      // font-weight: 600;
       margin-bottom: 1rem;
     }
     &__text {
@@ -200,28 +208,28 @@ import Arrow from '@/assets/arrow-down.svg';
     }
   }
 
-  &__continue {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 5rem;
-    color: $color-red;
+  // &__continue {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   text-align: center;
+  //   margin-top: 5rem;
+  //   color: $color-red;
 
-    &-text {
-      width: 22rem;
-      font-size: $font-size-md;
-      margin-bottom: 1rem;
-    }
+  //   &-text {
+  //     width: 22rem;
+  //     font-size: $font-size-md;
+  //     margin-bottom: 1rem;
+  //   }
 
-    &-icon {
-      margin-bottom: 1rem;
-    }
+  //   &-icon {
+  //     margin-bottom: 1rem;
+  //   }
 
-    &-note {
-      font-size: $font-size-sm;
-    }
-  }
+  //   &-note {
+  //     font-size: $font-size-sm;
+  //   }
+  // }
 
   &__button {
     padding: 0.5rem 1rem;

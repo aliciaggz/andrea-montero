@@ -10,7 +10,7 @@ import BoxPhase from './BoxPhase.astro';
 import PhaseContainer from './PhaseContainer.astro';
 ---
 
-<section class="project-phases">
+<section id="phases-container" class="project-phases project-phase__extended">
   <h3 class="project-phases__title">{titleMethodology}</h3>
   <div class="project-phases__box-container">
     {phases.map((phase:any) => (
@@ -54,7 +54,10 @@ import PhaseContainer from './PhaseContainer.astro';
 
 .project-phases {
   // width: 100%;
+  display: none;
   margin-inline: 4.5rem;
+  opacity: 0;
+  transition: opacity .3s ease, display .3s ease allow-discrete; 
 
   &__title {
     font-size: $font-size-xl;
@@ -68,6 +71,12 @@ import PhaseContainer from './PhaseContainer.astro';
     justify-content: center;
     // margin-top: 2rem;
   }
+
+}
+
+.show {
+  opacity: 1;
+  display: block;
 }
 
 </style>

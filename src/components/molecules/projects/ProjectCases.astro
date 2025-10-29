@@ -4,12 +4,14 @@ const {
   images, 
   textCaseStudy, 
   points, 
+  title
  
   } = Astro.props;
 
 import Flower from '@/assets/flower-blue.svg';
 import Face from '@/assets/face.svg';
 import MasonryShowcase from '@/components/molecules/projects/MasonryShowcase.astro';
+import Arrow from '@/assets/arrow-down.svg';
 
 
 ---
@@ -34,8 +36,42 @@ import MasonryShowcase from '@/components/molecules/projects/MasonryShowcase.ast
 
   <MasonryShowcase bgColorImg={bgColorImg} images={images}/>
 
-  <Face class="project-phase__face"/>
-  
+  <section class="project-phase__continue">
+    <p class="project-phase__continue-text">
+      Haz clic si quieres ver una versión extendida del proyecto
+    </p>
+
+    <Arrow width={62} class="project-phase__continue-icon" />
+
+    <button 
+      type="button"
+      class="project-phase__button"
+      aria-label="Ver fases del proyecto"
+      id="toggle-phases">
+      Fases del proyecto
+    </button>
+
+    <!-- <script>
+      document.getElementById('toggle-phases')?.addEventListener('click', () => {
+        const el = document.getElementById('phases-container');
+        if(el) {
+          el.style.display = el.style.display === 'none' ? 'block' : 'none';
+        }
+      });
+    </script> -->
+    <script>
+      const toggleBtn = document.getElementById('toggle-phases');
+      const container = document.getElementById('phases-container');
+    
+      toggleBtn?.addEventListener('click', () => {
+        container?.classList.toggle('show');
+      });
+    </script>
+
+    <!-- <p class="project-phase__continue-note">
+      Si prefieres una versión más corta, esto es <span style="text-transform: uppercase;">{title}</span>
+    </p> -->
+  </section>  
  
 </section>
 
@@ -90,9 +126,49 @@ import MasonryShowcase from '@/components/molecules/projects/MasonryShowcase.ast
     }
   }
 
-  &__face {
+  // &__face {
+  //   display: block;
+  //   margin: 12rem auto 14rem auto;
+  // }
+
+  &__continue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 5rem;
+    color: $color-red;
+
+    &-text {
+      width: 22rem;
+      font-size: $font-size-md;
+      margin-bottom: 1rem;
+    }
+
+    &-icon {
+      margin-bottom: 1rem;
+    }
+
+    // &-note {
+    //   font-size: $font-size-sm;
+    // }
+  }
+
+  &__button {
+    padding: 0.5rem 1rem;
+    border-radius: 500px;
+    border: none;
+    background-color: $color-black;
+    color: $color-white;
+    font-family: $font-poppins;
+    font-size: $font-size-md;
     display: block;
-    margin: 12rem auto 14rem auto;
+    margin: 0rem auto 6.25rem auto; 
+    cursor: pointer; 
+
+    &:hover {
+      background-color: darken($color-black, 10%);
+    }
   }
 
 }
