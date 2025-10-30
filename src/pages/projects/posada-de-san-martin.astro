@@ -1,22 +1,22 @@
 ---
 import Welcome from '../../components/Welcome.astro';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
-import pomodog from '@/assets/pomodog.png';
+import posada from '@/assets/hotel-logo.png';
 import pomodogMockup from '@/assets/pomodog-mockup.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
 
 
 const gridItems = [
-  { title: 'Habilidad', text: 'UX Research, UI Design, Prototyping, Testing' },
+  { title: 'Habilidad', text: 'Heuristic Review, Accessibility, UI Design, Prototypingg' },
   { title: 'Metodología', text: 'Diseño UX/UI' },
-  { title: 'Herramientas', text: 'Figma, Whimsical, Maze' },
-  { title: 'Servicio', text: 'Diseño UX/UI, Mobile Design' },
+  { title: 'Herramientas', text: 'Figma' },
+  { title: 'Servicio', text: 'Rediseño Web Design' },
 ];
 
 const details = [
-  { title: 'Challenge', text: 'Debido a la situación actual del mercado de la vivienda, en España el 70% de los jóvenes que se independizan optan por compartir piso, una solución práctica que, sin embargo, puede generar conflictos derivados de diferentes hábitos y estilos de vida' },
-  { title: 'Objetivo', text: 'Diseñar una solución digital que facilite la convivencia entre compañeros de piso, mejorando la comunicación, la organización y la gestión de tareas compartidas para reducir conflictos y crear un entorno más equilibrado y positivo' },
+  { title: 'Challenge', text: 'El sitio web necesitaba un diseño actualizado y moderno que resolviera los problemas de usabilidad y mejorara la experiencia general del usuario. La navegación no era clara, la información era difícil de encontrar y la estructura no facilitaba la navegación.' },
+  { title: 'Objetivo', text: 'Optimizar la arquitectura de la información y el diseño visual para ofrecer una navegación fluida, intuitiva y accesible. El objetivo fue mejorar la retención de usuarios y reflejar una identidad digital más actual y coherente.' },
 ];
 
 
@@ -26,12 +26,12 @@ const details = [
 
 <ProjectLayout>
   <ProjectHeader 
-  logo={pomodog}
+  logo={posada}
   title="Pomodog"
-  text="Convierte tus sesiones de Pomodoro en motivación para ti y ayuda para perros que lo necesitan"
+  text="La Posada San Martín es un alojamiento situado en Cuenca. Su sitio web necesitaba un rediseño para mejorar la usabilidad"
   mockup={pomodogMockup}
   items={gridItems}
   details={details}
-  metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la metodología Design Sprint, un proceso intensivo que ayuda a resolver problemas y desarrollar soluciones eficaces de forma rápida y eficiente."
+  metodologyText="Se aplicó un análisis heurístico para identificar problemas de usabilidad y definir oportunidades de mejora. A través de los principios de Nielsen, se evaluaron la consistencia visual, la visibilidad del estado del sistema, el control del usuario y la correspondencia entre el diseño y el modelo mental del usuario."
   mockupImage={pomodogMockup}/>
 </Layout>

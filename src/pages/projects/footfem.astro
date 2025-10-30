@@ -1,7 +1,7 @@
 ---
 import Welcome from '../../components/Welcome.astro';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
-import pomodog from '@/assets/pomodog.png';
+import footfem from '@/assets/footfem-logo.png';
 import pomodogMockup from '@/assets/pomodog-mockup.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
@@ -15,7 +15,7 @@ const gridItems = [
 ];
 
 const details = [
-  { title: 'Challenge', text: 'Debido a la situación actual del mercado de la vivienda, en España el 70% de los jóvenes que se independizan optan por compartir piso, una solución práctica que, sin embargo, puede generar conflictos derivados de diferentes hábitos y estilos de vida' },
+  { title: 'Challenge', text: 'El principal desafío fue diseñar una plataforma que integrara múltiples funcionalidades sin comprometer la usabilidad. Era fundamental mantener una navegación clara a pesar de tanta información (estadísticas, publicaciones, equipos y entrenadores)' },
   { title: 'Objetivo', text: 'Diseñar una solución digital que facilite la convivencia entre compañeros de piso, mejorando la comunicación, la organización y la gestión de tareas compartidas para reducir conflictos y crear un entorno más equilibrado y positivo' },
 ];
 
@@ -26,9 +26,9 @@ const details = [
 
 <ProjectLayout>
   <ProjectHeader 
-  logo={pomodog}
+  logo={footfem}
   title="Pomodog"
-  text="Convierte tus sesiones de Pomodoro en motivación para ti y ayuda para perros que lo necesitan"
+  text="Conecta a jugadoras, entrenadores y equipos de fútbol femenino, fomentando la visibilidad a través de la tecnología"
   mockup={pomodogMockup}
   items={gridItems}
   details={details}

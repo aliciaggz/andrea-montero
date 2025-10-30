@@ -1,7 +1,7 @@
 ---
 import Welcome from '../../components/Welcome.astro';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
-import pomodog from '@/assets/pomodog.png';
+import lexy from '@/assets/lexy-logo.png';
 import pomodogMockup from '@/assets/pomodog-mockup.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
@@ -10,13 +10,13 @@ import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
 const gridItems = [
   { title: 'Habilidad', text: 'UX Research, UI Design, Prototyping, Testing' },
   { title: 'Metodología', text: 'Diseño UX/UI' },
-  { title: 'Herramientas', text: 'Figma, Whimsical, Maze' },
-  { title: 'Servicio', text: 'Diseño UX/UI, Mobile Design' },
+  { title: 'Herramientas', text: 'Figma, Clickup, Maze, Hotgar' },
+  { title: 'Servicio', text: 'Proyecto laboral, Plataforma SaaS Responsive' },
 ];
 
 const details = [
-  { title: 'Challenge', text: 'Debido a la situación actual del mercado de la vivienda, en España el 70% de los jóvenes que se independizan optan por compartir piso, una solución práctica que, sin embargo, puede generar conflictos derivados de diferentes hábitos y estilos de vida' },
-  { title: 'Objetivo', text: 'Diseñar una solución digital que facilite la convivencia entre compañeros de piso, mejorando la comunicación, la organización y la gestión de tareas compartidas para reducir conflictos y crear un entorno más equilibrado y positivo' },
+  { title: 'Challenge', text: 'El desafío fue rediseñar la plataforma para que la experiencia de los usuarios al interactuar con ella  fuese un proceso sencillo, intuitivo y fluido, facilitando que los usuarios aprovecharan todas las funcionalidades de Lexy sin frustraciones.' },
+  { title: 'Objetivo', text: 'Diseñar una experiencia unificada, moderna y clara que conecte las diferentes funcionalidades; chat con IA, generación de imágenes, planificación, analíticas y recomendaciones en una interfaz coherente, accesible y motivadora para el usuario.' },
 ];
 
 
@@ -26,12 +26,12 @@ const details = [
 
 <ProjectLayout>
   <ProjectHeader 
-  logo={pomodog}
+  logo={lexy}
   title="Pomodog"
-  text="Convierte tus sesiones de Pomodoro en motivación para ti y ayuda para perros que lo necesitan"
+  text="Plataforma con IA que permite a empresas crear, programar, recomendar y optimizar contenido para redes sociales"
   mockup={pomodogMockup}
   items={gridItems}
   details={details}
-  metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la metodología Design Sprint, un proceso intensivo que ayuda a resolver problemas y desarrollar soluciones eficaces de forma rápida y eficiente."
+  metodologyText="El proceso de investigación y diseño de la plataforma se realizó mediante la metodología Design Thinking, un enfoque centrado en el usuario que permite comprender necesidades, generar ideas y prototipar soluciones de manera iterativa."
   mockupImage={pomodogMockup}/>
 </Layout>

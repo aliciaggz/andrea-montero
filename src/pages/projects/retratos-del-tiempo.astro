@@ -1,22 +1,22 @@
 ---
 import Welcome from '../../components/Welcome.astro';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
-import pomodog from '@/assets/pomodog.png';
+import tiempo from '@/assets/tiempo-logo.png';
 import pomodogMockup from '@/assets/pomodog-mockup.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
 
 
 const gridItems = [
-  { title: 'Habilidad', text: 'UX Research, UI Design, Prototyping, Testing' },
-  { title: 'Metodología', text: 'Diseño UX/UI' },
-  { title: 'Herramientas', text: 'Figma, Whimsical, Maze' },
-  { title: 'Servicio', text: 'Diseño UX/UI, Mobile Design' },
+  { title: 'Habilidad', text: 'Fotografía artística, composición visual, diseño editorial, maquetación' },
+  { title: 'Metodología', text: 'Investigación visual y literaria ' },
+  { title: 'Herramientas', text: 'Adobe InDesign, Illustrator y Photoshop' },
+  { title: 'Servicio', text: 'Diseño editorial' },
 ];
 
 const details = [
-  { title: 'Challenge', text: 'Debido a la situación actual del mercado de la vivienda, en España el 70% de los jóvenes que se independizan optan por compartir piso, una solución práctica que, sin embargo, puede generar conflictos derivados de diferentes hábitos y estilos de vida' },
-  { title: 'Objetivo', text: 'Diseñar una solución digital que facilite la convivencia entre compañeros de piso, mejorando la comunicación, la organización y la gestión de tareas compartidas para reducir conflictos y crear un entorno más equilibrado y positivo' },
+  { title: 'Challenge', text: 'Crear un fanzine que comunique emociones profundas y personales sin perder coherencia visual ni literaria' },
+  { title: 'Objetivo', text: 'Diseñar un fanzine que combine poesía y fotografía de manera armoniosa, transmitiendo cercanía y afecto hacia mis abuelos' },
 ];
 
 
@@ -26,12 +26,12 @@ const details = [
 
 <ProjectLayout>
   <ProjectHeader 
-  logo={pomodog}
+  logo={tiempo}
   title="Pomodog"
-  text="Convierte tus sesiones de Pomodoro en motivación para ti y ayuda para perros que lo necesitan"
+  text="Fanzine emotivo que combina fotografía personal y poesía para celebrar la historia y las vivencias de mis abuelos"
   mockup={pomodogMockup}
   items={gridItems}
   details={details}
-  metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la metodología Design Sprint, un proceso intensivo que ayuda a resolver problemas y desarrollar soluciones eficaces de forma rápida y eficiente."
+  metodologyText="Recopilé fotografías y analicé el poema para definir el tono emocional. Creé un moodboard, maqueté el contenido explorando composiciones entre imagen y texto e iteré versiones digitales y físicas. Finalicé con ajustes visuales e impresión artesanal del fanzine."
   mockupImage={pomodogMockup}/>
 </Layout>
