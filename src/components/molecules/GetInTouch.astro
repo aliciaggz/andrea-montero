@@ -1,11 +1,11 @@
 ---
-import peace from '@/assets/peace.png';
+import Peace from '@/assets/peace.svg';
 
 ---
 
 <div class="contact">
   <div class="contact__container">
-    <img class="contact__image" src={peace.src} alt="peace-hand">
+    <Peace class="contact__image" />
     <p class="contact__ask">¿Crees que vibramos?</p>
     <p class="contact__text">Get in touch </p>
   </div>
@@ -33,15 +33,18 @@ import peace from '@/assets/peace.png';
       border-radius: 4rem;
       text-align: center;
       font-family: $font-poppins;
+      padding-inline: 6rem;
 
       &:hover {
-        background-color: rgb(35, 89, 160);
+        background-color: $color-turquoise;
+        color: $color-black;
         cursor: pointer;
       }
     }
 
     &__image {
       width: 4rem;
+      height: auto;
       margin-top: 2rem;
       margin-bottom: 2rem;
     }
@@ -77,8 +80,7 @@ import peace from '@/assets/peace.png';
         transition: all 0.3s ease;
 
         &:hover {
-          background-color: $color-blue-light;
-          height: 6rem; 
+          height: 5.5rem; 
         }
       }
     }
@@ -100,19 +102,25 @@ import peace from '@/assets/peace.png';
 
       &__container {
         width: 21rem;
-        height: 18rem;
+        height: 12rem;
+        padding: 0;
       }
 
       &__image {
-        width: 3rem;
+        width: 1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
       }
 
       &__ask {
-      font-size: $font-size-md;
+        font-size: $font-size-md;
+        width: 100%;
+        margin-bottom: 0.5rem;
       }
 
       &__text {
         font-size: $font-size-sm;
+        width: 100%;
       }
 
       &__labels-container{

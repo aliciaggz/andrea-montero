@@ -8,6 +8,7 @@ import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
 import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
 import ProjectPhases from '@/components/molecules/projects/ProjectPhases.astro';
 import TableBlock from '@/components/atoms/TableBlock.astro';
+import Carousel from '@/components/atoms/Carousel.vue';
 
 import lens from '@/assets/lens.svg';
 import pencil from '@/assets/pencil.svg';
@@ -165,10 +166,8 @@ const phasesData = [
   },
 ];
 
-const rowsPhase1 = [
-  "Si los usuarios cuidan un cachorro virtual mientras usan la técnica Pomodoro",
-  "Aumentarán su tiempo de concentración"
-];
+const images = [pomodogMk1, pomodogMk1, pomodogMk1];
+
 
 
 ---
@@ -215,8 +214,20 @@ const rowsPhase1 = [
   
     <Fragment slot="phase3">
       <Image class="phase3-image" src={pomodogMkFull} alt="Prototipo completo de Pomodog"  />
-
     </Fragment>
+
+    <Fragment slot="phase4">
+      <Carousel slides={images} autoplay :interval="4000" client:load>
+        <Fragment slot="slide-0">
+          <Image  width={200} src={images[0]} alt="Slide 1" />
+        </Fragment>
+        <Fragment slot="slide-1">
+          <Image width={200}  src={images[1]} alt="Slide 1" />
+        </Fragment>
+        <Fragment slot="slide-2">
+          <Image width={200}  src={images[2]} alt="Slide 1" />
+        </Fragment>
+      </Carousel>      </Fragment>
   
   </ProjectPhases>
   
