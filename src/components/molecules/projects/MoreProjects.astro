@@ -1,6 +1,6 @@
 ---
+const { prevLink, nextLink } = Astro.props;
 import peace from '@/assets/peace.png';
-
 ---
 
 <div class="more-projects">
@@ -9,8 +9,12 @@ import peace from '@/assets/peace.png';
     <p class="more-projects__text">Más proyectos</p>
   </div>
   <div class="more-projects__labels-container">
-    <a href="#projects" class="more-projects__labels-container__label">anterior</a>
-    <a href="#capitulos" class="more-projects__labels-container__label">proximo</a>
+    {prevLink && (
+      <a href={prevLink} class="more-projects__labels-container__label">anterior</a>
+    )}
+    {nextLink && (
+      <a href={nextLink} class="more-projects__labels-container__label">próximo</a>
+    )}
   </div>
 </div>
 

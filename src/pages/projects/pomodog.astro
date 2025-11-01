@@ -27,6 +27,10 @@ import pomodogMk10 from '@/assets/pomodog-mk-10.png';
 import pomodogMk11 from '@/assets/pomodog-mk-11.png';
 import pomodogMk12 from '@/assets/pomodog-mk-12.png';
 
+import pomodogMkFull from '@/assets/pomodog-mk-full.png';
+
+import { Image } from 'astro:assets';
+
 
 const gridItems = [
   { title: 'Habilidad', text: 'UX Research, UI Design, Prototyping, Testing' },
@@ -103,12 +107,50 @@ const phasesData = [
     titleWrapper: "Generación de hipótesis",
     text: "Planteamos la hipótesis de que: “Si combinamos la técnica Pomodoro con un cachorro virtual y la posibilidad de donar a perros reales, los usuarios se sentirán más motivados para mantener la concentración y completar sesiones de estudio o trabajo.",
     text2: "Antes de diseñar, definimos hipótesis de producto, negocio y experiencia.",
+    tables: [
+      { 
+        rows: [ 
+          "Si los usuarios cuidan un cachorro virtual mientras usan la técnica Pomodoro",
+          "Aumentarán su tiempo de concentración",
+        ],
+        headerText: "Hipótesis de producto" },
+      { 
+        rows: [
+          "Si la app conecta la productividad con el bienestar animal",
+          "Aumentará la retención de usuarios"
+        ], 
+        headerText: "Hipótesis de negocio", 
+        headerColor: "var(--color-blue-electric)" 
+      },
+      { 
+        rows: [
+          "Si el usuario recibe feedback visual y emocional del cachorro",
+          "Sentirá motivación para completar sesiones de Pomodoro"
+        ], 
+        headerText: "Hipótesis de experiencia" },
+    ],
   },
   {
     title: "Fase 2: MVP",
     titleWrapper: "Construcción de MVP",
     text: "Se desarrolló un Producto Mínimo Viable para probar las hipótesis sin invertir en funcionalidades complejas.",
     reverse: true,
+    tables: [
+      { 
+        rows: [ 
+          "Temporizador Pomodoro: funcional y personalizable",
+          "Cachorro virtual básico: crecimiento ligado a sesiones completadas",
+          "Feedback visual y recompensas: animaciones y mensajes motivadores al completar Pomodoro"
+        ],
+        headerText: "Funcionalidades claves" },
+      { 
+        rows: [
+          "Se descartaron funciones secundarias como personalización avanzada de cachorros o integración social hasta validar el MVP",
+        ], 
+        headerText: "Decisiones importantes", 
+        headerColor: "var(--color-blue-electric)" 
+      },
+    ],
   },
   {
     title: "Fase 3: Diseño rápido y creación de prototipos",
@@ -131,7 +173,7 @@ const rowsPhase1 = [
 
 ---
 
-<ProjectLayout>
+<ProjectLayout currentProjectId={2}>
   <ProjectHeader 
   logo={pomodog}
   title="Pomodog"
@@ -152,26 +194,36 @@ const rowsPhase1 = [
 
   <ProjectPhases titleMethodology="Metodología Lean UX" boxPhases={phasesBox} phases={phasesData}>
     <Fragment slot="phase1">
-      <TableBlock rows={rowsPhase1} headerText="Hipótesis de producto" />
-      <TableBlock rows={rowsPhase1} headerText="Hipótesis de negocio" headerColor="var(--color-blue-electric)"/>
-      <TableBlock rows={rowsPhase1} headerText="Hipótesis de experiencia"/>
-  
+      {phasesData[0].tables && phasesData[0].tables.map((table) => (
+        <TableBlock
+          rows={table.rows}
+          headerText={table.headerText}
+          headerColor={table.headerColor}
+        />
+      ))}
     </Fragment>
   
-    <!-- Fase 1 -->
-    <div slot="phase-2">
-      <img src={pomodogMk1.src} alt="Ejemplo MVP" width="400" height="auto" />
-    </div>
+    <Fragment slot="phase2">
+        {phasesData[1].tables && phasesData[1].tables.map((table) => (
+          <TableBlock
+            rows={table.rows}
+            headerText={table.headerText}
+            headerColor={table.headerColor}
+          />
+        ))}
+    </Fragment>
   
-    <!-- Fase 2 -->
-    <div slot="phase-2">
-      hola
-    </div>
+    <Fragment slot="phase3">
+      <Image class="phase3-image" src={pomodogMkFull} alt="Prototipo completo de Pomodog"  />
+
+    </Fragment>
   
-    <!-- Fase 3 -->
-    <div slot="phase-3">
-      <p>Tests realizados con Maze y usuarios reales 🧠🐶</p>
-    </div>
   </ProjectPhases>
   
 </ProjectLayout>
+<style lang="scss" scoped>
+  .phase3-image {
+    width: 100%;
+    height: auto;
+  }
+</style>

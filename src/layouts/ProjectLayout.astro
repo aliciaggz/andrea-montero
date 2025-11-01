@@ -12,6 +12,23 @@ import Heart from '@/assets/heart.svg';
 import Arrow from '@/assets/arrow-right.svg';
 
 import '../styles/global.scss';
+
+
+const { currentProjectId } = Astro.props;
+
+const projects = [
+  { id: 1, title: 'Homi', link: '/projects/homi' },
+  { id: 2, title: 'Pomodog', link: '/projects/pomodog' },
+  { id: 3, title: 'Lexy', link: '/projects/lexy' },
+  { id: 4, title: 'Hotel', link: '/projects/posada-de-san-martin' },
+	{ id: 5, title: 'Footfem', link: '/projects/footfem' },
+	{ id: 6, title: 'Retratos del tiempo', link: '/projects/retratos-del-tiempo' },
+
+];
+
+const currentIndex = projects.findIndex(p => p.id === currentProjectId);
+const prevProject = projects[currentIndex - 1];
+const nextProject = projects[currentIndex + 1];
 ---
 
 <!doctype html>
@@ -53,7 +70,10 @@ import '../styles/global.scss';
 			<Heart class="heart-icon"/>
 			<p>pronto habrá más</p>
 		</div>
-		<MoreProjects/>
+		<MoreProjects 
+			prevLink={prevProject?.link} 
+			nextLink={nextProject?.link} 
+		/>
 
 		<Footer/>
 
