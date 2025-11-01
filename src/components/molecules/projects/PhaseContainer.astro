@@ -20,7 +20,9 @@ const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false } = 
   </div>
   <div class="phase-container__wrapper" style={`--color:${color}`}>
     <h5 class="phase-container__wrapper__title">{titleWrapper}</h5>
-    <slot />
+    <div  class="phase-container__wrapper__table">
+      <slot />
+    </div>
   </div>
 </div>
 
@@ -40,6 +42,7 @@ const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false } = 
       border-radius: 1rem;
       background-color: var(--color);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -49,6 +52,13 @@ const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false } = 
         font-size: $font-size-lg;
         font-weight: 600;
         margin-bottom: 1rem;
+      }
+
+      &__table {
+        display: flex;
+        gap: 1rem;
+        width: 90%;
+        padding: 1rem;
       }
     }
   

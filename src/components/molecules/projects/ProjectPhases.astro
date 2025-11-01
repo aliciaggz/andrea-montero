@@ -1,22 +1,46 @@
 ---
 const { 
-  logo,
-  title, 
   titleMethodology, 
   phases, 
+  boxPhases,
   } = Astro.props;
 
 import BoxPhase from './BoxPhase.astro';
 import PhaseContainer from './PhaseContainer.astro';
+import TableBlock from '@/components/atoms/TableBlock.astro';
+const slotNames = ["phase1","phase2", "phase3", "phase4"];
+
+const rows = [
+  "Si los usuarios cuidan un cachorro virtual mientras usan la técnica Pomodoro",
+  "Aumentarán su tiempo de concentración"
+];
 ---
 
 <section id="phases-container" class="project-phases project-phase__extended">
   <h3 class="project-phases__title">{titleMethodology}</h3>
   <div class="project-phases__box-container">
-    {phases.map((phase:any) => (
-      <BoxPhase color={phase.color} icon={phase.icon} text={phase.text} />
+    {boxPhases.map((boxPhase:any) => (
+      <BoxPhase 
+        color={boxPhase.color}
+        icon={boxPhase.icon} 
+        text={boxPhase.text} />
     ))}
   </div>
+  {phases.map((phase:any, index: number) => (
+    <PhaseContainer
+    title={phase.title}
+    text={phase.text}
+    text2={phase.text2}
+    color="var(--color-blue-light)"
+    titleWrapper={phase.titleWrapper}
+    reverse={phase.reverse}>
+      {index === 0 && <slot name="phase1" />}
+      {index === 1 && <slot name="phase2" />}
+      {index === 2 && <slot name="phase3" />}
+      {index === 3 && <slot name="phase4" />}    
+    </PhaseContainer>
+  ))}
+
   <PhaseContainer
     title="Fase 1: Hipótesis"
     text="Planteamos la hipótesis de que: “Si combinamos la técnica Pomodoro con un cachorro virtual y la posibilidad de donar a perros reales, los usuarios se sentirán más motivados para mantener la concentración y completar sesiones de estudio o trabajo.”"
@@ -24,30 +48,12 @@ import PhaseContainer from './PhaseContainer.astro';
     color="var(--color-blue-light)"
     titleWrapper="Generación de hipótesis">
 
+    <TableBlock rows={rows} headerText="Hipótesis de producto" />
+    <TableBlock rows={rows} headerText="Hipótesis de producto" headerColor="var(--color-blue-electric)"/>
+    <TableBlock rows={rows} headerText="Hipótesis de producto"/>
+
   </PhaseContainer>
 
-    <PhaseContainer
-      title="Fase 2: MVP"
-      text="Se desarrolló un Producto Mínimo Viable para probar las hipótesis sin invertir en funcionalidades complejas."
-      color="var(--color-blue-light)"
-      titleWrapper="Construir un MVP"
-      reverse>
-  </PhaseContainer>
-
-  <PhaseContainer
-    title="Fase 3: Diseño rápido y creación de prototipos"
-    text="En esta fase se realizaron prototipos iterativos para validar la experiencia de usuario antes de desarrollar el producto completo con la herramienta Figma."
-    color="var(--color-blue-light)"
-    titleWrapper="Prototipo"
-    >
-    </PhaseContainer>
-    <PhaseContainer
-    title="Fase 4: Testear"
-    text="Se realizaron tests de usabilidad y motivación para validar si las hipótesis se cumplían y la experiencia era efectiva con la herramienta Maze."
-    color="var(--color-blue-light)"
-    titleWrapper="Testing"
-    >
-  </PhaseContainer>
 </section>
 
 <style lang="scss" scoped>

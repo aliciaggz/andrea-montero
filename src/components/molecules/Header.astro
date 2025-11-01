@@ -1,13 +1,15 @@
 ---
 import Logo from '../../assets/andrea-logo.svg';
+import astroConfig from '../../../astro.config.mjs';
+const base = astroConfig.base || '/';
 ---
 
 <header class="header">
   <nav class="header__nav">
     <ul class="header__nav--list">
       <li class="header__nav--list-item"><a href="#projects">proyectos</a></li>
-      <a href="/"><Logo class="header__nav--list-item--logo"/></a> 
-      <li class="header__nav--list-item"><a href="#contact">sobre mi</a></li>
+      <a href={base}><Logo class="header__nav--list-item--logo"/></a> 
+      <li class="header__nav--list-item"><a href="#about-me">sobre mi</a></li>
     </ul>
   </nav>
 </header>

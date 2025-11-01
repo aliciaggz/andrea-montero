@@ -50,7 +50,7 @@ import '../styles/global.scss';
 			<slot />
 		</div>
 		<div class="text-coming">
-			<Heart fill="#FD1E1F"/>
+			<Heart class="heart-icon"/>
 			<p>pronto habrá más</p>
 		</div>
 		<MoreProjects/>
@@ -75,7 +75,7 @@ import '../styles/global.scss';
 
 		& .container__flower {
     position: absolute;
-    top: 8%;
+    top: 20rem;
     transform: translateY(-50%);
 		width: clamp(8rem, 30vw, 22rem);
 		height: auto;
@@ -145,6 +145,10 @@ import '../styles/global.scss';
 	margin-bottom: 20rem;
 	align-items: center;
 	justify-content: center;
+}
+
+.heart-icon {
+	color: $color-red;
 }
 
 </style>

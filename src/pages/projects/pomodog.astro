@@ -7,6 +7,7 @@ import pomodogPhone from '@/assets/pomodog-phone.png';
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
 import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
 import ProjectPhases from '@/components/molecules/projects/ProjectPhases.astro';
+import TableBlock from '@/components/atoms/TableBlock.astro';
 
 import lens from '@/assets/lens.svg';
 import pencil from '@/assets/pencil.svg';
@@ -94,9 +95,39 @@ const imagesMasonry = [
   { src: pomodogMk10, alt: 'Imagen 2 de Pomodog' },
   { src: pomodogMk11, alt: 'Imagen 2 de Pomodog' },
   { src: pomodogMk12, alt: 'Imagen 2 de Pomodog' },
-
-
 ];
+
+const phasesData = [
+  {
+    title: "Fase 1: Hipótesis",
+    titleWrapper: "Generación de hipótesis",
+    text: "Planteamos la hipótesis de que: “Si combinamos la técnica Pomodoro con un cachorro virtual y la posibilidad de donar a perros reales, los usuarios se sentirán más motivados para mantener la concentración y completar sesiones de estudio o trabajo.",
+    text2: "Antes de diseñar, definimos hipótesis de producto, negocio y experiencia.",
+  },
+  {
+    title: "Fase 2: MVP",
+    titleWrapper: "Construcción de MVP",
+    text: "Se desarrolló un Producto Mínimo Viable para probar las hipótesis sin invertir en funcionalidades complejas.",
+    reverse: true,
+  },
+  {
+    title: "Fase 3: Diseño rápido y creación de prototipos",
+    titleWrapper: "Prototipo",
+    text: "En esta fase se realizaron prototipos iterativos para validar la experiencia de usuario antes de desarrollar el producto completo con la herramienta Figma.",
+  },
+  {
+    title: "Fase 4: Testear",
+    titleWrapper: "Testing",
+    text: "Se realizaron tests de usabilidad y motivación para validar si las hipótesis se cumplían y la experiencia era efectiva con la herramienta Maze.",
+    reverse: true,
+  },
+];
+
+const rowsPhase1 = [
+  "Si los usuarios cuidan un cachorro virtual mientras usan la técnica Pomodoro",
+  "Aumentarán su tiempo de concentración"
+];
+
 
 ---
 
@@ -119,6 +150,28 @@ const imagesMasonry = [
   title="Pomodog"
   />
 
-  <ProjectPhases titleMethodology="Metodología Lean UX" phases={phasesBox}/>
+  <ProjectPhases titleMethodology="Metodología Lean UX" boxPhases={phasesBox} phases={phasesData}>
+    <Fragment slot="phase1">
+      <TableBlock rows={rowsPhase1} headerText="Hipótesis de producto" />
+      <TableBlock rows={rowsPhase1} headerText="Hipótesis de negocio" headerColor="var(--color-blue-electric)"/>
+      <TableBlock rows={rowsPhase1} headerText="Hipótesis de experiencia"/>
+  
+    </Fragment>
+  
+    <!-- Fase 1 -->
+    <div slot="phase-2">
+      <img src={pomodogMk1.src} alt="Ejemplo MVP" width="400" height="auto" />
+    </div>
+  
+    <!-- Fase 2 -->
+    <div slot="phase-2">
+      hola
+    </div>
+  
+    <!-- Fase 3 -->
+    <div slot="phase-3">
+      <p>Tests realizados con Maze y usuarios reales 🧠🐶</p>
+    </div>
+  </ProjectPhases>
   
 </ProjectLayout>

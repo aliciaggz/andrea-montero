@@ -35,7 +35,8 @@ import { Image } from 'astro:assets';
         itemSelector: '.grid-item',
         columnWidth: '.grid-sizer',
         percentPosition: true,
-        gutter: 24,
+        gutter: 14,
+        // columnWidth: 200,
       });
     });
   }
@@ -46,22 +47,26 @@ import { Image } from 'astro:assets';
   margin-top: 3rem;
   margin-bottom: 6rem;
   border-radius: 1rem;
+  margin-inline: 2rem;
+  margin-inline: 0;
+  padding-inline: 0;
 }
 
 .grid {
   margin: 0 auto;
+  width: 100%;
 }
 
 /* Define el ancho de las columnas */
 .grid-sizer,
 .grid-item {
-  width: 32%;
+  width: 30%; 
 }
 
 .grid-item {
   margin-bottom: 2rem;
   background-color: var(--bg);
-  padding: 2rem;
+  padding: 1rem; // reducimos padding interno
   border-radius: 1rem;
   overflow: hidden;
   // box-shadow: 0 4px 10px rgba(0,0,0,0.1);

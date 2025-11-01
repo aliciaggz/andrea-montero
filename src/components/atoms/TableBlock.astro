@@ -5,7 +5,7 @@ export interface Props {
   rows: string[];
 }
 
-const { headerText, headerColor = "#FFD86A", rows } = Astro.props;
+const { headerText, headerColor = "#FDC51E", rows } = Astro.props;
 ---
 
 <section class="table-block">
@@ -26,23 +26,26 @@ const { headerText, headerColor = "#FFD86A", rows } = Astro.props;
 .table-block {
   width: 100%;
   max-width: 500px;
-  margin: 2rem auto;
-  border-radius: 1rem;
+  // margin: 2rem auto;
+  border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  background-color: #fff;
+  // box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: $color-white;
+  font-family: $font-poppins;
+  text-align: center;
 }
 
 .table-header {
   background-color: var(--header-color);
   padding: 1rem 1.5rem;
-  color: #000;
+  color: $color-white;;
   font-weight: 600;
   text-align: center;
 
+
   h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: $font-size-base;
   }
 }
 
@@ -64,6 +67,8 @@ const { headerText, headerColor = "#FFD86A", rows } = Astro.props;
 
   p {
     margin: 0;
+    font-size: $font-size-sm;
+
   }
 }
 
