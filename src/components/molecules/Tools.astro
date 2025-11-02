@@ -115,12 +115,18 @@ const tools = [
     margin-top: 10rem;
     margin-bottom: 12rem;
 
+    @media (max-width: 480px) {
+      margin-top: 8rem;
+      margin-bottom: 8rem;
+
+    }
+
     &__image {
       width: 2.5rem;
     }
 
     &__title {
-      font-size: 1.5rem;
+      font-size: $font-size-lg;
       font-weight: 100;
       margin-top: 2rem;
       margin-bottom: 2rem;
@@ -128,10 +134,15 @@ const tools = [
    
     &__text {
       font-family: $font-poppins;
+      font-size: $font-size-base;
       font-weight: 300;
       width: 45%;
       margin-bottom: 10rem;
       text-align: center;
+
+      @media (max-width: 480px) {
+        width: 80%;
+      }
     }
 
     &__animate {
@@ -139,13 +150,21 @@ const tools = [
       cursor: pointer;
 
       &__box {
-      width: 10rem;
+        width: 10rem;
+
+        @media (max-width: 480px) {
+          width: 6rem;
+        }
       }
 
       &__arrow {
         position: absolute;
         top: -3rem;
         right: -5rem;
+        @media (max-width: 480px) {
+          top: -4rem;
+          right: -1rem;
+        }
       }
 
       &__note{
@@ -156,6 +175,10 @@ const tools = [
         color: $color-red;
         font-family: $font-libre;
         font-size: $font-size-base;
+        @media (max-width: 480px) {
+          top: -6rem;
+          right: -6rem;
+        }
       }
     }
 
@@ -166,13 +189,16 @@ const tools = [
       font-weight: 300;
       font-size: $font-size-base;
       transition: all 0.4s ease-in-out;
-
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
       gap: 5rem;
       justify-items: center;
-      // max-width: 100rem;
       text-align: center;
+
+      @media (max-width: 480px) {
+        max-width: 100%;
+        gap: 3.5rem;
+      }
 
       &__group {
         display: flex;
@@ -184,8 +210,12 @@ const tools = [
       &__title {
         color: $color-red;
         font-family: $font-libre;
-        font-size: 1.2rem;
+        font-size: $font-size-md;
         font-weight: 400;
+
+        @media (max-width: 480px) {
+          font-size: $font-size-base;
+        }
       }
 
       &__icons {
@@ -221,12 +251,14 @@ const tools = [
  
   }
 
-  .box--open {
-    width: 12rem;
-  }
+.box--open {
+  width: 12rem;
+  @media (max-width: 480px) {
+      width: 8rem;
+    }
+}
 
-    /* 🔸 Estado oculto sin dejar hueco */
-  .hidden {
-    display: none;
-  }
+.hidden {
+  display: none;
+}
 </style>

@@ -62,7 +62,7 @@ import '../styles/global.scss';
 		}
 
 		@media (max-width: 480px) {
-     /* evitar que sobresalgan */
+			top: 4.5%;
 			width: clamp(3rem, 15vw, 6rem);
 		}
 
@@ -83,20 +83,18 @@ import '../styles/global.scss';
   align-items: center;
 
   &__subtitle {
-    
-    font-size: $font-size-2xl;
+		font-size: clamp($font-size-lg, 4vw, $font-size-2xl); // escala entre móviles y desktop
     font-weight: 400;
     margin-bottom: 1.5rem;
   }
 
   &__text {
-    font-size: $font-size-base;
+		font-size: clamp($font-size-xs, 4vw, $font-size-base); // escala entre móviles y desktop
+    // font-size: $font-size-base;
     font-family: $font-poppins;
     font-weight: 200;
     line-height: 1.5rem;
   	width: 70%;
-
-
   }
 }
 
