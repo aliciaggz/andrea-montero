@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 
 const props = defineProps({
   slides: {
@@ -27,6 +27,11 @@ function prev() {
   current.value = (current.value - 1 + props.slides.length) % props.slides.length;
 }
 
+// Calcular desplazamiento del track
+const trackStyle = computed(() => ({
+  transform: `translateX(-${current.value * 100}%)`,
+}));
+
 onMounted(() => {
   if (props.autoplay) {
     timer = setInterval(next, props.interval);
@@ -45,14 +50,16 @@ onBeforeUnmount(() => {
     <button class="carousel__nav carousel__nav--next" @click="next">&gt;</button>
 
     <!-- Slides track -->
-    <div class="carousel__track">
-      <div
-        v-for="(slide, index) in slides"
-        :key="index"
-        class="carousel__slide"
-        :class="{ 'carousel__slide--active': index === current }"
-      >
-        <slot :name="'slide-' + index">{{ slide }}</slot>
+    <div class="carousel__viewport">
+      <div class="carousel__track" :style="trackStyle">
+        <div
+          v-for="(slide, index) in slides"
+          :key="index"
+          class="carousel__slide"
+          :class="{ 'carousel__slide--active': index === current }"
+        >
+          <slot :name="'slide-' + index">{{ slide }}</slot>
+        </div>
       </div>
     </div>
 
@@ -75,27 +82,39 @@ onBeforeUnmount(() => {
   overflow: hidden;
 }
 
+.carousel__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
 .carousel__track {
   display: flex;
   transition: transform 0.5s ease;
+  width: 100%;
 }
 
 .carousel__slide {
-  min-width: 100%;
-  flex-shrink: 0;
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
+  flex: 0 0 100%;
+  opacity: 0.4;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.9);
 }
 
 .carousel__slide--active {
   opacity: 1;
+  transform: scale(1);
 }
 
+/* Arrows */
 .carousel__nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.3);
+  background: #007bff;
+  border-radius: 50%;
   border: none;
   color: white;
   font-size: 2rem;
@@ -107,6 +126,7 @@ onBeforeUnmount(() => {
 .carousel__nav--prev { left: 1rem; }
 .carousel__nav--next { right: 1rem; }
 
+/* Dots */
 .carousel__dots {
   display: flex;
   justify-content: center;

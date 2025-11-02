@@ -12,6 +12,7 @@ import Flower from '@/assets/flower-blue.svg';
 import Face from '@/assets/face.svg';
 import MasonryShowcase from '@/components/molecules/projects/MasonryShowcase.astro';
 import Arrow from '@/assets/arrow-down.svg';
+import Button from '@/components/atoms/Button.astro';
 
 
 ---
@@ -43,13 +44,11 @@ import Arrow from '@/assets/arrow-down.svg';
 
     <Arrow width={62} class="project-phase__continue-icon" />
 
-    <button 
-      type="button"
+    <Button
       class="project-phase__button"
-      aria-label="Ver fases del proyecto"
-      id="toggle-phases">
-      Fases del proyecto
-    </button>
+      label="Fases del proyecto"
+      id="toggle-phases"
+    />
     
     <script>
       const toggleBtn = document.getElementById('toggle-phases');
@@ -60,9 +59,9 @@ import Arrow from '@/assets/arrow-down.svg';
       });
     </script>
 
-    <!-- <p class="project-phase__continue-note">
+    <p class="project-phase__continue-note">
       Si prefieres una versión más corta, esto es <span style="text-transform: uppercase;">{title}</span>
-    </p> -->
+    </p>
   </section>  
  
 </section>
@@ -130,6 +129,7 @@ import Arrow from '@/assets/arrow-down.svg';
     text-align: center;
     margin-top: 5rem;
     color: $color-red;
+    margin-bottom: 6.25rem;
 
     &-text {
       width: 22rem;
@@ -141,25 +141,10 @@ import Arrow from '@/assets/arrow-down.svg';
       margin-bottom: 1rem;
     }
 
-    // &-note {
-    //   font-size: $font-size-sm;
-    // }
-  }
-
-  &__button {
-    padding: 0.5rem 1rem;
-    border-radius: 500px;
-    border: none;
-    background-color: $color-black;
-    color: $color-white;
-    font-family: $font-poppins;
-    font-size: $font-size-md;
-    display: block;
-    margin: 0rem auto 6.25rem auto; 
-    cursor: pointer; 
-
-    &:hover {
-      background-color: darken($color-black, 10%);
+    &-note {
+      font-size: $font-size-base;
+      margin-top: 6rem;
+      margin-bottom: 8rem;
     }
   }
 

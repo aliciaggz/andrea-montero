@@ -11,14 +11,17 @@ const {
   colorVariant} = Astro.props;
 
 import { Image } from 'astro:assets';
+import Button from '@/components/atoms/Button.astro';
 import Arrow from '@/assets/arrow-down.svg';
 import Face from '@/assets/face.svg';
 
 ---
 
 <section class="project">
-  <Image src={logo} alt={title} class="project__logo" />
-  <p class="project__text" set:html={text}></p>
+    <div class="project__logo-wrapper">
+      <Image src={logo} alt={title} class="project__logo" />
+    </div>
+    <p class="project__text" set:html={text}></p>
 
   <div>
     <Image height={376} class={`project__mockup project__mockup--${colorVariant}`} src={mockup} alt="mockup-varios"/>
@@ -32,12 +35,12 @@ import Face from '@/assets/face.svg';
       ))}
     </section>
 
-    <button 
-      onclick="location.href='http://www.example.com'"
-      type="button"
-      class="project__button">
-        Ir al prototipo
-    </button>
+    <Button
+    class="project__button"
+    label="Ir al prototipo"
+    onClick="location.href='http://www.example.com'"
+    target="_blank"
+    />
   </div>
 
   <section class="project__grid-2">
@@ -78,16 +81,28 @@ import Face from '@/assets/face.svg';
   </section> -->
 </section>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .project {
   margin-top: 12rem;
   margin-bottom: 8rem;
   margin-inline: 4.5rem;
 
+  &__logo-wrapper {
+    width: 32rem;        // ancho máximo uniforme
+    height: 12rem;       // altura máxima uniforme
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    overflow: hidden;    // recorta si es más grande
+    // margin: 0 auto 1.5rem auto;
+    margin-bottom: 2rem;
+  }
+
   &__logo {
-    width: 32rem;
+    max-width: 100%;
     height: auto;
-    margin-bottom: 1.5rem;
+    object-fit: contain; // mantiene proporción sin deformarse
+    display: block;
   }
 
   &__text {
@@ -231,17 +246,20 @@ import Face from '@/assets/face.svg';
   //   }
   // }
 
-  &__button {
-    padding: 0.5rem 1rem;
-    border-radius: 500px;
-    border: none;
-    background-color: $color-black;
-    color: $color-white;
-    font-family: $font-poppins;
-    font-size: $font-size-md;
+  // &__button {
+  //   padding: 0.5rem 1rem;
+  //   border: none;
+  //   margin: 0rem auto 6.25rem auto;  
+  // }
+
+  :global(.project__button) {
+    margin: 0 auto 6.25rem auto;
     display: block;
-    margin: 0rem auto 6.25rem auto;  
   }
 
+}
+
+:global(.project__button) {
+  margin: 0 auto 6.25rem auto;
 }
 </style>

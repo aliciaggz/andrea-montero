@@ -1,6 +1,6 @@
 ---
 import rainbow from '@/assets/rainbow.svg';
-
+import Button from '@/components/atoms/Button.astro';
 ---
 
 <div class="hero">
@@ -18,12 +18,11 @@ import rainbow from '@/assets/rainbow.svg';
   <section class="hero__info">
     <slot />
     <div class="hero__line"></div>
-    <a 
-    href="https://mail.google.com/mail/?view=cm&fs=1&to=andreamonteroherl@gmail.com" 
-    target="_blank" 
-    class="hero__button">
-      Hablemos
-    </a>
+    <Button
+      label="Hablemos"
+      href="https://mail.google.com/mail/?view=cm&fs=1&to=andreamonteroherl@gmail.com"
+      target="_blank"
+    />
   </section>
 </div>
 
@@ -75,18 +74,6 @@ import rainbow from '@/assets/rainbow.svg';
     align-items: center;
     width: 50%;
     text-align: center;
-  }
-
-  &__button {
-    padding: 0.5rem 1rem;
-    border-radius: 500px;
-    border: none;
-    background-color: $color-black;
-    color: $color-white;
-    font-family: $font-poppins;
-    font-size: $font-size-md;
-    margin-top: 1rem;
-    text-decoration: none;
   }
 
   &__line {

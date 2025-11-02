@@ -40,27 +40,13 @@ const rows = [
       {index === 3 && <slot name="phase4" />}    
     </PhaseContainer>
   ))}
-
-  <!-- <PhaseContainer
-    title="Fase 1: Hipótesis"
-    text="Planteamos la hipótesis de que: “Si combinamos la técnica Pomodoro con un cachorro virtual y la posibilidad de donar a perros reales, los usuarios se sentirán más motivados para mantener la concentración y completar sesiones de estudio o trabajo.”"
-    text2="Antes de diseñar, definimos hipótesis de producto, negocio y experiencia."
-    color="var(--color-blue-light)"
-    titleWrapper="Generación de hipótesis">
-
-    <TableBlock rows={rows} headerText="Hipótesis de producto" />
-    <TableBlock rows={rows} headerText="Hipótesis de producto" headerColor="var(--color-blue-electric)"/>
-    <TableBlock rows={rows} headerText="Hipótesis de producto"/>
-
-  </PhaseContainer> -->
-
 </section>
 
 <style lang="scss" scoped>
 
 .project-phases {
   // width: 100%;
-  // display: none; acuerdate de poner esto 
+  // display: none;
   margin-inline: 4.5rem;
   opacity: 1;
   transition: opacity .3s ease, display .3s ease allow-discrete; 

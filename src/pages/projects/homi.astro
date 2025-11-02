@@ -1,12 +1,14 @@
 ---
-import Welcome from '../../components/Welcome.astro';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
 import homiLogo from '@/assets/homi-logo.png';
 import pomodogMockup from '@/assets/pomodog-mockup.png';
+import { Image } from 'astro:assets';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
 import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
 import ProjectPhases from '@/components/molecules/projects/ProjectPhases.astro';
+import Carousel from '@/components/atoms/Carousel.vue';
+import TableBlock from '@/components/atoms/TableBlock.astro';
 
 import heart from '@/assets/heart.svg';
 import lens from '@/assets/lens.svg';
@@ -69,20 +71,20 @@ const phasesBox = [
 
 const points = [
   {
-    title: "Identidad visual motivadora:",
-    text: "Colores cálidos y detalles ilustrativos transmiten energía y cercanía. POMODOG se siente amigable y divertido, incentivando tanto la concentración como el cuidado de los cachorros.",
+    title: "Identidad visual cálida y acogedora:",
+    text: "Los colores suaves y los acentos vibrantes transmiten cercanía y energía. Homi se siente como un hogar: organizado, pero lleno de vida.",
   },
   {
-    title: "Pantallas que inspiran acción:",
-    text: "Cada pantalla —temporizador, planificación, perfil de cachorros y estadísticas— guía al usuario de manera clara y sencilla. La interfaz facilita cumplir tareas, cuidar del cachorro virtual y contribuir a perros reales sin sentirse abrumado.",
+    title: "Pantallas que invitan a participar:",
+    text: "Cada sección —actividades, gastos, perfil y chat— está diseñada para ser clara y motivadora. La interfaz guía sin imponerse, fomentando la colaboración entre compañeros de piso.",
   },
   {
     title: "Construido como un sistema:",
-    text: "Componentes coherentes y consistentes en todas las pantallas. Escalable, adaptable a nuevas funciones y fácil de mantener. Además de ser accesible con su modo claro/oscuro.",
+    text: "Bloques modulares y consistentes que funcionan en todas las pantallas. Escalable, sencillo y adaptable a nuevas funcionalidades.",
   },
   {
-    title: "Gamificación que motiva:",
-    text: "El crecimiento del cachorro virtual, los logros de productividad y la posibilidad de donar a perros reales crean un ciclo de motivación. Cada Pomodoro completado genera satisfacción personal y un impacto tangible en la vida de animales necesitados.",
+    title: "Gamificación que conecta:",
+    text: "Puntos, recompensas y logros transforman la rutina en motivación. Cada interacción suma, reforzando dinámicas positivas y la sensación de comunidad.",
   },
 ]
 
@@ -103,8 +105,72 @@ const imagesMasonry = [
 
 ];
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const phasesData = [
+  {
+    title: "Fase 1: Empatizar",
+    titleWrapper: "Generación de hipótesis",
+    text: "Nos enfocamos en entender el reto y el contexto, formulando preguntas clave para guiar el proceso.",
+    text2: "Realizamos brainstorming, creamos un journey map para visualizar la experiencia del usuario, definimos oportunidades con “How might we?” y desarrollamos perfiles de personas que representan a nuestros usuarios.",
+    tables: [
+      { 
+        rows: [ 
+          "Si los usuarios cuidan un cachorro virtual mientras usan la técnica Pomodoro",
+          "Aumentarán su tiempo de concentración",
+        ],
+        headerText: "Hipótesis de producto" },
+      { 
+        rows: [
+          "Si la app conecta la productividad con el bienestar animal",
+          "Aumentará la retención de usuarios"
+        ], 
+        headerText: "Hipótesis de negocio", 
+        headerColor: "var(--color-blue-electric)" 
+      },
+      { 
+        rows: [
+          "Si el usuario recibe feedback visual y emocional del cachorro",
+          "Sentirá motivación para completar sesiones de Pomodoro"
+        ], 
+        headerText: "Hipótesis de experiencia" },
+    ],
+  },
+  {
+    title: "Fase 2: Idear",
+    titleWrapper: "Construcción de MVP",
+    text: "Exploramos referencias y soluciones existentes mediante lightning demos y definimos la identidad corporativa. Y, terminamos con un repaso general y aplicamos la técnica Crazy 8s para generar distintas ideas y enfoques creativos.",
+    reverse: true,
+    tables: [
+      { 
+        rows: [ 
+          "Temporizador Pomodoro: funcional y personalizable",
+          "Cachorro virtual básico: crecimiento ligado a sesiones completadas",
+          "Feedback visual y recompensas: animaciones y mensajes motivadores al completar Pomodoro"
+        ],
+        headerText: "Funcionalidades claves" },
+      { 
+        rows: [
+          "Se descartaron funciones secundarias como personalización avanzada de cachorros o integración social hasta validar el MVP",
+        ], 
+        headerText: "Decisiones importantes", 
+        headerColor: "var(--color-blue-electric)" 
+      },
+    ],
+  },
+  {
+    title: "Fase 3: Diseño rápido y creación de prototipos",
+    titleWrapper: "Prototipo",
+    text: "En esta fase se realizaron prototipos iterativos para validar la experiencia de usuario antes de desarrollar el producto completo con la herramienta Figma.",
+  },
+  {
+    title: "Fase 4: Testear",
+    titleWrapper: "Testing",
+    text: "Se realizaron tests de usabilidad y motivación para validar si las hipótesis se cumplían y la experiencia era efectiva con la herramienta Maze.",
+    reverse: true,
+  },
+];
+
+const images = [pomodogMk1, pomodogMk1, pomodogMk1];
+
 ---
 
 <ProjectLayout currentProjectId={1}>
@@ -120,10 +186,50 @@ const imagesMasonry = [
 
 
   <ProjectCases 
-  textCaseStudy="Con POMODOG cada Pomodoro cuenta, tanto para tu concentración como para el bienestar de cachorros reales en refugios."
+  textCaseStudy="HOMI es una app diseñada para mejorar la convivencia entre compañeros de piso a través de la gamificación y la organización compartida. Su objetivo es fomentar dinámicas positivas y equilibradas mediante actividades grupales, gestión de gastos y comunicación efectiva."
   points={points}
   images={imagesMasonry}
   title="Pomodog"
   />
+
+  <ProjectPhases titleMethodology="Metodología Design Sprint" boxPhases={phasesBox} phases={phasesData}>
+
+    <Fragment slot="phase1">
+      {phasesData[0].tables && phasesData[0].tables.map((table) => (
+        <TableBlock
+          rows={table.rows}
+          headerText={table.headerText}
+          headerColor={table.headerColor}
+        />
+      ))}
+    </Fragment>
+  
+    <Fragment slot="phase2">
+        {phasesData[1].tables && phasesData[1].tables.map((table) => (
+          <TableBlock
+            rows={table.rows}
+            headerText={table.headerText}
+            headerColor={table.headerColor}
+          />
+        ))}
+    </Fragment>
+  
+    <Fragment slot="phase3">
+    </Fragment>
+
+    <Fragment slot="phase4">
+      <Carousel slides={images} autoplay :interval="4000" client:load>
+        <Fragment slot="slide-0">
+          <Image  width={200} src={images[0]} alt="Slide 1" />
+        </Fragment>
+        <Fragment slot="slide-1">
+          <Image width={200}  src={images[1]} alt="Slide 1" />
+        </Fragment>
+        <Fragment slot="slide-2">
+          <Image width={200}  src={images[2]} alt="Slide 1" />
+        </Fragment>
+      </Carousel>      </Fragment>
+
+  </ProjectPhases>
 
 </Layout>
