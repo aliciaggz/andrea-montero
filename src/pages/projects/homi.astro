@@ -1,7 +1,11 @@
 ---
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
 import homiLogo from '@/assets/homi-logo.png';
-import pomodogMockup from '@/assets/pomodog-mockup.png';
+import homiMockup from '@/assets/homi-mockup.png';
+import homiPhone from '@/assets/homi-phone.png';
+import homiUser from '@/assets/homi-user.png';
+import homiUser2 from '@/assets/homi-user-2.png';
+
 import { Image } from 'astro:assets';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
@@ -16,14 +20,14 @@ import pencil from '@/assets/pencil.svg';
 import phone from '@/assets/phone.svg';
 import bulb from '@/assets/bulb.svg';
 
-import pomodogMk1 from '@/assets/pomodog-mk-1.png';
-import pomodogMk2 from '@/assets/pomodog-mk-2.png';
-import pomodogMk3 from '@/assets/pomodog-mk-3.png';
-import pomodogMk4 from '@/assets/pomodog-mk-4.png';
-import pomodogMk5 from '@/assets/pomodog-mk-5.png';
-import pomodogMk6 from '@/assets/pomodog-mk-6.png';
-import pomodogMk7 from '@/assets/pomodog-mk-7.png';
-import pomodogMk8 from '@/assets/pomodog-mk-8.png';
+import homiMk1 from '@/assets/homi-mk-1.png';
+import homiMk2 from '@/assets/homi-mk-2.png';
+import homiMk3 from '@/assets/homi-mk-3.png';
+import homiMk4 from '@/assets/homi-mk-4.png';
+import homiMk5 from '@/assets/homi-mk-5.png';
+import homiMk6 from '@/assets/homi-mk-6.png';
+import homiMk7 from '@/assets/homi-mk-7.png';
+import homiMk8 from '@/assets/homi-mk-8.png';
 import pomodogMk9 from '@/assets/pomodog-mk-9.png';
 import pomodogMk10 from '@/assets/pomodog-mk-10.png';
 import pomodogMk11 from '@/assets/pomodog-mk-11.png';
@@ -89,20 +93,18 @@ const points = [
 ]
 
 const imagesMasonry = [
-  { src: pomodogMk1, alt: 'Imagen 1 de Pomodog' },
-  { src: pomodogMk2, alt: 'Imagen 2 de Pomodog' },
-  { src: pomodogMk3, alt: 'Imagen 2 de Pomodog' },
-  { src: pomodogMk4, alt: 'Imagen 2 de Pomodog' },
-  { src: pomodogMk5, alt: 'Imagen 2 de Pomodog' },
-  { src: pomodogMk6, alt: 'Imagen 2 de Pomodog' },
-  { src: pomodogMk7, alt: 'Imagen 2 de Pomodog' },
-  { src: pomodogMk8, alt: 'Imagen 2 de Pomodog' },
+  { src: homiMk1, alt: 'Imagen 1 de Pomodog' },
+  { src: homiMk2, alt: 'Imagen 2 de Homi' },
+  { src: homiMk3, alt: 'Imagen 2 de homi' },
+  { src: homiMk4, alt: 'Imagen 2 de homi' },
+  { src: homiMk5, alt: 'Imagen 2 de Pomodog' },
+  { src: homiMk6, alt: 'Imagen 2 de homi' },
+  { src: homiMk7, alt: 'Imagen 2 de homi' },
+  { src: homiMk8, alt: 'Imagen 2 de homi' },
   { src: pomodogMk9, alt: 'Imagen 2 de Pomodog' },
   { src: pomodogMk10, alt: 'Imagen 2 de Pomodog' },
   { src: pomodogMk11, alt: 'Imagen 2 de Pomodog' },
   { src: pomodogMk12, alt: 'Imagen 2 de Pomodog' },
-
-
 ];
 
 const phasesData = [
@@ -110,28 +112,56 @@ const phasesData = [
     title: "Fase 1: Empatizar",
     titleWrapper: "Generación de hipótesis",
     text: "Nos enfocamos en entender el reto y el contexto, formulando preguntas clave para guiar el proceso.",
-    text2: "Realizamos brainstorming, creamos un journey map para visualizar la experiencia del usuario, definimos oportunidades con “How might we?” y desarrollamos perfiles de personas que representan a nuestros usuarios.",
+    text2: "Realizamos <span class='color-accent-blue-electric'> brainstorming </span>, creamos un <span class='color-accent-blue-electric'>journey map</span> para visualizar la experiencia del usuario, definimos oportunidades con <span class='color-accent-blue-electric'>“How might we?”</span> y desarrollamos perfiles de personas que representan a nuestros usuarios.",
     tables: [
       { 
         rows: [ 
-          "Si los usuarios cuidan un cachorro virtual mientras usan la técnica Pomodoro",
-          "Aumentarán su tiempo de concentración",
+          "Crear una app o tablero digital para dejar mensajes",
+          "Chat interno con recordatorios automáticos sobre gastos",
+          "Un sistema de “estado de ánimo del piso”",
+          "Espacio semanal para hablar sobre convivencia"
         ],
-        headerText: "Hipótesis de producto" },
+        headerText: "Comunicación" 
+      },
       { 
         rows: [
-          "Si la app conecta la productividad con el bienestar animal",
-          "Aumentará la retención de usuarios"
+          "Gamificación: puntos o recompensas por cumplir tareas",
+          "Agenda compartida con calendario de limpieza",
+          "Rueda de tareas automatizada (rotación visual y notificaciones)",
+          "Listas colaborativas para el mantenimiento del piso"
         ], 
-        headerText: "Hipótesis de negocio", 
+        headerText: "Organización y tareas", 
         headerColor: "var(--color-blue-electric)" 
       },
       { 
         rows: [
-          "Si el usuario recibe feedback visual y emocional del cachorro",
-          "Sentirá motivación para completar sesiones de Pomodoro"
+          "App integrada para dividir gastos automáticamente",
+          "Historial visual de pagos y deudas pendientes",
+          "Recordatorios para pagos de suministros o alquiler",
+          "Panel mensual de gastos del piso (transparente y compartido)"
         ], 
-        headerText: "Hipótesis de experiencia" },
+        headerText: "Gestión económica" 
+      },
+    ],
+    table2: [
+      { 
+        rows: [ 
+          "¿Cómo podríamos fomentar la comunicación efectiva para resolver conflictos rápidamente?",
+          "¿Cómo podríamos motivar la participación de todos en las tareas y responsabilidades del hogar?",
+          "¿Cómo podríamos crear dinámicas divertidas y positivas que refuercen la convivencia?",
+        ],
+        headerText: "3 mejores HMW" 
+      },
+    ],
+    table3: [
+      { 
+        rows: [ 
+          "¿Cómo podemos ayudar a los compañeros de piso a comunicarse mejor y entenderse?",
+          "¿Qué herramientas o dinámicas fomentan una convivencia positiva y saludable?",
+          "¿Cómo podemos reducir conflictos derivados de diferencias de hábitos y personalidades?",
+        ],
+        headerText: "3 mejores preguntas" 
+      },
     ],
   },
   {
@@ -169,7 +199,7 @@ const phasesData = [
   },
 ];
 
-const images = [pomodogMk1, pomodogMk1, pomodogMk1];
+const images = [homiMk1, homiMk1, homiMk1, homiMk1];
 
 ---
 
@@ -178,30 +208,63 @@ const images = [pomodogMk1, pomodogMk1, pomodogMk1];
   logo={homiLogo}
   title="Homi"
   text="Aplicación para promover una experiencia de convivencia positiva y organizada entre compañeros de piso"
-  mockup={pomodogMockup}
+  mockup={homiMockup}
   items={gridItems}
   details={details}
+  colorVariant="yellow-light"
   metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la metodología Design Sprint, un proceso intensivo que ayuda a resolver problemas y desarrollar soluciones eficaces de forma rápida y eficiente."
-  mockupImage={pomodogMockup}/>
+  mockupImage={homiPhone}/>
 
 
   <ProjectCases 
   textCaseStudy="HOMI es una app diseñada para mejorar la convivencia entre compañeros de piso a través de la gamificación y la organización compartida. Su objetivo es fomentar dinámicas positivas y equilibradas mediante actividades grupales, gestión de gastos y comunicación efectiva."
   points={points}
   images={imagesMasonry}
-  title="Pomodog"
+  title="Homi"
   />
 
-  <ProjectPhases titleMethodology="Metodología Design Sprint" boxPhases={phasesBox} phases={phasesData}>
+  <ProjectPhases 
+    titleMethodology="Metodología Design Sprint" 
+    boxPhases={phasesBox} 
+    phases={phasesData}
+    backgroundColorContainer="var(--color-yellow-light)">
 
     <Fragment slot="phase1">
-      {phasesData[0].tables && phasesData[0].tables.map((table) => (
-        <TableBlock
-          rows={table.rows}
-          headerText={table.headerText}
-          headerColor={table.headerColor}
-        />
-      ))}
+      <Carousel slides={images} autoplay={false} interval={8000} client:load>
+        <Fragment slot="slide-0">
+          {phasesData[0].tables && phasesData[0].tables.map((table) => (
+            <TableBlock
+              rows={table.rows}
+              headerText={table.headerText}
+              headerColor={table.headerColor}
+            />
+          ))}
+        </Fragment>
+        <Fragment slot="slide-1">
+          {phasesData[0].table2 && phasesData[0].table2.map((table) => (
+            <TableBlock
+              rows={table.rows}
+              headerText={table.headerText}
+            />
+          ))}
+        </Fragment>
+        <Fragment slot="slide-2">
+          {phasesData[0].table3 && phasesData[0].table3.map((table) => (
+            <TableBlock
+              rows={table.rows}
+              headerText={table.headerText}
+            />
+          ))}        
+        </Fragment>
+        <Fragment slot="slide-3">
+          <!-- <Image  width={200} src={homiUser} alt="Slide 1" />
+          <Image  width={200} src={homiUser2} alt="Slide 1" /> -->
+
+        </Fragment>
+      </Carousel>
+
+
+      
     </Fragment>
   
     <Fragment slot="phase2">
@@ -215,10 +278,11 @@ const images = [pomodogMk1, pomodogMk1, pomodogMk1];
     </Fragment>
   
     <Fragment slot="phase3">
+      
     </Fragment>
 
     <Fragment slot="phase4">
-      <Carousel slides={images} autoplay :interval="4000" client:load>
+      <Carousel slides={images} autoplay={false} interval={4000} client:load>
         <Fragment slot="slide-0">
           <Image  width={200} src={images[0]} alt="Slide 1" />
         </Fragment>
@@ -228,7 +292,8 @@ const images = [pomodogMk1, pomodogMk1, pomodogMk1];
         <Fragment slot="slide-2">
           <Image width={200}  src={images[2]} alt="Slide 1" />
         </Fragment>
-      </Carousel>      </Fragment>
+      </Carousel>
+    </Fragment>
 
   </ProjectPhases>
 

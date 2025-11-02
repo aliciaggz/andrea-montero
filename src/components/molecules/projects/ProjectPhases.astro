@@ -3,17 +3,14 @@ const {
   titleMethodology, 
   phases, 
   boxPhases,
+  backgroundColorContainer = 'var(--color-blue-light)'
   } = Astro.props;
 
 import BoxPhase from './BoxPhase.astro';
 import PhaseContainer from './PhaseContainer.astro';
-import TableBlock from '@/components/atoms/TableBlock.astro';
+
 const slotNames = ["phase1","phase2", "phase3", "phase4"];
 
-const rows = [
-  "Si los usuarios cuidan un cachorro virtual mientras usan la técnica Pomodoro",
-  "Aumentarán su tiempo de concentración"
-];
 ---
 
 <section id="phases-container" class="project-phases project-phase__extended">
@@ -31,7 +28,7 @@ const rows = [
     title={phase.title}
     text={phase.text}
     text2={phase.text2}
-    color="var(--color-blue-light)"
+    color={backgroundColorContainer}
     titleWrapper={phase.titleWrapper}
     reverse={phase.reverse}>
       {index === 0 && <slot name="phase1" />}
@@ -63,7 +60,6 @@ const rows = [
     justify-content: center;
     // margin-top: 2rem;
   }
-
 }
 
 .show {

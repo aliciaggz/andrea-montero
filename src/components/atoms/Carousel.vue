@@ -52,12 +52,8 @@ onBeforeUnmount(() => {
     <!-- Slides track -->
     <div class="carousel__viewport">
       <div class="carousel__track" :style="trackStyle">
-        <div
-          v-for="(slide, index) in slides"
-          :key="index"
-          class="carousel__slide"
-          :class="{ 'carousel__slide--active': index === current }"
-        >
+        <div v-for="(slide, index) in slides" :key="index" class="carousel__slide"
+          :class="{ 'carousel__slide--active': index === current }">
           <slot :name="'slide-' + index">{{ slide }}</slot>
         </div>
       </div>
@@ -65,12 +61,7 @@ onBeforeUnmount(() => {
 
     <!-- Dots -->
     <div class="carousel__dots">
-      <button
-        v-for="(_, i) in slides"
-        :key="i"
-        :class="{ active: i === current }"
-        @click="current = i"
-      ></button>
+      <button v-for="(_, i) in slides" :key="i" :class="{ active: i === current }" @click="current = i"></button>
     </div>
   </div>
 </template>
@@ -100,7 +91,8 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: scale(0.9);
+  /* transform: scale(0.9); */
+  gap: 1rem;
 }
 
 .carousel__slide--active {
@@ -123,8 +115,13 @@ onBeforeUnmount(() => {
   z-index: 10;
 }
 
-.carousel__nav--prev { left: 1rem; }
-.carousel__nav--next { right: 1rem; }
+.carousel__nav--prev {
+  left: 1rem;
+}
+
+.carousel__nav--next {
+  right: 1rem;
+}
 
 /* Dots */
 .carousel__dots {

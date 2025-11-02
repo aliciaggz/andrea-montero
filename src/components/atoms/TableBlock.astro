@@ -25,7 +25,8 @@ const { headerText, headerColor = "#FDC51E", rows } = Astro.props;
 <style lang="scss" scoped>
 .table-block {
   width: 100%;
-  max-width: 500px;
+  max-width: 18rem;
+  max-height: 18rem;
   // margin: 2rem auto;
   border-radius: 0.32rem;
   overflow: hidden;
@@ -55,7 +56,7 @@ const { headerText, headerColor = "#FDC51E", rows } = Astro.props;
 }
 
 .table-row {
-  padding: 1.25rem 1.5rem;
+  padding: 1rem;
   border-top: 1px solid rgba(0,0,0,0.08);
   font-size: 1rem;
   line-height: 1.4;

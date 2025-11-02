@@ -31,3 +31,11 @@ body {
   --color-yellow: #FDC51E;
   --color-blue-electric: #1869FF;
 }
+
+.color-accent-blue-electric {
+  color: $color-blue-electric;
+}
+
+.color-accent-red {
+  color: $color-red;
+}
