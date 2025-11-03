@@ -4,7 +4,8 @@ const {
   images, 
   textCaseStudy, 
   points, 
-  title
+  title,
+  columns
  
   } = Astro.props;
 
@@ -35,7 +36,7 @@ import Button from '@/components/atoms/Button.astro';
     </ul>
   </section>
 
-  <MasonryShowcase bgColorImg={bgColorImg} images={images}/>
+  <MasonryShowcase bgColorImg={bgColorImg} images={images} columns={columns}/>
 
   <section class="project-phase__continue">
     <p class="project-phase__continue-text">

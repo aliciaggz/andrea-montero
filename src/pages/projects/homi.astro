@@ -28,10 +28,14 @@ import homiMk5 from '@/assets/homi-mk-5.png';
 import homiMk6 from '@/assets/homi-mk-6.png';
 import homiMk7 from '@/assets/homi-mk-7.png';
 import homiMk8 from '@/assets/homi-mk-8.png';
-import pomodogMk9 from '@/assets/pomodog-mk-9.png';
-import pomodogMk10 from '@/assets/pomodog-mk-10.png';
-import pomodogMk11 from '@/assets/pomodog-mk-11.png';
-import pomodogMk12 from '@/assets/pomodog-mk-12.png';
+import homiMk9 from '@/assets/homi-mk-9.png';
+import homiMk10 from '@/assets/homi-mk-10.png';
+import homiMk11 from '@/assets/homi-mk-11.png';
+import homiMk12 from '@/assets/homi-mk-12.png';
+import homiMk13 from '@/assets/homi-mk-13.png';
+import homiMk14 from '@/assets/homi-mk-14.png';
+import homiMk15 from '@/assets/homi-mk-15.png';
+
 
 const gridItems = [
   { title: 'Habilidad', text: 'UX Research, UI Design, Prototyping, Testing' },
@@ -93,18 +97,21 @@ const points = [
 ]
 
 const imagesMasonry = [
-  { src: homiMk1, alt: 'Imagen 1 de Pomodog' },
-  { src: homiMk2, alt: 'Imagen 2 de Homi' },
-  { src: homiMk3, alt: 'Imagen 2 de homi' },
-  { src: homiMk4, alt: 'Imagen 2 de homi' },
-  { src: homiMk5, alt: 'Imagen 2 de Pomodog' },
-  { src: homiMk6, alt: 'Imagen 2 de homi' },
-  { src: homiMk7, alt: 'Imagen 2 de homi' },
-  { src: homiMk8, alt: 'Imagen 2 de homi' },
-  { src: pomodogMk9, alt: 'Imagen 2 de Pomodog' },
-  { src: pomodogMk10, alt: 'Imagen 2 de Pomodog' },
-  { src: pomodogMk11, alt: 'Imagen 2 de Pomodog' },
-  { src: pomodogMk12, alt: 'Imagen 2 de Pomodog' },
+  { src: homiMk1},
+  { src: homiMk2 },
+  { src: homiMk3 },
+  { src: homiMk4 },
+  { src: homiMk5 },
+  { src: homiMk6 },
+  { src: homiMk14 },
+  { src: homiMk7 },
+  { src: homiMk8 },
+  { src: homiMk9 },
+  { src: homiMk10 },
+  { src: homiMk11 },
+  { src: homiMk12 },
+  { src: homiMk13 },
+  { src: homiMk15 },
 ];
 
 const phasesData = [
@@ -220,7 +227,9 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1];
   textCaseStudy="HOMI es una app diseñada para mejorar la convivencia entre compañeros de piso a través de la gamificación y la organización compartida. Su objetivo es fomentar dinámicas positivas y equilibradas mediante actividades grupales, gestión de gastos y comunicación efectiva."
   points={points}
   images={imagesMasonry}
+  columns={4}
   title="Homi"
+  bgColorImg="var(--color-yellow-light)"
   />
 
   <ProjectPhases 

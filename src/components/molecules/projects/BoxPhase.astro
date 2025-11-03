@@ -27,14 +27,13 @@ import { Image } from 'astro:assets';
   padding: 1rem;
   background-color: var(--bg-color);
   border-radius: 1rem;
-  margin-bottom: 5rem;
 
   &__icon {
     max-width: 4rem;
     height: auto;
   }
 
-  &__text{
+  &__text {
     font-family: $font-poppins;
     font-size: $font-size-md;
     font-weight: 600;
@@ -42,6 +41,20 @@ import { Image } from 'astro:assets';
     text-align: center;
     margin-top: 1rem;
   }
+
+  @media (max-width: 768px) {
+    width: 7.25rem;
+    height: 7.25rem;
+
+    &__icon {
+      max-width: 3rem;
+    }
+
+    &__text{
+      font-size: $font-size-sm;
+    }
+  }
+
 
 }
 </style>

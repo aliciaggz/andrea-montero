@@ -83,9 +83,10 @@ import Face from '@/assets/face.svg';
 
 <style scoped lang="scss">
 .project {
+  width: 100%;
   margin-top: 12rem;
   margin-bottom: 8rem;
-  margin-inline: 4.5rem;
+  padding-inline: 4.5rem;
 
   &__logo-wrapper {
     width: 32rem;        // ancho máximo uniforme
@@ -255,6 +256,39 @@ import Face from '@/assets/face.svg';
   :global(.project__button) {
     margin: 0 auto 6.25rem auto;
     display: block;
+  }
+
+  @media (max-width: 768px) {
+    // width: 100%;
+    padding-inline: 2rem;
+
+    &__logo-wrapper {
+      width: 10rem;        // ancho máximo uniforme
+      height: auto;       // altura máxima uniforme
+      margin-bottom: 1rem;
+    }
+
+    &__text {
+      font-size: $font-size-xs;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 4rem;
+      gap: 1rem;
+    }
+
+    &__grid-2 {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    &__container-image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 3rem;
+    }
   }
 
 }

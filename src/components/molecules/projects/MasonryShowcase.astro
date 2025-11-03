@@ -4,15 +4,16 @@ import type { ImageMetadata } from "astro";
 export interface Props {
   images: { src: ImageMetadata; alt?: string }[];
   bgColorImg?: string;
+  columns?: number; 
 }
 
-const { images, bgColorImg = "#ABC8FF" } = Astro.props;
+const { images, bgColorImg = "#ABC8FF", columns = 3 } = Astro.props;
 
 import { Image } from 'astro:assets';
 
 ---
 
-<section class="masonry-section" style={`--bg:${bgColorImg}`}>
+<section class="masonry-section" style={`--bg:${bgColorImg}; --columns:${columns}`}>
   <div class="grid" id="masonry-grid">
     <div class="grid-sizer"></div>
     {images.map((img) => (
@@ -60,7 +61,7 @@ import { Image } from 'astro:assets';
 /* Define el ancho de las columnas */
 .grid-sizer,
 .grid-item {
-  width: 30%; 
+  width: calc(100% / var(--columns) - 0.933rem); // resta el gutter
 }
 
 .grid-item {
@@ -92,9 +93,14 @@ import { Image } from 'astro:assets';
   }
 }
 @media (max-width: 600px) {
-  .grid-sizer,
+ 
   .grid-item {
-    width: 100%;
+    margin-bottom: 1rem;
   }
+
+  .masonry-section {
+    --columns: 2; /* incluso en móvil, 2 columnas en vez de 1 */
+  }
+
 }
 </style>

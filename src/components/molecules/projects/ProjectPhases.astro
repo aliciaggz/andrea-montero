@@ -42,9 +42,9 @@ const slotNames = ["phase1","phase2", "phase3", "phase4"];
 <style lang="scss" scoped>
 
 .project-phases {
-  // width: 100%;
+  width: 100%;
   // display: none;
-  margin-inline: 4.5rem;
+  padding-inline: 4.5rem;
   opacity: 1;
   transition: opacity .3s ease, display .3s ease allow-discrete; 
 
@@ -58,7 +58,14 @@ const slotNames = ["phase1","phase2", "phase3", "phase4"];
     display: flex;
     gap: 4rem;
     justify-content: center;
+    margin-bottom: 5rem;
     // margin-top: 2rem;
+
+    @media (max-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); 
+      gap: 1rem;
+    }
   }
 }
 
