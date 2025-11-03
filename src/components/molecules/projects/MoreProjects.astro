@@ -10,10 +10,10 @@ import Peace from '@/assets/peace.svg';
   </div>
   <div class="more-projects__labels-container">
     {prevLink && (
-      <a href={prevLink} class="more-projects__labels-container__label">anterior</a>
+      <a href={`${import.meta.env.SITE}${prevLink}`} class="more-projects__labels-container__label">anterior</a>
     )}
     {nextLink && (
-      <a href={nextLink} class="more-projects__labels-container__label">próximo</a>
+      <a href={`${import.meta.env.SITE}${nextLink}`} class="more-projects__labels-container__label">próximo</a>
     )}
   </div>
 </div>
@@ -112,7 +112,9 @@ import Peace from '@/assets/peace.svg';
       }
 
       &__text {
-        font-size: $font-size-sm;
+        font-size: $font-size-sm;  
+        width: 100%;
+
       }
 
       &__labels-container{
