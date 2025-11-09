@@ -19,19 +19,17 @@ const details = [
   { title: 'Objetivo', text: 'Optimizar la arquitectura de la información y el diseño visual para ofrecer una navegación fluida, intuitiva y accesible. El objetivo fue mejorar la retención de usuarios y reflejar una identidad digital más actual y coherente.' },
 ];
 
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <ProjectLayout currentProjectId={4}>
   <ProjectHeader 
   logo={posada}
   title="Pomodog"
-  text="La Posada San Martín es un alojamiento situado en Cuenca. Su sitio web necesitaba un rediseño para mejorar la usabilidad"
+  text="La Posada San Martín es <strong>un alojamiento situado en Cuenca.</strong> Su sitio web necesitaba un rediseño para <strong>mejorar la usabilidad</strong>"
   mockup={pomodogMockup}
   items={gridItems}
   details={details}
   metodologyText="Se aplicó un análisis heurístico para identificar problemas de usabilidad y definir oportunidades de mejora. A través de los principios de Nielsen, se evaluaron la consistencia visual, la visibilidad del estado del sistema, el control del usuario y la correspondencia entre el diseño y el modelo mental del usuario."
-  mockupImage={pomodogMockup}/>
+  mockupImage={pomodogMockup}
+  colorFirstText="#9C0000"/>
 </Layout>
