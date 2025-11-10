@@ -1,10 +1,33 @@
 ---
 import Peace from '@/assets/peace.svg';
 
+// Tu correo
+const email = "andreamonterher@gmail.com";
+const subject = "Hola Andrea";
+const body = "¡Hola! Vi tu portafolio y me encantaría hablar contigo.";
+const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
 ---
+<script>
+  document.querySelectorAll('.contact__container').forEach(el => {
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const link = isMobile
+        ? (el as HTMLElement).dataset.mailto
+        : (el as HTMLElement).dataset.gmail;
+      window.location.href = link ?? '';
+    });
+  });
+</script>
 
 <div class="contact">
-  <a href="mailto:tu-correo@gmail.com?subject=Hola%20Andrea&body=¡Hola!%20Vi%20tu%20portafolio%20y%20me%20encantaría%20hablar." class="contact__container">
+  <a
+  href={mailtoUrl}
+  data-mailto={mailtoUrl}
+  data-gmail={gmailUrl}
+  class="contact__container">
     <Peace class="contact__image" />
     <p class="contact__ask">¿Crees que vibramos?</p>
     <p class="contact__text">Get in touch</p>
