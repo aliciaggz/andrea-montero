@@ -117,7 +117,6 @@ const imagesMasonry = [
 const phasesData = [
   {
     title: "Fase 1: Empatizar",
-    titleWrapper: "Generación de hipótesis",
     text: "Nos enfocamos en entender el reto y el contexto, formulando preguntas clave para guiar el proceso.",
     text2: "Realizamos <span class='color-accent-blue-electric'> brainstorming </span>, creamos un <span class='color-accent-blue-electric'>journey map</span> para visualizar la experiencia del usuario, definimos oportunidades con <span class='color-accent-blue-electric'>“How might we?”</span> y desarrollamos perfiles de personas que representan a nuestros usuarios.",
     tables: [
@@ -174,7 +173,7 @@ const phasesData = [
   {
     title: "Fase 2: Idear",
     titleWrapper: "Construcción de MVP",
-    text: "Exploramos referencias y soluciones existentes mediante lightning demos y definimos la identidad corporativa. Y, terminamos con un repaso general y aplicamos la técnica Crazy 8s para generar distintas ideas y enfoques creativos.",
+    text: "Exploramos referencias y soluciones existentes mediante <span class='color-accent-blue-electric'>lightning demos</span> y definimos la <span class='color-accent-blue-electric'>identidad corporativa</span>. Y, terminamos con un repaso general y aplicamos la técnica <span class='color-accent-blue-electric'>Crazy 8s</span> para generar distintas ideas y enfoques creativos.",
     reverse: true,
     tables: [
       { 
@@ -194,15 +193,20 @@ const phasesData = [
     ],
   },
   {
-    title: "Fase 3: Diseño rápido y creación de prototipos",
-    titleWrapper: "Prototipo",
-    text: "En esta fase se realizaron prototipos iterativos para validar la experiencia de usuario antes de desarrollar el producto completo con la herramienta Figma.",
+    title: "Fase 3: Decidir",
+    titleWrapper: "Objetivos después de la votación Crazy8",
+    text: "Llevamos a cabo un proceso de votación para seleccionar las ideas más viables para el diseño de la aplicación a través de la técnica <span class='color-accent-blue-electric'>Crazy 8s.</span>",
   },
   {
-    title: "Fase 4: Testear",
+    title: "Fase 4: Diseño y creación de prototipos",
+    titleWrapper: "Prototipo",
+    text: "Hecemos los wireframes con la herramienta Whimsical y diseñamos el prototipo de alta fidelidad con la herramienta Figma.",
+    reverse: true,
+  },
+  {
+    title: "Fase 5: Testear",
     titleWrapper: "Testing",
     text: "Se realizaron tests de usabilidad y motivación para validar si las hipótesis se cumplían y la experiencia era efectiva con la herramienta Maze.",
-    reverse: true,
   },
 ];
 
@@ -239,6 +243,8 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1];
     backgroundColorContainer="var(--color-yellow-light)">
 
     <Fragment slot="phase1">
+      <h5 class="phase-container__title">Ideación de soluciones</h5>
+
       <Carousel slides={images} autoplay={false} interval={8000} client:load>
         <Fragment slot="slide-0">
           {phasesData[0].tables && phasesData[0].tables.map((table) => (
@@ -266,14 +272,11 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1];
           ))}        
         </Fragment>
         <Fragment slot="slide-3">
-          <!-- <Image  width={200} src={homiUser} alt="Slide 1" />
-          <Image  width={200} src={homiUser2} alt="Slide 1" /> -->
+          <!-- <Image  src={homiUser} alt="Slide 1" />
+          <Image  src={homiUser2} alt="Slide 1" /> -->
 
         </Fragment>
       </Carousel>
-
-
-      
     </Fragment>
   
     <Fragment slot="phase2">
@@ -304,6 +307,21 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1];
       </Carousel>
     </Fragment>
 
+    <Fragment slot="phase5">
+   
+
+    </Fragment>
+
   </ProjectPhases>
 
 </Layout>
+
+<style lang="scss">
+.phase-container__title {
+  font-family: $font-poppins;
+  font-size: $font-size-lg;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+</style>

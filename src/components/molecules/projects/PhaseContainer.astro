@@ -19,10 +19,13 @@ const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false } = 
     {text2 && <p set:html={text2}  class="phase-container__text-block__paragraph"></p>}
   </div>
   <div class="phase-container__wrapper" style={`--color:${color}`}>
-    <h5 class="phase-container__wrapper__title">{titleWrapper}</h5>
+    {titleWrapper ? <h5 class="phase-container__wrapper__title">{titleWrapper}</h5>  
     <div class="phase-container__wrapper__table">
       <slot />
-    </div>
+    </div> 
+    :
+    <slot />
+    }
   </div>
 </div>
 
