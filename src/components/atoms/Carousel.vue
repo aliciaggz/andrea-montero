@@ -74,25 +74,31 @@ onBeforeUnmount(() => {
 }
 
 .carousel__viewport {
-  overflow: hidden;
   width: 100%;
+  /* height: 400px; */
+  overflow: hidden;
+}
+
+.carousel__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel__slide :deep(img) {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 
 .carousel__track {
   display: flex;
   transition: transform 0.5s ease;
   width: 100%;
-}
-
-.carousel__slide {
-  flex: 0 0 100%;
-  opacity: 0.4;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* transform: scale(0.9); */
-  gap: 1rem;
 }
 
 .carousel__slide--active {

@@ -8,7 +8,8 @@ const {
   details, 
   mockupImage, 
   metodologyText, 
-  colorVariant} = Astro.props;
+  colorVariant,
+  colorFirstText} = Astro.props;
 
 import { Image } from 'astro:assets';
 import Button from '@/components/atoms/Button.astro';
@@ -21,7 +22,7 @@ import Face from '@/assets/face.svg';
     <div class="project__logo-wrapper">
       <Image src={logo} alt={title} class="project__logo" />
     </div>
-    <p class="project__text" set:html={text}></p>
+    <p class="project__text" style=`color: ${colorFirstText};` set:html={text}></p>
 
   <div>
     <Image height={376} class={`project__mockup project__mockup--${colorVariant}`} src={mockup} alt="mockup-varios"/>
@@ -51,29 +52,15 @@ import Face from '@/assets/face.svg';
       </div>
     ))}
   </section>
-  
-  <Image class={`project__container-image project__container-image--${colorVariant}`} src={mockupImage} alt="mockup"/>
 
   <section class="project__metodology">
     <h3 class="project__metodology__title">Metodología de trabajo</h3>
     <p class="project__metodology__text">{metodologyText}</p>
   </section>
 
-  <Face class="project__face"/>
+  <Image class={`project__container-image project__container-image--${colorVariant}`} src={mockupImage} alt="mockup"/>
 
   <!-- <section class="project__continue">
-    <p class="project__continue-text">
-      Haz clic si quieres ver una versión extendida del proyecto
-    </p>
-
-    <Arrow width={62} class="project__continue-icon" />
-
-    <button 
-      type="button"
-      class="project__button"
-      aria-label="Ver fases del proyecto">
-      Fases del proyecto
-    </button>
 
     <p class="project__continue-note">
       Si prefieres una versión más corta, esto es <span style="text-transform: uppercase;">{title}</span>
@@ -92,8 +79,6 @@ import Face from '@/assets/face.svg';
     width: 32rem;        // ancho máximo uniforme
     height: 12rem;       // altura máxima uniforme
     display: flex;
-    // justify-content: center;
-    // align-items: center;
     overflow: hidden;    // recorta si es más grande
     // margin: 0 auto 1.5rem auto;
     margin-bottom: 2rem;
@@ -194,7 +179,6 @@ import Face from '@/assets/face.svg';
     display: block;
     border-radius: 1rem;
     margin: auto;
-    margin-bottom: 4rem;
     background-color: $color-blue-light;
 
     &--red-light {
@@ -211,6 +195,7 @@ import Face from '@/assets/face.svg';
   }
 
   &__metodology {
+    margin-bottom: 8rem;
     font-family: $font-poppins;
 
     &__title {
@@ -287,7 +272,6 @@ import Face from '@/assets/face.svg';
     &__container-image {
       width: 100%;
       height: auto;
-      margin-bottom: 3rem;
     }
   }
 
