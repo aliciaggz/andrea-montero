@@ -101,11 +101,6 @@ onBeforeUnmount(() => {
   width: 100%;
 }
 
-.carousel__slide--active {
-  opacity: 1;
-  transform: scale(1);
-}
-
 /* Arrows */
 .carousel__nav {
   position: absolute;
@@ -122,11 +117,11 @@ onBeforeUnmount(() => {
 }
 
 .carousel__nav--prev {
-  left: 1rem;
+  left: 0;
 }
 
 .carousel__nav--next {
-  right: 1rem;
+  right: 0;
 }
 
 /* Dots */

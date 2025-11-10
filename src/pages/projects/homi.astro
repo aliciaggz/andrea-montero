@@ -6,6 +6,11 @@ import homiPhone from '@/assets/homi-phone.png';
 import homiUser from '@/assets/homi-user.png';
 import homiUser2 from '@/assets/homi-user-2.png';
 import homiJourney from '@/assets/homi-journey.png';
+import homiLightning from '@/assets/homi-lightning.png';
+import homiCrazy from '@/assets/homi-crazy.png';
+import homiCorp from '@/assets/homi-corp.png';
+import homiPrototipo from '@/assets/homi-prototipo.png';
+
 import { Image } from 'astro:assets';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
@@ -172,7 +177,6 @@ const phasesData = [
   },
   {
     title: "Fase 2: Idear",
-    titleWrapper: "Construcción de MVP",
     text: "Exploramos referencias y soluciones existentes mediante <span class='color-accent-blue-electric'>lightning demos</span> y definimos la <span class='color-accent-blue-electric'>identidad corporativa</span>. Y, terminamos con un repaso general y aplicamos la técnica <span class='color-accent-blue-electric'>Crazy 8s</span> para generar distintas ideas y enfoques creativos.",
     reverse: true,
     tables: [
@@ -209,7 +213,6 @@ const phasesData = [
   },
   {
     title: "Fase 4: Diseño y creación de prototipos",
-    titleWrapper: "Prototipo",
     text: "Hecemos los wireframes con la herramienta Whimsical y diseñamos el prototipo de alta fidelidad con la herramienta Figma.",
     reverse: true,
   },
@@ -254,63 +257,92 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
     backgroundColorContainer="var(--color-yellow-light)">
 
     <Fragment slot="phase1">
-      <h5 class="phase-container__title">Ideación de soluciones</h5>
 
       <Carousel slides={5} autoplay={false} interval={8000} client:load>
-        <Fragment slot="slide-0">
-          {phasesData[0].tables && phasesData[0].tables.map((table) => (
-            <TableBlock
-              rows={table.rows}
-              headerText={table.headerText}
-              headerColor={table.headerColor}
-            />
-          ))}
-        </Fragment>
-        <Fragment slot="slide-1">
+        <div class="phase-container__project-wrapper" slot="slide-0">
+          <h5 class="phase-container__title">Brainstorming</h5>
+          <div class="phase-container__container-wrapper">
+            {phasesData[0].tables && phasesData[0].tables.map((table) => (
+              <TableBlock
+                rows={table.rows}
+                headerText={table.headerText}
+                headerColor={table.headerColor}
+              />
+            ))}
+          </div>
+        </div>
+        <div class="phase-container__project-wrapper" slot="slide-1">
+          <h5 class="phase-container__title">How Might We</h5>
           {phasesData[0].table2 && phasesData[0].table2.map((table) => (
             <TableBlock
               rows={table.rows}
               headerText={table.headerText}
             />
           ))}
-        </Fragment>
-        <Fragment slot="slide-2">
+        </div>
+        <div class="phase-container__project-wrapper" slot="slide-2">
+          <h5 class="phase-container__title">Sprint Question</h5>
+
           {phasesData[0].table3 && phasesData[0].table3.map((table) => (
             <TableBlock
               rows={table.rows}
               headerText={table.headerText}
             />
           ))}        
-        </Fragment>
-        <Fragment slot="slide-3">
-        <div class="carousel__image-container">
-          <figure class="carousel__image-wrapper">
-              <Image class="slide__image" src={homiUser} alt="Slide 1" />
-          </figure>
-
-          <figure class="carousel__image-wrapper">
-            <Image class="slide__image" src={homiUser2} alt="Slide 1" />
-          </figure>
         </div>
-        </Fragment>
-        <Fragment slot="slide-4">
+        <div class="phase-container__project-wrapper" slot="slide-3">
+          <h5 class="phase-container__title">User Persona</h5>
+          <div class="carousel__image-container">
+            <figure class="carousel__image-wrapper">
+                <Image class="slide__image" src={homiUser} alt="Slide 1" />
+            </figure>
+
+            <figure class="carousel__image-wrapper">
+              <Image class="slide__image" src={homiUser2} alt="Slide 1" />
+            </figure>
+          </div>
+        </div>
+        <div class="phase-container__project-wrapper" slot="slide-4">
+          <h5 class="phase-container__title">Journey Map - Marcos</h5>
           <div class="carousel__image-container">
             <figure class="carousel__image-wrapper__journey">
               <Image class="slide__image" src={homiJourney} alt="journey" />
             </figure>
           </div>
-        </Fragment>
+        </div>
       </Carousel>
     </Fragment>
   
     <Fragment slot="phase2">
-        {phasesData[1].tables && phasesData[1].tables.map((table) => (
-          <TableBlock
-            rows={table.rows}
-            headerText={table.headerText}
-            headerColor={table.headerColor}
-          />
-        ))}
+      <Carousel slides={3} autoplay={false} interval={8000} client:load>
+        <div class="phase-container__project-wrapper" slot="slide-0">
+            <h5 class="phase-container__title">Lightning Demos</h5>
+            <div class="carousel__image-container">
+              <figure class="carousel__image-wrapper">
+                  <Image class="slide__image" src={homiLightning} alt="Slide 1" />
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="phase-container__project-wrapper" slot="slide-1">
+          <h5 class="phase-container__title">Identidad corporativo</h5>
+          <div class="carousel__image-container">
+            <figure class="carousel__image-wrapper">
+                <Image class="slide__image" src={homiCorp} alt="Slide 1" />
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="phase-container__project-wrapper" slot="slide-2">
+          <h5 class="phase-container__title">Crazy 8S</h5>
+          <div class="carousel__image-container">
+            <figure class="carousel__image-wrapper">
+                <Image class="slide__image" src={homiCrazy} alt="Slide 1" />
+            </figure>
+          </div>
+        </div>
+      </div>
+      </Carousel>
     </Fragment>
   
     <Fragment slot="phase3">
@@ -323,16 +355,15 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
     </Fragment>
 
     <Fragment slot="phase4">
-      <Carousel slides={4} autoplay={false} interval={4000} client:load>
-        <Fragment slot="slide-0">
-          <Image  width={200} src={images[0]} alt="Slide 1" />
-        </Fragment>
-        <Fragment slot="slide-1">
-          <Image width={200}  src={images[1]} alt="Slide 1" />
-        </Fragment>
-        <Fragment slot="slide-2">
-          <Image width={200}  src={images[2]} alt="Slide 1" />
-        </Fragment>
+      <Carousel slides={2} autoplay={false} interval={4000} client:load>
+        <div class="phase-container__project-wrapper" slot="slide-0">
+          <h5 class="phase-container__title">User Persona</h5>
+          <div class="carousel__image-container">
+            <figure class="carousel__image-wrapper">
+                <Image class="slide__image" src={homiPrototipo} alt="Homi Prototipo" />
+            </figure>
+          </div>
+        </div>
       </Carousel>
     </Fragment>
 
@@ -346,11 +377,29 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
 </Layout>
 
 <style lang="scss">
-.phase-container__title {
-  font-family: $font-poppins;
-  font-size: $font-size-lg;
-  font-weight: 600;
-  margin-bottom: 1rem;
+.phase-container{
+  width: 100%;
+  &__project-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+  &__title {
+    font-family: $font-poppins;
+    font-size: $font-size-lg;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__container-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
 }
   // .slide__image {
   //   width: 20rem;
