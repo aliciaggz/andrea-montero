@@ -11,7 +11,7 @@ export default defineConfig({
   integrations: [vue()],
   base: isVercel ? "/" : "/andrea-portfolio",
   site: isVercel
-    ? "https://andrea-portfolio.vercel.app"
+    ? "https://andrea-montero.vercel.app"
     : "https://aliciaggz.github.io/andrea-portfolio",
   vite: {
     resolve: {
