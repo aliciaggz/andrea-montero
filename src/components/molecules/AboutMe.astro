@@ -24,8 +24,7 @@ import kala3 from '@/assets/kala3.png';
       Y, ahora te dejo un pedacito de mi yo real.
     </p>
     <p>Bienvenidx a mi mundo.</p>
-  
-
+    <br/>
     <p>Nací en Madrid, la ciudad que nunca deja de inspirarme con su mezcla de historia, vida urbana y rincones sorprendentes.</p>
     <br/>
     <p>Soy apasionada del fútbol (corro detrás del balón en mi equipo), si hay olas, me verás surfeando️ y si hay una montaña, seguro que estoy explorando.</p>
@@ -67,15 +66,13 @@ import kala3 from '@/assets/kala3.png';
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
-
 
     &__image {
       width: 2.5rem;
     }
 
     &__title {
-      font-size: 1.5rem;
+      font-size: $font-size-xl;
       font-weight: 100;
       margin-top: 2rem;
       margin-bottom: 2rem;
@@ -83,6 +80,7 @@ import kala3 from '@/assets/kala3.png';
 
     &__text {
       font-family: $font-poppins;
+      font-size: $font-size-md;
       font-weight: 300;
       margin-bottom: 5rem;
       text-align: center;
@@ -97,7 +95,7 @@ import kala3 from '@/assets/kala3.png';
       }
 
       &--2 {
-        width: 45%;
+        width: 65%;
         margin-bottom: 5rem;
 
         @media (max-width: 480px) {

@@ -27,8 +27,13 @@ const projects = [
 ];
 
 const currentIndex = projects.findIndex(p => p.id === currentProjectId);
-const prevProject = projects[currentIndex - 1];
-const nextProject = projects[currentIndex + 1];
+// Calcular los índices anterior y siguiente de manera circular
+const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
+const nextIndex = (currentIndex + 1) % projects.length;
+
+// Obtener los proyectos anterior y siguiente
+const prevProject = projects[prevIndex];
+const nextProject = projects[nextIndex];
 ---
 
 <!doctype html>
@@ -146,9 +151,10 @@ const nextProject = projects[currentIndex + 1];
 		display: grid;
 		grid-template-columns: 0.5fr 0fr 1fr; /* 3 columnas de igual tamaño */
 		grid-template-rows: 1fr 1fr 1fr;  
-		margin-bottom: 4rem;
+		// margin-bottom: 4rem;
     align-items: center;
 		text-align: left;
+		gap: 1.25rem;
 
 	}
 

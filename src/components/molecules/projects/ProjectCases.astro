@@ -4,7 +4,6 @@ const {
   images, 
   textCaseStudy, 
   points, 
-  title,
   columns
  
   } = Astro.props;
@@ -12,7 +11,6 @@ const {
 import Flower from '@/assets/flower-blue.svg';
 import Face from '@/assets/face.svg';
 import MasonryShowcase from '@/components/molecules/projects/MasonryShowcase.astro';
-import Arrow from '@/assets/arrow-down.svg';
 import Button from '@/components/atoms/Button.astro';
 
 
@@ -44,8 +42,6 @@ import Button from '@/components/atoms/Button.astro';
       Haz clic si quieres ver una versión extendida del proyecto
     </p>
 
-    <!-- <Arrow width={62} class="project-phase__continue-icon" /> -->
-
     <Button
       class="project-phase__button"
       label="Fases del proyecto"
@@ -73,11 +69,13 @@ import Button from '@/components/atoms/Button.astro';
     font-family: $font-poppins; 
 
     &__title {
-      font-size: $font-size-2xl;
+      font-size: $font-size-xl;
+      font-weight: 500;
+      margin-bottom: 1rem;
     }
 
     &__text {
-      font-size: $font-size-base;
+      font-size: $font-size-md;
     }
   }
 
@@ -101,6 +99,7 @@ import Button from '@/components/atoms/Button.astro';
       display: flex;
       align-items: center;
       gap: 1rem;
+      font-size: $font-size-md;
     }
 
     &__icon {
@@ -109,25 +108,25 @@ import Button from '@/components/atoms/Button.astro';
       flex-shrink: 0;
     }
 
+    &__title {
+      font-weight: 400;
+    }
+
     &__text {
-      font-size: 1rem;
+      font-size: $font-size-md;
       color: $color-gray-light;
+      font-weight: 300;
     }
   }
-
-  // &__face {
-  //   display: block;
-  //   margin: 12rem auto 14rem auto;
-  // }
 
   &__continue {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-top: 5rem;
+    margin-top: 15rem;
     color: $color-red;
-    margin-bottom: 6.25rem;
+    margin-bottom: 18rem;
 
     &-text {
       width: 22rem;

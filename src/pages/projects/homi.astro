@@ -196,6 +196,16 @@ const phasesData = [
     title: "Fase 3: Decidir",
     titleWrapper: "Objetivos después de la votación Crazy8",
     text: "Llevamos a cabo un proceso de votación para seleccionar las ideas más viables para el diseño de la aplicación a través de la técnica <span class='color-accent-blue-electric'>Crazy 8s.</span>",
+    table: [
+      { 
+        rows: [ 
+          "Fomentar la interacción social, facilitar la organización y actividades que fomenten la convivencia",
+          "Crear un entorno de diversión para que los compañeros de piso puedan disfrutar de retos amistosos",
+          "Gestionar su tiempo compartido de forma productiva de actividades sociales como las tareas doméstica",
+        ],
+        headerText: "Objetivos de la app" 
+      },
+    ],
   },
   {
     title: "Fase 4: Diseño y creación de prototipos",
@@ -246,7 +256,7 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
     <Fragment slot="phase1">
       <h5 class="phase-container__title">Ideación de soluciones</h5>
 
-      <Carousel slides={images} autoplay={false} interval={8000} client:load>
+      <Carousel slides={5} autoplay={false} interval={8000} client:load>
         <Fragment slot="slide-0">
           {phasesData[0].tables && phasesData[0].tables.map((table) => (
             <TableBlock
@@ -285,7 +295,7 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
         </Fragment>
         <Fragment slot="slide-4">
           <div class="carousel__image-container">
-            <figure class="carousel__image-wrapper">
+            <figure class="carousel__image-wrapper__journey">
               <Image class="slide__image" src={homiJourney} alt="journey" />
             </figure>
           </div>
@@ -304,11 +314,16 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
     </Fragment>
   
     <Fragment slot="phase3">
-      
+      {phasesData[2].table && phasesData[2].table.map((table) => (
+        <TableBlock
+          rows={table.rows}
+          headerText={table.headerText}
+        />
+      ))}   
     </Fragment>
 
     <Fragment slot="phase4">
-      <Carousel slides={images} autoplay={false} interval={4000} client:load>
+      <Carousel slides={4} autoplay={false} interval={4000} client:load>
         <Fragment slot="slide-0">
           <Image  width={200} src={images[0]} alt="Slide 1" />
         </Fragment>
@@ -337,11 +352,12 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
   font-weight: 600;
   margin-bottom: 1rem;
 }
-  .slide__image {
-    width: 20rem;
-    height: auto;
-    margin-bottom: 0rem;
-  }
+  // .slide__image {
+  //   width: 20rem;
+  //   height: auto;
+  //   margin-bottom: 0rem;
+
+  // }
 
   .carousel__image-container {
     width: 100%;
@@ -361,6 +377,10 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
   align-items: center;
   overflow: hidden;
   border-radius: 1rem;
+
+  &__journey {
+    width: 70%;
+  }
 }
 
 // /* Imagen dentro del wrapper */

@@ -3,7 +3,7 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 
 const props = defineProps({
   slides: {
-    type: Array,
+    type: Number,
     required: true
   },
   autoplay: {
@@ -20,11 +20,11 @@ const current = ref(0);
 let timer = null;
 
 function next() {
-  current.value = (current.value + 1) % props.slides.length;
+  current.value = (current.value + 1) % props.slides;
 }
 
 function prev() {
-  current.value = (current.value - 1 + props.slides.length) % props.slides.length;
+  current.value = (current.value - 1 + props.slides) % props.slides;
 }
 
 // Calcular desplazamiento del track
@@ -82,7 +82,7 @@ onBeforeUnmount(() => {
 .carousel__slide {
   flex: 0 0 100%;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;

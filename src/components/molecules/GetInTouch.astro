@@ -4,11 +4,11 @@ import Peace from '@/assets/peace.svg';
 ---
 
 <div class="contact">
-  <div class="contact__container">
+  <a href="mailto:tu-correo@gmail.com?subject=Hola%20Andrea&body=¡Hola!%20Vi%20tu%20portafolio%20y%20me%20encantaría%20hablar." class="contact__container">
     <Peace class="contact__image" />
     <p class="contact__ask">¿Crees que vibramos?</p>
-    <p class="contact__text">Get in touch </p>
-  </div>
+    <p class="contact__text">Get in touch</p>
+  </a>
   <div class="contact__labels-container">
     <a href="#projects" class="contact__labels-container__label">proyectos</a>
     <a href="https://www.linkedin.com/in/andrea-montero-hernandez/" target="_blank" class="contact__labels-container__label">linkedin</a>
@@ -34,6 +34,7 @@ import Peace from '@/assets/peace.svg';
       text-align: center;
       font-family: $font-poppins;
       padding-inline: 6rem;
+      text-decoration: none;
 
       &:hover {
         background-color: $color-turquoise;
