@@ -4,8 +4,9 @@ const {
   images, 
   textCaseStudy, 
   points, 
-  columns
- 
+  columns,
+  hrefButton,
+  targetButton
   } = Astro.props;
 
 import Flower from '@/assets/flower-blue.svg';
@@ -46,6 +47,8 @@ import Button from '@/components/atoms/Button.astro';
       class="project-phase__button"
       label="Fases del proyecto"
       id="toggle-phases"
+      href={hrefButton}
+      target={targetButton}
     />
     
     <script>
