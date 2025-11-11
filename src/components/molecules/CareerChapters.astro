@@ -76,6 +76,10 @@ const jobs = [
     align-items: center;
     margin-top: 5rem;
 
+    @media (max-width: 768px) {
+      margin-top: 2rem;
+    }
+
     &__image {
       width: 3rem;
     }
@@ -85,6 +89,10 @@ const jobs = [
       font-weight: 100;
       margin-top: 2rem;
       margin-bottom: 2rem;
+
+      @media (max-width: 768px) {
+        text-align: center;
+      }
     }
 
     &__text {
@@ -97,14 +105,14 @@ const jobs = [
 
       @media (max-width: 768px) {
         width: 90%;
-        font-size: 0.95rem;
+        font-size: $font-size-base;
         margin-bottom: 4rem;
       }
 
-      @media (max-width: 480px) {
-        width: 65%;
-        font-size: $font-size-base;
-      }
+      // @media (max-width: 480px) {
+      //   width: 65%;
+      //   font-size: $font-size-base;
+      // }
     }
 
 
@@ -188,7 +196,7 @@ const jobs = [
       font-weight: 300;
 
 
-      @media (max-width: 480px) {
+      @media (max-width: 768px) {
         font-size: $font-size-xs;
       }
 
@@ -203,10 +211,18 @@ const jobs = [
           border-bottom: none;
           padding-right: 5rem;
 
+          @media (max-width: 768px) {
+            padding-right: 2rem;
+          }
+
+
         }
 
         &:nth-child(2) {
           padding-right: 5rem;
+          @media (max-width: 768px) {
+            padding-right: 2rem;
+          }
         }
 
         // &:nth-child(3) {
