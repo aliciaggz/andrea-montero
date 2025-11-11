@@ -1,10 +1,25 @@
 ---
-import Welcome from '../../components/Welcome.astro';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
 import posada from '@/assets/hotel-logo.png';
-import pomodogMockup from '@/assets/pomodog-mockup.png';
+import posadaMockup from '@/assets/posada-mockup.png';
+import posadaPC from '@/assets/posada-pc.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
+import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
+
+
+import posadaMk1 from '@/assets/posada-mk-1.png';
+import posadaMk2 from '@/assets/posada-mk-2.png';
+import posadaMk3 from '@/assets/posada-mk-3.png';
+import posadaMk4 from '@/assets/posada-mk-4.png';
+import posadaMk5 from '@/assets/posada-mk-5.png';
+import posadaMk6 from '@/assets/posada-mk-6.png';
+import posadaMk7 from '@/assets/posada-mk-7.png';
+import posadaMk8 from '@/assets/posada-mk-8.png';
+import posadaMk9 from '@/assets/posada-mk-9.png';
+import posadaMk10 from '@/assets/posada-mk-10.png';
+import posadaMk11 from '@/assets/posada-mk-11.png';
+
 
 
 const gridItems = [
@@ -19,6 +34,40 @@ const details = [
   { title: 'Objetivo', text: 'Optimizar la arquitectura de la información y el diseño visual para ofrecer una navegación fluida, intuitiva y accesible. El objetivo fue mejorar la retención de usuarios y reflejar una identidad digital más actual y coherente.' },
 ];
 
+const points = [
+  {
+    title: "Identidad visual limpia y moderna:",
+    text: "Se optó por una paleta neutra con acentos vibrantes que transmiten profesionalismo y frescura. El nuevo diseño prioriza la legibilidad y el contraste, logrando una experiencia equilibrada y visualmente atractiva.",
+  },
+  {
+    title: "Navegación clara y jerárquica:",
+    text: "El nuevo menú simplifica el acceso a la información más relevante. Cada sección está pensada para guiar al usuario de forma natural, reduciendo clics innecesarios y mejorando la comprensión global del sitio.",
+  },
+  {
+    title: "Diseño modular y coherente:",
+    text: "Los componentes visuales fueron rediseñados bajo un sistema escalable que mantiene consistencia entre páginas y facilita futuras actualizaciones.",
+  },
+  {
+    title: "Experiencia centrada en el usuario:",
+    text: "El rediseño elimina fricciones y mejora la orientación dentro del sitio. Las acciones clave se vuelven más evidentes, la información más accesible y la experiencia, más fluida y satisfactoria.",
+  },
+]
+
+const imagesMasonry = [
+  { src: posadaMk1},
+  { src: posadaMk2 },
+  { src: posadaMk3 },
+  { src: posadaMk4 },
+  { src: posadaMk5 },
+  { src: posadaMk6 },
+  { src: posadaMk7 },
+  { src: posadaMk8 },
+  { src: posadaMk9 },
+  { src: posadaMk10 },
+  { src: posadaMk11 },
+];
+
+
 ---
 
 <ProjectLayout currentProjectId={4}>
@@ -26,10 +75,21 @@ const details = [
   logo={posada}
   title="Pomodog"
   text="La Posada San Martín es <strong>un alojamiento situado en Cuenca.</strong> Su sitio web necesitaba un rediseño para <strong>mejorar la usabilidad</strong>"
-  mockup={pomodogMockup}
+  mockup={posadaMockup}
   items={gridItems}
   details={details}
   metodologyText="Se aplicó un análisis heurístico para identificar problemas de usabilidad y definir oportunidades de mejora. A través de los principios de Nielsen, se evaluaron la consistencia visual, la visibilidad del estado del sistema, el control del usuario y la correspondencia entre el diseño y el modelo mental del usuario."
-  mockupImage={pomodogMockup}
+  mockupImage={posadaPC}
   colorFirstText="#9C0000"/>
+
+  <ProjectCases 
+  textCaseStudy="HOMI es una app diseñada para mejorar la convivencia entre compañeros de piso a través de la gamificación y la organización compartida. Su objetivo es fomentar dinámicas positivas y equilibradas mediante actividades grupales, gestión de gastos y comunicación efectiva."
+  points={points}
+  images={imagesMasonry}
+  columns={3}
+  title="Homi"
+  bgColorImg="var(--color-yellow-light)"
+  hrefButton="https://www.figma.com/design/FKXybffg6IWaLRf652vRlg/posada--Copy-?node-id=4802-2&p=f&t=3n30nug1fWff6Gaz-0"
+  targetButton="_blank"
+  />
 </Layout>

@@ -1,11 +1,22 @@
 ---
-import Welcome from '../../components/Welcome.astro';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
 import tiempo from '@/assets/tiempo-logo.png';
-import pomodogMockup from '@/assets/pomodog-mockup.png';
+import retratosMockup from '@/assets/retratos-mockup.png';
+import retratosCirculo from '@/assets/retratos-circulo.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
+import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
 
+
+import retratoMk1 from '@/assets/retrato-mk-1.png';
+import retratoMk2 from '@/assets/retrato-mk-2.png';
+import retratoMk3 from '@/assets/retrato-mk-3.png';
+// import retratoMk4 from '@/assets/retrato-mk-4.png';
+import retratoMk5 from '@/assets/retrato-mk-5.png';
+import retratoMk6 from '@/assets/retrato-mk-6.png';
+import retratoMk7 from '@/assets/retrato-mk-7.png';
+import retratoMk8 from '@/assets/retrato-mk-8.png';
+import retratoMk9 from '@/assets/retrato-mk-9.png';
 
 const gridItems = [
   { title: 'Habilidad', text: 'Fotografía artística, composición visual, diseño editorial, maquetación' },
@@ -20,18 +31,59 @@ const details = [
 ];
 
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const imagesMasonry = [
+  { src: retratoMk1},
+  { src: retratoMk2 },
+  { src: retratoMk3 },
+  // { src: retratoMk4 },
+  { src: retratoMk5 },
+  { src: retratoMk6 },
+  { src: retratoMk7 },
+  { src: retratoMk8 },
+  { src: retratoMk9 },
+];
+
+const points = [
+  {
+    title: "Identidad visual emocional:",
+    text: "Colores cálidos y texturas suaves transmiten nostalgia y cercanía. La combinación de fotografías personales y tipografía poética crea una experiencia íntima y emotiva.",
+  },
+  {
+    title: "Páginas que cuentan historias:",
+    text: "Cada página guía al lector a través de recuerdos y versos, logrando un flujo natural entre imagen y poesía. La composición respeta el ritmo del poema y potencia la carga emocional de las fotografías.",
+  },
+  {
+    title: "Construido como un sistema visual:",
+    text: "Componentes coherentes en tipografía, colores y márgenes garantizan consistencia en todo el fanzine. Escalable para futuras ediciones o colecciones de recuerdos familiares.",
+  },
+  {
+    title: "Experiencia que conmueve:",
+    text: "La interacción del lector con el fanzine genera una conexión emocional, evocando afecto y memoria. Cada página completada ofrece una experiencia estética y sentimental, convirtiendo el fanzine en un tributo tangible y personal.",
+  },
+]
+
 ---
 
 <ProjectLayout currentProjectId={6}>
   <ProjectHeader 
   logo={tiempo}
-  title="Pomodog"
+  title="Retratos del Tiempo"
   text="Fanzine emotivo que <strong>combina fotografía</strong> personal y poesía para celebrar la historia y las <strong>vivencias de mis abuelos</strong>"
-  mockup={pomodogMockup}
+  mockup={retratosMockup}
   items={gridItems}
   details={details}
   metodologyText="Recopilé fotografías y analicé el poema para definir el tono emocional. Creé un moodboard, maqueté el contenido explorando composiciones entre imagen y texto e iteré versiones digitales y físicas. Finalicé con ajustes visuales e impresión artesanal del fanzine."
-  mockupImage={pomodogMockup}/>
+  mockupImage={retratosCirculo}/>
+
+  <ProjectCases 
+  textCaseStudy="RETRATOS DEL TIEMPO es un fanzine que rinde homenaje a mis abuelos y a la huella que dejan en cada persona que tiene la fortuna de cruzarse con ellos. Una celebración de su amor, su dedicación y el legado emocional que han construido a lo largo del tiempo."
+  points={points}
+  images={imagesMasonry}
+  columns={3}
+  title="Retratos del Tiempo"
+  bgColorImg="var(--color-blue-light)"
+  hrefButton="https://www.figma.com/design/FKXybffg6IWaLRf652vRlg/Footfem--Copy-?node-id=4802-2&p=f&t=3n30nug1fWff6Gaz-0"
+  targetButton="_blank"
+  isShowProjectPhasesBtn={false}
+  />
 </Layout>

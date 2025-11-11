@@ -6,7 +6,8 @@ const {
   points, 
   columns,
   hrefButton,
-  targetButton
+  targetButton,
+  isShowProjectPhasesBtn = true,
   } = Astro.props;
 
 import Flower from '@/assets/flower-blue.svg';
@@ -37,7 +38,7 @@ import Button from '@/components/atoms/Button.astro';
 
   <MasonryShowcase bgColorImg={bgColorImg} images={images} columns={columns}/>
 
-  <section class="project-phase__continue">
+  {isShowProjectPhasesBtn && <section class="project-phase__continue">
     <Face/>
     <p class="project-phase__continue-text">
       Haz clic si quieres ver una versión extendida del proyecto
@@ -63,7 +64,7 @@ import Button from '@/components/atoms/Button.astro';
         container?.classList.toggle('show');
       });
     </script>
-  </section>  
+  </section>}  
 
 </section>
 
