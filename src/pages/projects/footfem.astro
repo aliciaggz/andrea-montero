@@ -1,11 +1,26 @@
 ---
-import Welcome from '../../components/Welcome.astro';
 import ProjectLayout from '../../layouts/ProjectLayout.astro';
 import footfem from '@/assets/footfem-logo.png';
-import pomodogMockup from '@/assets/pomodog-mockup.png';
+import footfemMockup from '@/assets/footfem-mockup.png';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
+import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
 
+import footfemPhone from '@/assets/footfem-phone.png';
+
+import footfemMk1 from '@/assets/footfem-mk-1.png';
+import footfemMk2 from '@/assets/footfem-mk-2.png';
+import footfemMk3 from '@/assets/footfem-mk-3.png';
+import footfemMk4 from '@/assets/footfem-mk-4.png';
+import footfemMk5 from '@/assets/footfem-mk-5.png';
+import footfemMk6 from '@/assets/footfem-mk-6.png';
+import footfemMk7 from '@/assets/footfem-mk-7.png';
+import footfemMk8 from '@/assets/footfem-mk-8.png';
+import footfemMk9 from '@/assets/footfem-mk-9.png';
+import footfemMk10 from '@/assets/footfem-mk-10.png';
+import footfemMk11 from '@/assets/footfem-mk-11.png';
+import footfemMk12 from '@/assets/footfem-mk-12.png';
+import footfemMk13 from '@/assets/footfem-mk-13.png';
 
 const gridItems = [
   { title: 'Habilidad', text: 'UX Research, UI Design, Prototyping, Testing' },
@@ -19,6 +34,41 @@ const details = [
   { title: 'Objetivo', text: 'Diseñar una solución digital que facilite la convivencia entre compañeros de piso, mejorando la comunicación, la organización y la gestión de tareas compartidas para reducir conflictos y crear un entorno más equilibrado y positivo' },
 ];
 
+const imagesMasonry = [
+  { src: footfemMk1},
+  { src: footfemMk2 },
+  { src: footfemMk3 },
+  { src: footfemMk4 },
+  { src: footfemMk5 },
+  { src: footfemMk6 },
+  { src: footfemMk7 },
+  { src: footfemMk8 },
+  { src: footfemMk9 },
+  { src: footfemMk10 },
+  { src: footfemMk11 },
+  { src: footfemMk12 },
+  { src: footfemMk13 },
+];
+
+const points = [
+  {
+    title: "Identidad visual enérgica y empoderada:",
+    text: "Colores vibrantes y contrastes dinámicos reflejan la fuerza, pasión y diversidad del fútbol femenino. La interfaz transmite energía y modernidad, sin perder cercanía.",
+  },
+  {
+    title: "Pantallas conectadas y funcionales:",
+    text: "Cada sección —feed social, chat, perfil de jugadora, perfil de entrenador, perfil de equipo, calendario y mapa interactivo— está diseñada para ser clara y motivadora. La interfaz guía sin imponerse, facilitando la interacción y fomentando la conexión dentro de la comunidad del fútbol femenino.",
+  },
+  {
+    title: "Sistema modular y escalable:",
+    text: "Componentes coherentes y adaptables que permiten incorporar nuevas funcionalidades sin perder consistencia visual ni usabilidad.",
+  },
+  {
+    title: "Comunidad que inspira:",
+    text: "Más que una app deportiva, FOOTFEM es un espacio de conexión, crecimiento y visibilidad. Cada jugadora, entrenador o club forma parte de una red que impulsa el futuro del fútbol femenino.",
+  },
+]
+
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -27,12 +77,22 @@ const details = [
 <ProjectLayout currentProjectId={5}>
   <ProjectHeader 
   logo={footfem}
-  title="Pomodog"
+  title="Footfem"
   text="Conecta a jugadoras, entrenadores y equipos de <strong>fútbol femenino</strong>, fomentando la visibilidad <strong>a través de la tecnología</strong>"
-  mockup={pomodogMockup}
+  mockup={footfemMockup}
   items={gridItems}
   details={details}
   metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la metodología Design Sprint, un proceso intensivo que ayuda a resolver problemas y desarrollar soluciones eficaces de forma rápida y eficiente."
-  mockupImage={pomodogMockup}
+  mockupImage={footfemPhone}
   colorFirstText="#00A980"/>
+
+
+  <ProjectCases 
+  textCaseStudy="HOMI es una app diseñada para mejorar la convivencia entre compañeros de piso a través de la gamificación y la organización compartida. Su objetivo es fomentar dinámicas positivas y equilibradas mediante actividades grupales, gestión de gastos y comunicación efectiva."
+  points={points}
+  images={imagesMasonry}
+  columns={4}
+  title="Homi"
+  bgColorImg="var(--color-yellow-light)"
+  />
 </Layout>
