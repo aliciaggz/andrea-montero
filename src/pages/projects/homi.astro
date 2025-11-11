@@ -10,6 +10,11 @@ import homiLightning from '@/assets/homi-lightning.png';
 import homiCrazy from '@/assets/homi-crazy.png';
 import homiCorp from '@/assets/homi-corp.png';
 import homiPrototipo from '@/assets/homi-prototipo.png';
+import homiWireframes from '@/assets/homi-wireframes.png';
+import logoMaze from '@/assets/logo-maze.png';
+import homiInteraction from '@/assets/homi-interaction.png';
+import homiMazeScreen from '@/assets/homi-maze-screen.png';
+import homiMazeScreen2 from '@/assets/homi-maze-screen-2.png';
 
 import { Image } from 'astro:assets';
 
@@ -218,13 +223,46 @@ const phasesData = [
   },
   {
     title: "Fase 5: Testear",
-    titleWrapper: "Testing",
     text: "Se realizaron tests de usabilidad y motivación para validar si las hipótesis se cumplían y la experiencia era efectiva con la herramienta Maze.",
+    tables: [
+      { 
+        rows: [ 
+          "Alta tasa de éxito (92.9%), lo que demuestra que el flujo de interacción fue claro, coherente y fácil de seguir",
+          "Bajo abandono (7.1%), señal de que la experiencia mantiene la atención del usuario y no genera frustración",
+          "Tiempo medio (29.4s) indica eficiencia: los usuarios completan las tareas con rapidez y sin bloqueos",
+        ],
+        headerText: "Feedback positivo" 
+      },
+      { 
+        rows: [
+          "El flujo fue comprendido, pero algunos usuarios mostraron dudas leves en ciertos pasos, como al interpretar iconos",
+          "Hubo una pequeña variación en los tiempos de finalización, lo que podría indicar distintos niveles de familiaridad con la interfaz",
+          "Algunos elementos podrían beneficiarse de microinteracciones o señales visuales más claras",
+        ], 
+        headerText: "Feedback regular", 
+        headerColor: "var(--color-blue-electric)" 
+      },
+      { 
+        rows: [
+          "Tasa de misclicks del 17.6%, lo que refleja errores de precisión o confusión en la jerarquía visual",
+          "Algunos botones o enlaces se percibieron demasiado próximos o poco diferenciados, provocando clics accidentales",
+          "Los usuarios no recibieron confirmación inmediata de acción, generando cierta incertidumbre",
+        ], 
+        headerText: "Feedback negativo" 
+      },
+    ],
+    table2: [
+      { 
+        rows: [ 
+          "Asistente de convivencia: Una mini IA o asistente que sugiera soluciones cuando surjan conflictos",
+          "Modo accesible o simplificado: Una versión con contrastes altos y botones más grandes para mejorar la usabilidad",
+          "Modo “Room Insights”: Un panel que muestre estadísticas y hábitos compartidos",
+        ],
+        headerText: "Oportunidades de mejora" 
+      },
+    ],
   },
 ];
-
-const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
-
 ---
 
 <ProjectLayout currentProjectId={1}>
@@ -257,7 +295,6 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
     backgroundColorContainer="var(--color-yellow-light)">
 
     <Fragment slot="phase1">
-
       <Carousel slides={5} autoplay={false} interval={8000} client:load>
         <div class="phase-container__project-wrapper" slot="slide-0">
           <h5 class="phase-container__title">Brainstorming</h5>
@@ -293,11 +330,11 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
         <div class="phase-container__project-wrapper" slot="slide-3">
           <h5 class="phase-container__title">User Persona</h5>
           <div class="carousel__image-container">
-            <figure class="carousel__image-wrapper">
+            <figure class="carousel__image-wrapper__s">
                 <Image class="slide__image" src={homiUser} alt="Slide 1" />
             </figure>
 
-            <figure class="carousel__image-wrapper">
+            <figure class="carousel__image-wrapper__s">
               <Image class="slide__image" src={homiUser2} alt="Slide 1" />
             </figure>
           </div>
@@ -305,7 +342,7 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
         <div class="phase-container__project-wrapper" slot="slide-4">
           <h5 class="phase-container__title">Journey Map - Marcos</h5>
           <div class="carousel__image-container">
-            <figure class="carousel__image-wrapper__journey">
+            <figure class="carousel__image-wrapper__l">
               <Image class="slide__image" src={homiJourney} alt="journey" />
             </figure>
           </div>
@@ -318,7 +355,7 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
         <div class="phase-container__project-wrapper" slot="slide-0">
             <h5 class="phase-container__title">Lightning Demos</h5>
             <div class="carousel__image-container">
-              <figure class="carousel__image-wrapper">
+              <figure class="carousel__image-wrapper__l">
                   <Image class="slide__image" src={homiLightning} alt="Slide 1" />
               </figure>
             </div>
@@ -327,7 +364,7 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
         <div class="phase-container__project-wrapper" slot="slide-1">
           <h5 class="phase-container__title">Identidad corporativo</h5>
           <div class="carousel__image-container">
-            <figure class="carousel__image-wrapper">
+            <figure class="carousel__image-wrapper__l">
                 <Image class="slide__image" src={homiCorp} alt="Slide 1" />
             </figure>
           </div>
@@ -336,7 +373,7 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
       <div class="phase-container__project-wrapper" slot="slide-2">
           <h5 class="phase-container__title">Crazy 8S</h5>
           <div class="carousel__image-container">
-            <figure class="carousel__image-wrapper">
+            <figure class="carousel__image-wrapper__l">
                 <Image class="slide__image" src={homiCrazy} alt="Slide 1" />
             </figure>
           </div>
@@ -357,10 +394,18 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
     <Fragment slot="phase4">
       <Carousel slides={2} autoplay={false} interval={4000} client:load>
         <div class="phase-container__project-wrapper" slot="slide-0">
-          <h5 class="phase-container__title">User Persona</h5>
+          <h5 class="phase-container__title">Prototipo</h5>
+          <div class="carousel__image-container">
+            <figure class="carousel__image-wrapper__xl">
+                <Image class="slide__image" src={homiPrototipo} alt="Homi Prototipo" />
+            </figure>
+          </div>
+        </div>
+        <div class="phase-container__project-wrapper" slot="slide-1">
+          <h5 class="phase-container__title">Prototipo</h5>
           <div class="carousel__image-container">
             <figure class="carousel__image-wrapper">
-                <Image class="slide__image" src={homiPrototipo} alt="Homi Prototipo" />
+                <Image class="slide__image" src={homiWireframes} alt="Homi Prototipo" />
             </figure>
           </div>
         </div>
@@ -368,7 +413,55 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
     </Fragment>
 
     <Fragment slot="phase5">
-   
+      <Carousel slides={3} autoplay={false} interval={4000} client:load>
+        <div class="phase-container__project-wrapper" slot="slide-0">
+          <h5 class="phase-container__title">Testing</h5>
+          <div class="phase-container__container-wrapper">
+            <figure class="phase-container__image">
+              <Image src={homiInteraction} alt="Prototipo completo de Pomodog"  />
+            </figure>
+
+            <div class="phase-container__maze-container">
+              <div class="phase-container__maze-container__images">
+                <figure class="phase-container__image--logo">
+                  <Image  src={logoMaze} alt="Logo Maze"  />
+                </figure>
+                <figure class="phase-container__image--screen-1">
+                  <Image  src={homiMazeScreen} alt="Maze screen"  />
+                </figure>
+                <figure class="phase-container__image--screen-2">
+                <Image src={homiMazeScreen2} alt="Maze screen"  />
+                </figure>
+              </div>
+              <p>Mayor atención en el área del “Reto semanal” y la sección de “Gastos”</p>
+              <p>Interacción media en “Planifica tu semana”</p>
+              <p>Zonas inferiores como “Actividades recomendadas” reciben menos atención</p>
+            </div>
+          </div>
+        </div>
+        <div class="phase-container__project-wrapper" slot="slide-1">
+          <h5 class="phase-container__title">Sprint Question</h5>
+          <div class="phase-container__container-wrapper">
+            {phasesData[4].tables && phasesData[4].tables.map((table) => (
+              <TableBlock
+                rows={table.rows}
+                headerText={table.headerText}
+              />
+            ))} 
+          </div>       
+        </div>
+
+        <div class="phase-container__project-wrapper" slot="slide-2">
+          <h5 class="phase-container__title">Futuribles</h5>
+            {phasesData[4].table2 && phasesData[4].table2.map((table) => (
+              <TableBlock
+                rows={table.rows}
+                headerText={table.headerText}
+              />
+            ))}      
+        </div>
+        
+      </Carousel>
 
     </Fragment>
 
@@ -385,6 +478,13 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
       align-items: center;
       justify-content: center;
       gap: 2rem;
+
+      // &--row {
+      //   display: flex;
+      //   flex-direction: row;
+      //   align-items: center;
+      //   justify-content: center;
+      // }
     }
 
   &__title {
@@ -399,6 +499,45 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
     justify-content: center;
     gap: 1rem;
     width: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 12rem;
+    height: auto;
+    margin-bottom: 1rem;
+
+    &--logo {
+      width: 6.25rem;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+    &--screen-1,
+    &--screen-2 {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin-bottom: .5rem;
+    }
+  }
+
+  &__maze-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: $font-poppins;
+    margin-left: 2rem;
+    width: 50%;
+
+    &__images {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      // gap: 1rem;
+      margin-bottom: 1rem;
+    }
   }
 }
   // .slide__image {
@@ -427,9 +566,21 @@ const images = [homiMk1, homiMk1, homiMk1, homiMk1 , homiMk1];
   overflow: hidden;
   border-radius: 1rem;
 
-  &__journey {
+  &__l {
     width: 70%;
   }
+
+  &__xl {
+    width: 85%;
+  }
+
+  &__s{
+    width: 30%;
+  }
+
+
+
+
 }
 
 // /* Imagen dentro del wrapper */
