@@ -21,7 +21,7 @@ const {
 ) : (
   <button
     type={type}
-    onclick={onClick}
+    {...(onClick ? { 'on:click': onClick } : {})}
     id={id}
     class={`base-btn ${extraClass}`}
   >

@@ -49,6 +49,10 @@ import Button from '@/components/atoms/Button.astro';
       id="toggle-phases"
       href={hrefButton}
       target={targetButton}
+      {...(!hrefButton ? { 'on:click': () => {
+        const container = document.getElementById('phases-container');
+        container?.classList.toggle('show');
+      }} : {})}
     />
     
     <script>
