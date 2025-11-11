@@ -146,5 +146,41 @@ import Button from '@/components/atoms/Button.astro';
     }
   }
 
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding-inline: 2rem;
+
+    &__case-study{
+      &__title {
+        font-size: $font-size-lg;
+      }
+
+      &__text {
+        font-size: $font-size-base;
+      }
+    }
+
+    &__flower-list {
+      &__item {
+        font-size: $font-size-base;
+      }
+
+      &__text {
+        font-size: $font-size-base;
+      }
+    }
+
+    &__continue {
+      margin-top: 8rem;
+      margin-bottom: 10rem;
+
+      &-text {
+        width: 90%;
+        font-size: $font-size-base;
+      }
+    }
+  }
+
 }
 </style>

@@ -246,6 +246,7 @@ import Face from '@/assets/face.svg';
   @media (max-width: 768px) {
     // width: 100%;
     padding-inline: 2rem;
+    margin-top: 6rem;
 
     &__logo-wrapper {
       width: 10rem;        
@@ -254,24 +255,54 @@ import Face from '@/assets/face.svg';
     }
 
     &__text {
-      font-size: $font-size-xs;
+      font-size: $font-size-md;
     }
 
     &__grid {
       grid-template-columns: repeat(2, 1fr);
       margin-bottom: 4rem;
       gap: 1rem;
+
+      &__item {
+        &__title {
+          font-size: $font-size-lg;
+        }
+
+        &__text {
+          font-size: $font-size-base;
+        } 
+      }
     }
 
     &__grid-2 {
       grid-template-columns: 1fr;
       gap: 2rem;
       margin-bottom: 3rem;
+
+      &__item {
+        &__title {
+          font-size: $font-size-lg;
+        }
+
+        &__text {
+          font-size: $font-size-base;
+        } 
+      }
     }
 
     &__container-image {
       width: 100%;
       height: auto;
+    }
+
+    &__metodology {
+      &__title {
+        font-size: $font-size-lg;
+      }
+      
+      &__text {
+        font-size: $font-size-base;
+      }
     }
   }
 

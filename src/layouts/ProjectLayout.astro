@@ -106,12 +106,7 @@ const nextProject = projects[nextIndex];
 		height: auto;
 
 		@media (max-width: 768px) {
-    width: clamp(4rem, 20vw, 10rem);
-		}
-
-		@media (max-width: 480px) {
-     /* evitar que sobresalgan */
-			width: clamp(3rem, 15vw, 6rem);
+			display: none;
 		}
 
     &--left {
@@ -142,9 +137,12 @@ const nextProject = projects[nextIndex];
   &__text {
     font-size: $font-size-base;
     font-family: $font-poppins;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.5rem;
     // width: 70%;
+		@media (max-width: 768px) {
+			font-size: $font-size-sm;
+		}
   }
 
 	&__grid {
@@ -156,10 +154,20 @@ const nextProject = projects[nextIndex];
 		text-align: left;
 		gap: 1.25rem;
 
+		@media (max-width: 768px) {
+			gap: 0rem;
+			padding-inline: 2rem;
+			text-align: center;	
+		}
+
 	}
 
 	&__arrow {
 		margin-right: 1rem;
+
+		@media (max-width: 768px) {
+			width: 2rem;
+		}
 	}
 }
 
