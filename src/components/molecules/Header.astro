@@ -7,9 +7,9 @@ const base = astroConfig.base || '/';
 <header class="header">
   <nav class="header__nav">
     <ul class="header__nav--list">
-      <li class="header__nav--list-item"><a href=`${base}/#projects`>proyectos</a></li>
+      <li class="header__nav--list-item"><a href={`${base}#projects`}>proyectos</a></li>
       <a href={base}><Logo class="header__nav--list-item--logo"/></a> 
-      <li class="header__nav--list-item"><a href="#about-me">sobre mi</a></li>
+      <li class="header__nav--list-item"><a href={`${base}#about-me`}>sobre mi</a></li>
     </ul>
   </nav>
 </header>
