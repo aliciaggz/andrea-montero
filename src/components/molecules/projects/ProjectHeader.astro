@@ -9,7 +9,8 @@ const {
   mockupImage, 
   metodologyText, 
   colorVariant,
-  colorFirstText} = Astro.props;
+  colorFirstText,
+  prototypeLink} = Astro.props;
 
 import { Image } from 'astro:assets';
 import Button from '@/components/atoms/Button.astro';
@@ -24,7 +25,7 @@ import Face from '@/assets/face.svg';
     </div>
     <p class="project__text" style=`color: ${colorFirstText};` set:html={text}></p>
 
-  <div>
+  
     <Image class={`project__mockup project__mockup--${colorVariant}`} src={mockup} alt="mockup-varios"/>
   
     <section class="project__grid">
@@ -35,14 +36,14 @@ import Face from '@/assets/face.svg';
         </div>
       ))}
     </section>
-
-    <Button
-    class="project__button"
-    label="Ir al prototipo"
-    onClick="location.href='http://www.example.com'"
-    target="_blank"
-    />
-  </div>
+    <div class="project__wrapper-button">
+      <Button
+      class="project__button"
+      label="Ir al prototipo"
+      href={`${prototypeLink}`}
+      target="_blank"
+      />
+    </div>
 
   <section class="project__grid-2">
     {details.map((detail: any) => (
@@ -125,10 +126,15 @@ import Face from '@/assets/face.svg';
     }
   }
 
+  &__wrapper-button {
+    display: flex;
+    justify-content: center;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 5rem;
     margin-bottom: 6.25rem;
     font-family: $font-poppins;;
 
@@ -180,6 +186,7 @@ import Face from '@/assets/face.svg';
     border-radius: 1rem;
     margin: auto;
     background-color: $color-blue-light;
+    padding: 1.5rem;
 
     &--red-light {
       background-color: $color-red-light;
@@ -209,38 +216,18 @@ import Face from '@/assets/face.svg';
     }
   }
 
-  // &__continue {
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   text-align: center;
-  //   margin-top: 5rem;
-  //   color: $color-red;
-
-  //   &-text {
-  //     width: 22rem;
-  //     font-size: $font-size-md;
-  //     margin-bottom: 1rem;
-  //   }
-
-  //   &-icon {
-  //     margin-bottom: 1rem;
-  //   }
-
-  //   &-note {
-  //     font-size: $font-size-sm;
-  //   }
-  // }
-
-  // &__button {
-  //   padding: 0.5rem 1rem;
-  //   border: none;
-  //   margin: 0rem auto 6.25rem auto;  
-  // }
-
   :global(.project__button) {
     margin: 0 auto 6.25rem auto;
     display: block;
+  }
+
+  @media (max-width: 1024px) {
+   
+    &__grid {
+      gap: 2rem;
+
+      
+    }
   }
 
   @media (max-width: 768px) {
