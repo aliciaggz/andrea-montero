@@ -3,10 +3,15 @@ import ProjectLayout from '../../layouts/ProjectLayout.astro';
 import posada from '@/assets/hotel-logo.png';
 import posadaMockup from '@/assets/posada-mockup.png';
 import posadaPC from '@/assets/posada-pc.png';
+import { Image } from 'astro:assets';
 
 import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
 import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
+import ProjectPhases from '@/components/molecules/projects/ProjectPhases.astro';
+import Carousel from '@/components/atoms/Carousel.vue';
 
+import Pencil from '@/assets/pencil.svg';
+import Phone from '@/assets/phone.svg';
 
 import posadaMk1 from '@/assets/posada-mk-1.png';
 import posadaMk2 from '@/assets/posada-mk-2.png';
@@ -19,6 +24,8 @@ import posadaMk8 from '@/assets/posada-mk-8.png';
 import posadaMk9 from '@/assets/posada-mk-9.png';
 import posadaMk10 from '@/assets/posada-mk-10.png';
 import posadaMk11 from '@/assets/posada-mk-11.png';
+
+import posadaTableImg from '@/assets/posada-table-image.png';
 
 
 
@@ -51,7 +58,21 @@ const points = [
     title: "Experiencia centrada en el usuario:",
     text: "El rediseño elimina fricciones y mejora la orientación dentro del sitio. Las acciones clave se vuelven más evidentes, la información más accesible y la experiencia, más fluida y satisfactoria.",
   },
-]
+];
+
+const phasesBox = [
+  {
+    icon: Pencil,
+    color: 'var(--color-blue-light)',
+    text: 'Análisis',
+  },
+  {
+    icon: Phone,
+    color: 'var(--color-blue-light)',
+    text: 'Prototipar',
+  },
+
+];
 
 const imagesMasonry = [
   { src: posadaMk1},
@@ -65,6 +86,20 @@ const imagesMasonry = [
   { src: posadaMk9 },
   { src: posadaMk10 },
   { src: posadaMk11 },
+];
+
+const phasesData = [
+  {
+    title: "Fase 1: Análisis",
+    titleWrapper: "Análisis Heurístico",
+    text: "Un análisis profundo de la navegación, la arquitectura de la información y la usabilidad del sitio, con el objetivo de comprender qué impide una experiencia fluida.",
+  },
+  {
+    title: "Fase 2: Prototipar",
+    titleWrapper: "Rediseño",
+    text: "Utilicé Figma para crear prototipos de alta fidelidad con diseño visual coherente siguiendo los resultados obtenidos del análisis heurístico.",
+    reverse: true,
+  }
 ];
 
 
@@ -84,13 +119,95 @@ const imagesMasonry = [
   prototypeLink="https://www.figma.com/design/gyGEzVbvGKc8qBo18pdqs5/Redise%C3%B1o-Posada-San-Mart%C3%ADn--Copy-?node-id=3015-2&t=cR7w1vmNQ7l5YMIw-1"/>
 
   <ProjectCases 
-  textCaseStudy="HOMI es una app diseñada para mejorar la convivencia entre compañeros de piso a través de la gamificación y la organización compartida. Su objetivo es fomentar dinámicas positivas y equilibradas mediante actividades grupales, gestión de gastos y comunicación efectiva."
+  textCaseStudy="La POSADA SAN MARTÍN es un alojamiento histórico situado en el corazón de Cuenca. Su rediseño busca reflejar el encanto del edificio medieval mientras mejora la experiencia del usuario con una navegación más intuitiva y una estética cálida y coherente."
   points={points}
   images={imagesMasonry}
   columns={3}
   title="Homi"
-  bgColorImg="var(--color-yellow-light)"
-  hrefButton="https://www.figma.com/design/FKXybffg6IWaLRf652vRlg/posada--Copy-?node-id=4802-2&p=f&t=3n30nug1fWff6Gaz-0"
-  targetButton="_blank"
+  bgColorImg="var(--color-blue-light)"
   />
+
+  <ProjectPhases titleMethodology="Metodología Análisis Heurístico" boxPhases={phasesBox} phases={phasesData}>
+    <Fragment slot="phase1">
+      <figure class="phase-container__image-wrapper">
+        <Image class="phase-container__image" src={posadaTableImg} alt="Homi Análisis Heurístico" />
+      </figure>
+    </Fragment>
+
+    <Fragment slot="phase2">
+      <Carousel slides={5} autoplay={false} interval={8000} client:load>
+        <div class="phase-container__project-wrapper" slot="slide-0">
+          <div class="phase-container__compared-container">
+            <h6 class="phase-container__compared-container__title">Antes</h6>
+            <figure class="phase-container__image-wrapper">
+              <Image class="phase-container__image" src={posadaTableImg} alt="Homi Análisis Heurístico" />
+            </figure>
+          </div>
+          <div class="phase-container__compared-container">
+            <h6 class="phase-container__compared-container__title">Rediseño</h6>
+            <figure class="phase-container__image-wrapper">
+              <Image class="phase-container__image" src={posadaTableImg} alt="Homi Análisis Heurístico" />
+            </figure>
+          </div>
+        </div>
+
+      </Carousel>
+    </Fragment>
+  </ProjectPhases>
 </Layout>
+<style lang="scss" scoped>
+.phase-container {
+  &__project-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  &__compared-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+
+    &__title {
+      margin-bottom: .5rem;
+      font-size: $font-size-md;
+      font-weight: 600;
+      color: $color-blue-electric;
+      font-family: $font-poppins;
+      text-transform: uppercase;
+    }
+  }
+
+
+  &__image-wrapper {
+    width: 100%;
+    max-width: 45rem;
+    height: auto;
+    margin-bottom: .5rem;
+
+    &__l {
+      width: 70%;
+    }
+
+    &__xl {
+      width: 85%;
+    }
+
+    &__s{
+      width: 30%;
+    }
+
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+</style>
