@@ -122,7 +122,7 @@ const jobs = [
       position: relative;
 
       @media (max-width: 1024px) {
-        width: 85%;
+        width: 75%;
       }
 
       @media (max-width: 768px) {
@@ -156,32 +156,32 @@ const jobs = [
       }
 
       &__note {
-      position: absolute;
-      font-family: $font-libre;
-      font-size: $font-size-base;
-      color: $color-red;
-      text-align: center;
-      line-height: 1.5;
+        position: absolute;
+        font-family: $font-libre;
+        font-size: $font-size-base;
+        color: $color-red;
+        text-align: center;
+        line-height: 1.5;
 
-      &--1 {
-        top: -6rem;
-        left: 0rem;
-        transform: rotate(-10deg);
-      }
+        &--1 {
+          top: -6rem;
+          left: 0; // antes 0rem
+          transform: rotate(-10deg);
+        }
 
-      &--2 {
-        top: -2.5rem;
-        right: -16rem;
-        transform: rotate(26deg);
-      }
+        &--2 {
+          top: -5rem;
+          right: -16%; // antes -16rem
+          transform: rotate(20deg);
+        }
 
-      &--3 {
-        bottom: -11rem;
-        left: 8rem;
-        transform: rotate(-8deg);
-      }
+        &--3 {
+          bottom: -11rem;
+          left: 20%; // antes 8rem
+          transform: rotate(-8deg);
+        }
 
-      @media (max-width: 480px) {
+      @media (max-width: 768px) {
         display: none;
       }
     }
