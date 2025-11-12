@@ -1,17 +1,16 @@
 ---
 const { 
   text, 
-  icon, 
+  icon: Icon, 
   color
   } = Astro.props;
 
-import { Image } from 'astro:assets';
 
 ---
 
 <div class="box"  style={`--bg-color: ${color}`}
 >
-  <Image class="box__icon" src={icon} alt="icono" />
+  <Icon class="box__icon" alt="icono" />
   <p class="box__text">{text}</p>
 </div>
 
@@ -27,6 +26,7 @@ import { Image } from 'astro:assets';
   padding: 1rem;
   background-color: var(--bg-color);
   border-radius: 1rem;
+  color: $color-white;
 
   &__icon {
     max-width: 4rem;
@@ -36,8 +36,7 @@ import { Image } from 'astro:assets';
   &__text {
     font-family: $font-poppins;
     font-size: $font-size-md;
-    font-weight: 600;
-    color: $color-white;
+    font-weight: 500;
     text-align: center;
     margin-top: 1rem;
   }
