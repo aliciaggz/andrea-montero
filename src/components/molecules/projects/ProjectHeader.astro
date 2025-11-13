@@ -10,10 +10,13 @@ const {
   metodologyText, 
   colorVariant,
   colorFirstText,
-  prototypeLink} = Astro.props;
+  prototypeLink,
+  noPaddingMockup = false
+} = Astro.props;
 
 import { Image } from 'astro:assets';
 import Button from '@/components/atoms/Button.astro';
+import { fade } from 'astro:transitions';
 
 ---
 
@@ -24,7 +27,7 @@ import Button from '@/components/atoms/Button.astro';
     <p class="project__text" style=`color: ${colorFirstText};` set:html={text}></p>
 
   
-    <Image class={`project__mockup project__mockup--${colorVariant}`} src={mockup} alt="mockup-varios"/>
+    <Image class={`project__mockup project__mockup--${colorVariant} ${noPaddingMockup && 'project__mockup__no-padding' }`} src={mockup} alt="mockup-varios"/>
   
     <section class="project__grid">
       {items.map((item: any) => (
@@ -105,6 +108,10 @@ import Button from '@/components/atoms/Button.astro';
     border-radius: 1rem;
     padding: 2rem 2rem 0 2rem;
     background-color: $color-blue-light;
+
+    &__no-padding {
+      padding: 0;
+    }
 
     &--red-light {
       background-color: $color-red-light;
