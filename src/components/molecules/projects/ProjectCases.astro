@@ -8,6 +8,7 @@ const {
   hrefButton,
   targetButton,
   isShowProjectPhasesBtn = true,
+  icon: Icon
   } = Astro.props;
 
 import Flower from '@/assets/flower-blue.svg';
@@ -39,7 +40,7 @@ import Button from '@/components/atoms/Button.astro';
   <MasonryShowcase bgColorImg={bgColorImg} images={images} columns={columns}/>
 
   {isShowProjectPhasesBtn && <section class="project-phase__continue">
-    <Face/>
+    <Icon/>
     <p class="project-phase__continue-text">
       Haz clic si quieres ver una versión extendida del proyecto
     </p>

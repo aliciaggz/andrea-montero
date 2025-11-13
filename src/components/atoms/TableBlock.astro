@@ -34,6 +34,15 @@ const { headerText, headerColor = "#FDC51E", rows } = Astro.props;
   text-align: center;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1024px) {
+    max-width: 8rem;
+  }
+
+  @media (max-width: 1200px) {
+    max-width: 12rem;
+  }
+
 }
 
 .table-header {
@@ -47,7 +56,12 @@ const { headerText, headerColor = "#FDC51E", rows } = Astro.props;
   h3 {
     margin: 0;
     font-size: $font-size-base;
+
+      @media (max-width: 1024px) {
+        font-size: $font-size-sm;
+      }
   }
+
 }
 
 .table-body {
@@ -71,6 +85,10 @@ const { headerText, headerColor = "#FDC51E", rows } = Astro.props;
   p {
     margin: 0;
     font-size: $font-size-sm;
+
+    @media (max-width: 1024px) {
+        font-size: $font-size-xs;
+      }
 
   }
 }

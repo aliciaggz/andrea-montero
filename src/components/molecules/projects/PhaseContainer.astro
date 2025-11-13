@@ -44,7 +44,7 @@ const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false, dir
   
     /* 👇 layout base */
     &__wrapper {
-      max-width: 100%;
+      max-width: 58.8rem;
       // flex: 0 0 58.75rem; /* 👈 ancho fijo visible */
       // height: 30rem;
       border-radius: 1rem;
@@ -69,6 +69,7 @@ const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false, dir
         gap: 1rem;
         width: 100%;
         margin-top: 1rem;
+        min-width: 50rem;
         // padding: 2.75rem;
       }
     }
@@ -97,6 +98,26 @@ const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false, dir
     &--reverse {
       flex-direction: row-reverse;
     }
+
+
+    @media (max-width: 1200px) {
+    
+      &__wrapper {
+        max-width: 50rem;
+      }
+
+      &__text-block {
+      &__title {
+        font-size: $font-size-lg;
+
+      }
+  
+      &__paragraph {
+        font-size: $font-size-base;
+      }
+    }
+
+    }
   
     /* 👇 responsive: apila siempre vertical */
     @media (max-width: 768px) {
@@ -110,8 +131,6 @@ const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false, dir
       }
   
       &__wrapper {
-        width: 100%;
-        aspect-ratio: 16/9;
         display: none;
       }
     }
