@@ -5,14 +5,15 @@ export interface Props {
   title: string;
   color?: string;
   reverse?: boolean;
+  directionColumn?: boolean;
   titleWrapper?: string;
 }
 
-const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false } = Astro.props;
+const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false, directionColumn = false} = Astro.props;
 
 ---
 
-<div class={`phase-container ${reverse ? "phase-container--reverse" : ""}`}>
+<div class={`phase-container  ${directionColumn && 'phase-container__column'} ${reverse && !directionColumn ? "phase-container--reverse" : ""}`}>
   <div class="phase-container__text-block">
     <h4 class="phase-container__text-block__title">{title}</h4>
     <p set:html={text}  class="phase-container__text-block__paragraph"></p>
@@ -36,10 +37,15 @@ const { text, text2, title,titleWrapper, color = "#FFD86A", reverse = false } = 
     gap: 3.5rem;
     padding-bottom: 3rem;
     margin-bottom: 8rem;
+
+    &__column {
+      flex-direction: column;
+    }
   
     /* 👇 layout base */
     &__wrapper {
-      flex: 0 0 58.75rem; /* 👈 ancho fijo visible */
+      max-width: 100%;
+      // flex: 0 0 58.75rem; /* 👈 ancho fijo visible */
       // height: 30rem;
       border-radius: 1rem;
       background-color: var(--color);

@@ -3,7 +3,9 @@ const {
   titleMethodology, 
   phases, 
   boxPhases,
-  backgroundColorContainer = 'var(--color-blue-light)'
+  backgroundColorContainer = 'var(--color-blue-light)',
+  directionColumn = false,
+  subtitle = ''
   } = Astro.props;
 
 import BoxPhase from './BoxPhase.astro';
@@ -13,6 +15,7 @@ import PhaseContainer from './PhaseContainer.astro';
 
 <section id="phases-container" class="project-phases project-phase__extended">
   <h3 class="project-phases__title">{titleMethodology}</h3>
+  {subtitle && <p  class="project-phases__subtitle">{subtitle}</p>}
   <div class="project-phases__box-container">
     {boxPhases.map((boxPhase:any) => (
       <BoxPhase 
@@ -28,7 +31,8 @@ import PhaseContainer from './PhaseContainer.astro';
     text2={phase.text2}
     color={backgroundColorContainer}
     titleWrapper={phase.titleWrapper}
-    reverse={phase.reverse}>
+    reverse={phase.reverse}
+    directionColumn={directionColumn}>
       {index === 0 && <slot name="phase1" />}
       {index === 1 && <slot name="phase2" />}
       {index === 2 && <slot name="phase3" />}
@@ -52,7 +56,13 @@ import PhaseContainer from './PhaseContainer.astro';
     font-size: $font-size-xl;
     font-weight: 500;
     font-family: $font-poppins;
-    margin-bottom: 5rem;
+  }
+
+  &__subtitle {
+    font-size: $font-size-md;
+    font-weight: 400;
+    font-family: $font-poppins;
+    margin-top: 1rem;
   }
 
   &__box-container {
@@ -60,7 +70,7 @@ import PhaseContainer from './PhaseContainer.astro';
     gap: 4rem;
     justify-content: center;
     margin-bottom: 5rem;
-    // margin-top: 2rem;
+    margin-top: 5rem;
 
     @media (max-width: 768px) {
       display: grid;

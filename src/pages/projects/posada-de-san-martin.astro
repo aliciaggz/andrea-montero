@@ -149,48 +149,38 @@ const afterImages  = [{img: posadaAfter1}, {img: posadaAfter2}, {img: posadaAfte
   bgColorImg="var(--color-blue-light)"
   />
 
-  <ProjectPhases titleMethodology="Metodología Análisis Heurístico" boxPhases={phasesBox} phases={phasesData}>
-    <Fragment slot="phase1">
-      <figure class="phase-container__image-wrapper">
-        <Image class="phase-container__image" src={posadaTableImg} alt="Homi Análisis Heurístico" />
-      </figure>
-    </Fragment>
+  <ProjectPhases 
+    titleMethodology="Metodología Análisis Heurístico" 
+    boxPhases={phasesBox} 
+    phases={phasesData} 
+    directionColumn={true}
+    subtitle="Realicé una revisión heurística utilizando los 10 principios de usabilidad de Nielsen para evaluar la experiencia general del usuario del sitio web. Este método me ayudó a identificar los principales problemas de usabilidad relacionados con la navegación, la coherencia y la accesibilidad. Analicé cómo interactúan los usuarios con el sitio, señalé las áreas que necesitaban mejoras para crear un diseño más intuitivo y eficiente.">
+    
+      <Fragment slot="phase1">
+        <figure class="phase-container__image-wrapper">
+          <Image class="phase-container__image" src={posadaTableImg} alt="Homi Análisis Heurístico" />
+        </figure>
+      </Fragment>
 
-    <Fragment slot="phase2">
-      <!-- <Carousel slides={5} autoplay={false} interval={8000} client:load>
-        <div class="phase-container__project-wrapper" slot="slide-0">
-          <div class="phase-container__compared-container">
-            <h6 class="phase-container__compared-container__title">Antes</h6>
-            <figure class="phase-container__image-wrapper">
-              <Image class="phase-container__image" src={posadaAfter1} alt="Homi Análisis Heurístico" />
-            </figure>
+      <Fragment slot="phase2">
+        <Carousel slides={5} autoplay={false} interval={8000} client:load>
+          <div class="phase-container__project-wrapper" slot="slide-0">
+            <BeforeAfterCarousel beforeImages={beforeImages[0]} afterImages={afterImages[0]}/>
           </div>
-          <div class="phase-container__compared-container">
-            <h6 class="phase-container__compared-container__title">Rediseño</h6>
-            <figure class="phase-container__image-wrapper">
-              <Image class="phase-container__image" src={posadaAfter1} alt="Homi Análisis Heurístico" />
-            </figure>
+          <div class="phase-container__project-wrapper" slot="slide-1">
+            <BeforeAfterCarousel beforeImages={beforeImages[1]} afterImages={afterImages[1]}/>
           </div>
-        </div>
-      </Carousel> -->
-    <Carousel slides={5} autoplay={false} interval={8000} client:load>
-      <div class="phase-container__project-wrapper" slot="slide-0">
-        <BeforeAfterCarousel beforeImages={beforeImages[0]} afterImages={afterImages[0]}/>
-      </div>
-      <div class="phase-container__project-wrapper" slot="slide-1">
-        <BeforeAfterCarousel beforeImages={beforeImages[1]} afterImages={afterImages[1]}/>
-      </div>
-      <div class="phase-container__project-wrapper" slot="slide-2">
-        <BeforeAfterCarousel beforeImages={beforeImages[2]} afterImages={afterImages[2]}/>
-      </div>
-      <div class="phase-container__project-wrapper" slot="slide-3">
-        <BeforeAfterCarousel beforeImages={beforeImages[3]} afterImages={afterImages[3]}/>
-      </div>
-      <div class="phase-container__project-wrapper" slot="slide-4">
-        <BeforeAfterCarousel beforeImages={beforeImages[4]} afterImages={afterImages[4]}/>
-      </div>
-    </Carousel>
-    </Fragment>
+          <div class="phase-container__project-wrapper" slot="slide-2">
+            <BeforeAfterCarousel beforeImages={beforeImages[2]} afterImages={afterImages[2]}/>
+          </div>
+          <div class="phase-container__project-wrapper" slot="slide-3">
+            <BeforeAfterCarousel beforeImages={beforeImages[3]} afterImages={afterImages[3]}/>
+          </div>
+          <div class="phase-container__project-wrapper" slot="slide-4">
+            <BeforeAfterCarousel beforeImages={beforeImages[4]} afterImages={afterImages[4]}/>
+          </div>
+        </Carousel>
+      </Fragment>
   </ProjectPhases>
 </Layout>
 <style lang="scss" scoped>
@@ -223,7 +213,7 @@ const afterImages  = [{img: posadaAfter1}, {img: posadaAfter2}, {img: posadaAfte
 
   &__image-wrapper {
     width: 100%;
-    max-width: 45rem;
+    // max-width: 45rem;
     height: auto;
     margin-bottom: .5rem;
 
