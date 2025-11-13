@@ -16,7 +16,6 @@ const {
 
 import { Image } from 'astro:assets';
 import Button from '@/components/atoms/Button.astro';
-import { fade } from 'astro:transitions';
 
 ---
 
@@ -49,25 +48,18 @@ import { fade } from 'astro:transitions';
   <section class="project__grid-2">
     {details.map((detail: any) => (
       <div class="project__grid-2__item">
-        <h3 class="project__grid-2__item__title">{detail.title}</h3>
-        <p class="project__grid-2__item__text">{detail.text}</p>
+        <h3  class="project__grid-2__item__title">{detail.title}</h3>
+        <p set:html={detail.text} class="project__grid-2__item__text"></p>
       </div>
     ))}
   </section>
 
   <section class="project__metodology">
     <h3 class="project__metodology__title">Metodología de trabajo</h3>
-    <p class="project__metodology__text">{metodologyText}</p>
+    <p set:html={metodologyText} class="project__metodology__text"></p>
   </section>
 
   <Image class={`project__container-image project__container-image--${colorVariant}`} src={mockupImage} alt="mockup"/>
-
-  <!-- <section class="project__continue">
-
-    <p class="project__continue-note">
-      Si prefieres una versión más corta, esto es <span style="text-transform: uppercase;">{title}</span>
-    </p>
-  </section> -->
 </section>
 
 <style scoped lang="scss">
