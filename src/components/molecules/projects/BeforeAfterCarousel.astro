@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+
+const { beforeImages, afterImages } = Astro.props;
+---
+
+<div class="phase-container__compared-container">
+  <h6 class="phase-container__compared-container__title">Antes</h6>
+  <figure class="phase-container__image-wrapper">
+    <Image class="phase-container__image" src={beforeImages.img} alt={`Antes`} />
+  </figure>
+</div>
+<div class="phase-container__compared-container">
+  <h6 class="phase-container__compared-container__title">Rediseño</h6>
+  <figure class="phase-container__image-wrapper">
+    <Image class="phase-container__image" src={afterImages.img} alt={`Después`} />
+  </figure>
+</div>
+
+<style lang="scss" scoped>
+.phase-container {
+  &__project-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  &__compared-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+    &__title {
+      margin-bottom: .5rem;
+      font-size: $font-size-md;
+      font-weight: 600;
+      color: $color-blue-electric;
+      font-family: $font-poppins;
+      text-transform: uppercase;
+    }
+  }
+
+
+  &__image-wrapper {
+    width: 100%;
+    max-width: 25rem;
+    height: auto;
+    margin-bottom: .5rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}
+</style>

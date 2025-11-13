@@ -9,6 +9,7 @@ import ProjectHeader from '@/components/molecules/projects/ProjectHeader.astro';
 import ProjectCases from '@/components/molecules/projects/ProjectCases.astro';
 import ProjectPhases from '@/components/molecules/projects/ProjectPhases.astro';
 import Carousel from '@/components/atoms/Carousel.vue';
+import BeforeAfterCarousel from '@/components/molecules/projects/BeforeAfterCarousel.astro';
 
 import Pencil from '@/assets/pencil.svg';
 import Phone from '@/assets/phone.svg';
@@ -26,7 +27,16 @@ import posadaMk10 from '@/assets/posada-mk-10.png';
 import posadaMk11 from '@/assets/posada-mk-11.png';
 
 import posadaTableImg from '@/assets/posada-table-image.png';
-
+import posadaAfter1 from '@/assets/posada-after-1.png';
+import posadaAfter2 from '@/assets/posada-after-2.png';
+import posadaAfter3 from '@/assets/posada-after-3.png';
+import posadaAfter4 from '@/assets/posada-after-4.png';
+import posadaAfter5 from '@/assets/posada-after-5.png';
+import posadaBefore1 from '@/assets/posada-before-1.png';
+import posadaBefore2 from '@/assets/posada-before-2.png';
+import posadaBefore3 from '@/assets/posada-before-3.png';
+import posadaBefore4 from '@/assets/posada-before-4.png';
+import posadaBefore5 from '@/assets/posada-before-5.png';
 
 
 const gridItems = [
@@ -102,7 +112,19 @@ const phasesData = [
   }
 ];
 
+// const beforeImages = [posadaBefore1.src, posadaBefore2.src, posadaBefore3.src, posadaBefore4.src, posadaBefore5.src];
+// const afterImages  = [posadaAfter1.src, posadaAfter2.src, posadaAfter3.src, posadaAfter4.src, posadaAfter5.src];
 
+
+const beforeImages = [
+  { img: posadaBefore1 },
+  { img: posadaBefore2 }, 
+  { img: posadaBefore3 }, 
+  { img: posadaBefore4 },
+  { img: posadaBefore5 },
+];
+
+const afterImages  = [{img: posadaAfter1}, {img: posadaAfter2}, {img: posadaAfter3}, {img: posadaAfter4}, {img: posadaAfter5}];
 ---
 
 <ProjectLayout currentProjectId={4}>
@@ -135,23 +157,39 @@ const phasesData = [
     </Fragment>
 
     <Fragment slot="phase2">
-      <Carousel slides={5} autoplay={false} interval={8000} client:load>
+      <!-- <Carousel slides={5} autoplay={false} interval={8000} client:load>
         <div class="phase-container__project-wrapper" slot="slide-0">
           <div class="phase-container__compared-container">
             <h6 class="phase-container__compared-container__title">Antes</h6>
             <figure class="phase-container__image-wrapper">
-              <Image class="phase-container__image" src={posadaTableImg} alt="Homi Análisis Heurístico" />
+              <Image class="phase-container__image" src={posadaAfter1} alt="Homi Análisis Heurístico" />
             </figure>
           </div>
           <div class="phase-container__compared-container">
             <h6 class="phase-container__compared-container__title">Rediseño</h6>
             <figure class="phase-container__image-wrapper">
-              <Image class="phase-container__image" src={posadaTableImg} alt="Homi Análisis Heurístico" />
+              <Image class="phase-container__image" src={posadaAfter1} alt="Homi Análisis Heurístico" />
             </figure>
           </div>
         </div>
-
-      </Carousel>
+      </Carousel> -->
+    <Carousel slides={5} autoplay={false} interval={8000} client:load>
+      <div class="phase-container__project-wrapper" slot="slide-0">
+        <BeforeAfterCarousel beforeImages={beforeImages[0]} afterImages={afterImages[0]}/>
+      </div>
+      <div class="phase-container__project-wrapper" slot="slide-1">
+        <BeforeAfterCarousel beforeImages={beforeImages[1]} afterImages={afterImages[1]}/>
+      </div>
+      <div class="phase-container__project-wrapper" slot="slide-2">
+        <BeforeAfterCarousel beforeImages={beforeImages[2]} afterImages={afterImages[2]}/>
+      </div>
+      <div class="phase-container__project-wrapper" slot="slide-3">
+        <BeforeAfterCarousel beforeImages={beforeImages[3]} afterImages={afterImages[3]}/>
+      </div>
+      <div class="phase-container__project-wrapper" slot="slide-4">
+        <BeforeAfterCarousel beforeImages={beforeImages[4]} afterImages={afterImages[4]}/>
+      </div>
+    </Carousel>
     </Fragment>
   </ProjectPhases>
 </Layout>
