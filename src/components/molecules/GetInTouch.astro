@@ -30,12 +30,12 @@ const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=$
   class="contact__container">
     <Peace class="contact__image" />
     <p class="contact__ask">¿Crees que vibramos?</p>
-    <p class="contact__text">Get in touch</p>
+    <p class="contact__text">Hablemos</p>
   </a>
   <div class="contact__labels-container">
     <a href="#projects" class="contact__labels-container__label">proyectos</a>
     <a href="https://www.linkedin.com/in/andrea-montero-hernandez/" target="_blank" class="contact__labels-container__label">linkedin</a>
-    <a href="#capitulos" class="contact__labels-container__label">experiencia</a>
+    <a href="#career-chapters" class="contact__labels-container__label">experiencia</a>
   </div>
 </div>
 
@@ -47,14 +47,16 @@ const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=$
     align-items: center;
     margin: 5rem 2.5rem;
     margin-bottom: 10rem;
+    width: 100%;
+    padding: 0 4rem;
 
     &__container {
       background-color: $color-red;
       color: $color-white;
       width: 100%;
       // height: 31.5rem;
-      padding: 4rem 6rem;
-      border-radius: 4rem;
+      padding: 1rem 6rem;
+      border-radius: 2.5rem;
       text-align: center;
       font-family: $font-poppins;
       // padding-inline: 6rem;
@@ -68,7 +70,7 @@ const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=$
     }
 
     &__image {
-      width: 4rem;
+      width: 3rem;
       height: auto;
       margin-top: 2rem;
       margin-bottom: 2rem;

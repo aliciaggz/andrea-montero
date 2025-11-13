@@ -6,6 +6,7 @@ import MoreProjects from '@/components/molecules/projects/MoreProjects.astro';
 
 import flowerLeft from '@/assets/flower-left.svg';
 import flowerRight from '@/assets/flower-right.svg';
+import favicon from '@/assets/flower-blue.svg';
 
 import Heart from '@/assets/heart.svg';
 
@@ -41,7 +42,7 @@ const nextProject = projects[nextIndex];
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href={favicon.src} />
 		<meta name="generator" content={Astro.generator} />
 		<title>Andrea</title>
 	</head>
