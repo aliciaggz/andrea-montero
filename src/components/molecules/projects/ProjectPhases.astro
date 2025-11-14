@@ -47,10 +47,13 @@ import PhaseContainer from './PhaseContainer.astro';
 
 .project-phases {
   width: 100%;
-  display: none;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
   padding-inline: 4.5rem;
-  opacity: 1;
-  transition: opacity .3s ease, display .3s ease allow-discrete; 
+  transition: 
+    max-height 1.65s cubic-bezier(0.25, 0.8, 0.25, 1),
+    opacity 1.65s cubic-bezier(0.25, 0.8, 0.25, 1);
 
   &__title {
     font-size: $font-size-xl;
@@ -87,8 +90,8 @@ import PhaseContainer from './PhaseContainer.astro';
 }
 
 .show {
+  max-height: 100%;
   opacity: 1;
-  display: block;
 }
 
 </style>

@@ -7,9 +7,9 @@ import MoreProjects from '@/components/molecules/projects/MoreProjects.astro';
 import flowerLeft from '@/assets/flower-left.svg';
 import flowerRight from '@/assets/flower-right.svg';
 import favicon from '@/assets/flower-blue.svg';
+import { ClientRouter } from 'astro:transitions';
 
 import Heart from '@/assets/heart.svg';
-
 import Arrow from '@/assets/arrow-right.svg';
 
 import '../styles/global.scss';
@@ -44,6 +44,7 @@ const nextProject = projects[nextIndex];
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={favicon.src} />
 		<meta name="generator" content={Astro.generator} />
+		<ClientRouter />
 		<title>Andrea</title>
 	</head>
 	<body>
