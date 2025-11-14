@@ -57,14 +57,47 @@ import Button from '@/components/atoms/Button.astro';
       }} : {})}
     />
     
+
     <script>
       const toggleBtn = document.getElementById('toggle-phases');
       const container = document.getElementById('phases-container');
-    
-      toggleBtn?.addEventListener('click', () => {
-        container?.classList.toggle('show');
-      });
-    </script>
+
+      const smoothScrollIOS = (target: HTMLElement) => {
+        const targetPos = target.getBoundingClientRect().top + window.pageYOffset;
+        const start = window.pageYOffset;
+        const distance = targetPos - start;
+        const duration = 700; // 0.7s estilo iOS
+        let startTime: number | null = null;
+
+        // curva iOS-like
+        const ease = (t: number) => {
+          return t < 0.5
+            ? 4 * t * t * t
+            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        };
+
+        const animate = (time: number) => {
+          if (!startTime) startTime = time;
+          const progress = Math.min((time - startTime) / duration, 1);
+
+          window.scrollTo(0, start + distance * ease(progress));
+
+            if (progress < 1) requestAnimationFrame(animate);
+          };
+
+          requestAnimationFrame(animate);
+        };
+
+        toggleBtn?.addEventListener('click', () => {
+          container?.classList.toggle('show');
+
+          // si se abre, animamos scroll suave
+          if (container?.classList.contains('show')) {
+            smoothScrollIOS(container);
+          }
+        });
+      </script>
+
   </section>}  
 
 </section>

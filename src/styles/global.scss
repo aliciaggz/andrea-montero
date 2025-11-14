@@ -1,6 +1,6 @@
 /* global.scss */
-@use './variables' as *;
-@use './fonts' as *;
+@use "./variables" as *;
+@use "./fonts" as *;
 
 html {
   box-sizing: border-box;
@@ -8,10 +8,13 @@ html {
   height: 100%;
   overflow-x: hidden;
   font-family: $font-libre;
-  margin: 0; 
+  margin: 0;
+  scroll-behavior: smooth;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -25,11 +28,11 @@ body {
 }
 
 :root {
-  --color-red-light: #FFB3B3;
-  --color-yellow-light: #FFEEBC;
-  --color-blue-light: #ABC8FF;
-  --color-yellow: #FDC51E;
-  --color-blue-electric: #1869FF;
+  --color-red-light: #ffb3b3;
+  --color-yellow-light: #ffeebc;
+  --color-blue-light: #abc8ff;
+  --color-yellow: #fdc51e;
+  --color-blue-electric: #1869ff;
 }
 
 .color-accent-blue-electric {

@@ -6,6 +6,7 @@ import lexy from '@/assets/lexy-frame.png';
 import hotel from '@/assets/hotel-frame.png';
 import footfem from '@/assets/footfem-frame.png';
 import tiempo from '@/assets/tiempo-frame.png';
+import { fade } from 'astro:transitions';
 
 import { Image } from 'astro:assets';
 
@@ -67,6 +68,7 @@ const projects = [
           href={`${import.meta.env.SITE}${project.link}`}
           class="project-card"
           style={`--bg-color: ${project.color}`}
+          transition:animate={fade({ duration: '0.4s' })}
         >
           <Image src={project.image} alt={project.title} />
         </a>
