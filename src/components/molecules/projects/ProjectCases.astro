@@ -12,7 +12,7 @@ const {
   } = Astro.props;
 
 import Flower from '@/assets/flower-blue.svg';
-import MasonryShowcase from '@/components/molecules/projects/MasonryShowcase.astro';
+import MasonryShowcase from '@/components/molecules/projects/MasonryShowcase.vue';
 import Button from '@/components/atoms/Button.astro';
 
 
@@ -36,7 +36,7 @@ import Button from '@/components/atoms/Button.astro';
     </ul>
   </section>
 
-  <MasonryShowcase bgColorImg={bgColorImg} images={images} columns={columns}/>
+  <MasonryShowcase bgColorImg={bgColorImg} images={images} columns={columns} client:only="vue"/>
 
   {isShowProjectPhasesBtn && <section class="project-phase__continue">
     <Icon/>
