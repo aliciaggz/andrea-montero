@@ -83,10 +83,17 @@ const closeBanner = () => {
     border-radius: 1rem;
     cursor: pointer;
   }
-}
 
-.cookie-banner a {
-  color: $color-yellow;
-  text-decoration: underline;
+  & a {
+    color: $color-yellow;
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+    // bottom: 1rem;
+    // left: 1rem;
+    right: 1rem;
+  }
 }
 </style>
