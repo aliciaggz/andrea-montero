@@ -47,8 +47,8 @@ const gridItems = [
 ];
 
 const details = [
-  { title: 'Challenge', text: 'Debido a la situación actual del mercado de la vivienda, en España el 70% de los jóvenes que se independizan optan por compartir piso, una solución práctica que, sin embargo, puede generar conflictos derivados de diferentes hábitos y estilos de vida' },
-  { title: 'Objetivo', text: 'Diseñar una solución digital que facilite la convivencia entre compañeros de piso, mejorando la comunicación, la organización y la gestión de tareas compartidas para reducir conflictos y crear un entorno más equilibrado y positivo' },
+  { title: 'Challenge', text: "Muchos usuarios encuentran <span class='color-accent-red'>difícil mantener la concentración</span> y cumplir sus objetivos diarios. La idea era crear una aplicación que <span class='color-accent-red'>combinara productividad con motivación emocional</span> y sentido de propósito: trabajar concentrado mientras ayudas a perros" },
+  { title: 'Objetivo', text: "Diseñar una app que utilice la <span class='color-accent-red'>técnica Pomodoro</span> para mejorar la productividad, gamifique el progreso con un cachorro virtual y transforme cada sesión en donaciones reales para perros en refugios" },
 ];
 
 const points = [
@@ -58,7 +58,7 @@ const points = [
   },
   {
     title: "Pantallas que inspiran acción:",
-    text: "Cada pantalla —temporizador, planificación, perfil de cachorros y estadísticas— guía al usuario de manera clara y sencilla. La interfaz facilita cumplir tareas, cuidar del cachorro virtual y contribuir a perros reales sin sentirse abrumado.",
+    text: "Cada pantalla  <span class='color-accent-red'>—temporizador, planificación, perfil de cachorros y estadísticas—</span> guía al usuario de manera clara y sencilla. La interfaz facilita cumplir tareas, cuidar del cachorro virtual y contribuir a perros reales sin sentirse abrumado.",
   },
   {
     title: "Construido como un sistema:",
@@ -115,7 +115,7 @@ const phasesData = [
     title: "Fase 1: Hipótesis",
     titleWrapper: "Generación de hipótesis",
     text: "Planteamos la hipótesis de que: “Si combinamos la técnica Pomodoro con un cachorro virtual y la posibilidad de donar a perros reales, los usuarios se sentirán más motivados para mantener la concentración y completar sesiones de estudio o trabajo.",
-    text2: "Antes de diseñar, definimos hipótesis de producto, negocio y experiencia.",
+    text2: "Antes de diseñar, definimos <span class='color-accent-blue-electric'>hipótesis de producto, negocio y experiencia.</span>",
     tables: [
       { 
         rows: [ 
@@ -142,7 +142,7 @@ const phasesData = [
   {
     title: "Fase 2: MVP",
     titleWrapper: "Construcción de MVP",
-    text: "Se desarrolló un Producto Mínimo Viable para probar las hipótesis sin invertir en funcionalidades complejas.",
+    text: "Se desarrolló un <span class='color-accent-blue-electric'>Producto Mínimo Viable</span> para probar las hipótesis sin invertir en funcionalidades complejas.",
     reverse: true,
     tables: [
       { 
@@ -164,12 +164,12 @@ const phasesData = [
   {
     title: "Fase 3: Diseño rápido y creación de prototipos",
     titleWrapper: "Prototipo",
-    text: "En esta fase se realizaron prototipos iterativos para validar la experiencia de usuario antes de desarrollar el producto completo con la herramienta Figma.",
+    text: "En esta fase se realizaron prototipos iterativos para validar la experiencia de usuario antes de desarrollar el producto completo <span class='color-accent-blue-electric'>con la herramienta Figma.</span>",
   },
   {
     title: "Fase 4: Testear",
     titleWrapper: "Testing",
-    text: "Se realizaron tests de usabilidad y motivación para validar si las hipótesis se cumplían y la experiencia era efectiva con la herramienta Maze.",
+    text: "Se realizaron tests de usabilidad y motivación para validar si las hipótesis se cumplían y la experiencia era efectiva <span class='color-accent-blue-electric'>con la herramienta Maze.</span>",
     reverse: true,
   },
 ];
@@ -185,14 +185,14 @@ const phasesData = [
   mockup={pomodogMockup}
   items={gridItems}
   details={details}
-  metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la metodología Design Sprint, un proceso intensivo que ayuda a resolver problemas y desarrollar soluciones eficaces de forma rápida y eficiente."
+  metodologyText="El proceso de investigación y diseño de la aplicación se llevó a cabo mediante la <span class='color-accent-red'>metodología Lean UX</span>, un proceso intensivo que nos permitió validar ideas rápidamente, prototipar funciones clave y ajustar la experiencia según la interacción real de los usuarios."
   mockupImage={pomodogPhone}
   colorVariant="blue-light"
   colorFirstText="#3B3A4F"
   prototypeLink="https://www.figma.com/design/tqBalum8KArjtjXw9i0brq/Pomodog?node-id=6840-2273&t=bhbM4Yj4XUxVCsI7-1"/>
 
   <ProjectCases 
-  textCaseStudy="Con POMODOG cada Pomodoro cuenta, tanto para tu concentración como para el bienestar de cachorros reales en refugios."
+  textCaseStudy="Con POMODOG  <span class='color-accent-red'>cada Pomodoro cuenta</span>, tanto para tu concentración como para el bienestar de cachorros reales en refugios."
   points={points}
   images={imagesMasonry}
   title="Pomodog"
@@ -225,17 +225,21 @@ const phasesData = [
     </Fragment>
 
     <Fragment slot="phase4">
-      <Image class="phase4__image" src={pomodogInteraction1} alt="Prototipo completo de Pomodog"  />
-      <Image class="phase4__image" src={pomodogInteraction2} alt="Prototipo completo de Pomodog"  />
+      <figure class="phase4__image">
+        <Image  src={pomodogInteraction1} alt="Prototipo completo de Pomodog"  />
+      </figure>
+      <figure class="phase4__image">
+        <Image src={pomodogInteraction2} alt="Prototipo completo de Pomodog"  />
+      </figure>
       <div class="phase4__maze-container">
         <div class="phase4__maze-container__images">
           <Image class="phase4__image--logo" src={logoMaze} alt="Logo Maze"  />
           <Image class="phase4__image--screen-1" src={mazeScreen} alt="Maze screen"  />
           <Image class="phase4__image--screen-2" src={mazeScreen2} alt="Maze screen"  />
         </div>
-        <p>La tasa de abandono fue del 0%, lo que indica que los usuarios completaron la tarea sin frustración ni bloqueo</p>
-        <p>Flujo de tareas es intuitivo y fácil de seguir</p>
-        <p>El 33,3 % de clics erróneos sugiere la necesidad de ajustar elementos interactivos o jerarquías visuales</p>
+        <p>La tasa de abandono fue del 0%, lo que indica que los usuarios <span class='color-accent-blue-electric'>completaron la tarea sin frustración ni bloqueo</span></p>
+        <p>Flujo de tareas es <span class='color-accent-blue-electric'>intuitivo y fácil de seguir</span></p>
+        <p>El 33,3 % de clics erróneos sugiere la necesidad de <span class='color-accent-blue-electric'>ajustar elementos</span> interactivos o jerarquías visuales</p>
       </div>
     </Fragment>
   
@@ -243,17 +247,24 @@ const phasesData = [
   
 </ProjectLayout>
 <style lang="scss" scoped>
-  .phase3-image {
-    width: 100%;
-    height: auto;
-  }
+.phase3-image {
+  width: 100%;
+  height: auto;
+}
 
-  .phase4 {
+.phase4 {
   &__image {
     width: 100%;
-    max-width: 150px;
+    max-width: 12rem;
     height: auto;
     margin-bottom: 1rem;
+
+    & img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
 
     &--logo {
       width: 6.25rem;
@@ -275,7 +286,6 @@ const phasesData = [
     flex-direction: column;
     gap: 1rem;
     font-family: $font-poppins;
-    margin-left: 2rem;
 
     &__images {
       display: flex;
