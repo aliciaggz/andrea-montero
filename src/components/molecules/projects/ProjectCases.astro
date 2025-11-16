@@ -13,7 +13,7 @@ const {
 
 import Flower from '@/assets/flower-blue.svg';
 import MasonryShowcase from '@/components/molecules/projects/MasonryShowcase.vue';
-import Button from '@/components/atoms/Button.astro';
+import Button from '@/components/atoms/Button.vue';
 
 
 ---
@@ -45,7 +45,7 @@ import Button from '@/components/atoms/Button.astro';
     </p>
 
     <Button
-      class="project-phase__button"
+      extraClass="project-phase__button"
       label="Fases del proyecto"
       id="toggle-phases"
       href={hrefButton}
@@ -54,6 +54,7 @@ import Button from '@/components/atoms/Button.astro';
         const container = document.getElementById('phases-container');
         container?.classList.toggle('show');
       }} : {})}
+      client:load
     />
     
 
