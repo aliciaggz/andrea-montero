@@ -1,17 +1,83 @@
----
-import box from '@/assets/box.svg';
-import BoxTools from '@/components/atoms/BoxTools.vue';
+<script setup>
+import { ref } from "vue";
 
+import arrow from "@/assets/arrow.svg";
+import boxClose from "@/assets/box-close.svg";
+import boxOpen from "@/assets/box-open.svg";
 
----
+import figma from "@/assets/figma.png";
+import frame from "@/assets/frame.png";
+import cloud from "@/assets/cloud.png";
+import hotjar from "@/assets/hotjar.png";
+import forms from "@/assets/forms.png";
+import miro from "@/assets/miro.png";
+import notion from "@/assets/notion.png";
+import misical from "@/assets/misical.png";
+import trello from "@/assets/trello.png";
+import clickup from "@/assets/clickup.png";
+import premiere from "@/assets/premiere.png";
+import indesign from "@/assets/indesign.png";
+import illustration from "@/assets/illustration.png";
+import photoshop from "@/assets/photoshop.png";
 
-<section class="tools" id="section-tools">
-  <img class="tools__image" src={box.src} alt="box" />
-  <h2 class="tools__title">Mi caja de herramientas</h2>
-  <p class="tools__text">Aquí guardo todo lo que necesito para que mis diseños funcionen, abre cada caja de herramientas y descubre como se hace la magia</p>
-  
-  <BoxTools client:load/>
-</section>
+import html from "@/assets/html.png";
+import css from "@/assets/css.png";
+import js from "@/assets/js.png";
+
+const isOpen = ref(false);
+
+const toggleBox = () => {
+  isOpen.value = !isOpen.value;
+};
+
+const tools = [
+  {
+    title: "Diseño de interfaces y prototipado",
+    icons: [figma, frame],
+  },
+  {
+    title: "Investigación y testing",
+    icons: [cloud, hotjar, forms],
+  },
+  {
+    title: "Wireframing",
+    icons: [misical, miro],
+  },
+  {
+    title: "Colaboración y handoff con developers",
+    icons: [trello, clickup, notion],
+  },
+  {
+    title: "Diseño gráfico",
+    icons: [premiere, indesign, illustration, photoshop],
+  },
+  {
+    title: "Programación",
+    icons: [html, css, js],
+  },
+];
+</script>
+<template>
+  <div class="tools__animate" @click="toggleBox">
+    <img class="tools__animate__arrow" :src="arrow.src" alt="arrow" />
+    <img class="tools__animate__box box--closed" :src="boxClose.src" v-show="!isOpen" alt="box closed" />
+    <img class="tools__animate__box box--open" :src="boxOpen.src" v-show="isOpen" alt="box open" />
+    <p class="tools__animate__note">¡¡Haz click!!</p>
+  </div>
+
+  <section class="tools__toolkit" v-show="isOpen">
+    <div class="tools__toolkit__group" v-for="category in tools" :key="category.title">
+      <h3 class="tools__toolkit__title">{{ category.title }}</h3>
+
+      <div class="tools__toolkit__icons">
+        <div class="tools__toolkit__circle" v-for="icon in category.icons" :key="icon">
+          <img :src="icon.src" alt="icon" />
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
 <style lang="scss" scoped>
 .tools {
   display: flex;
@@ -41,7 +107,7 @@ import BoxTools from '@/components/atoms/BoxTools.vue';
       text-align: center;
     }
   }
-  
+
   &__text {
     font-family: $font-poppins;
     font-size: $font-size-md;
@@ -72,13 +138,14 @@ import BoxTools from '@/components/atoms/BoxTools.vue';
       position: absolute;
       top: -3rem;
       right: -5rem;
+
       @media (max-width: 480px) {
         top: -4rem;
         right: -1rem;
       }
     }
 
-    &__note{
+    &__note {
       position: absolute;
       top: -5.5rem;
       right: -9rem;
@@ -86,6 +153,7 @@ import BoxTools from '@/components/atoms/BoxTools.vue';
       color: $color-red;
       font-family: $font-libre;
       font-size: $font-size-base;
+
       @media (max-width: 480px) {
         top: -6rem;
         right: -6rem;
@@ -164,9 +232,10 @@ import BoxTools from '@/components/atoms/BoxTools.vue';
 
 .box--open {
   width: 14rem;
+
   @media (max-width: 480px) {
-      width: 8rem;
-    }
+    width: 8rem;
+  }
 }
 
 .hidden {
