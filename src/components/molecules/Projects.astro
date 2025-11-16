@@ -31,6 +31,7 @@ const projects = [
     image: lexy,
     color: 'var(--color-yellow-light)',
     link: '/projects/lexy',
+    inProgress: true,
   },
   {
     id: 4,
@@ -62,17 +63,55 @@ const projects = [
 
     <h2 class="projects__title">Entra en mi hogar digital</h2>
     <div class="projects__grid">
+     {projects.map((project) => ( 
+     <div   
+      class={`project-card ${project.inProgress ? 'project-card--grayscale' : ''}`}
+      style={`--bg-color: ${project.color}`}>
+            
+        {project.inProgress && (
+          <span class="project-card__badge">En progreso</span>)}
+        
+        {project.inProgress ? (
+          // 🔥 SIN ENLACE
+          <div class={`${project.inProgress ? 'project-card--in-progress' : ''}`}>
+            <Image src={project.image} alt={project.title} />
+          </div>
+            ) : (
+          // 🔥 CON ENLACE
+          <a
+          class="project-card"
+            href={`${import.meta.env.SITE}${project.link}`}
+            transition:animate={fade({ duration: '0.4s' })}
+          >
+            <Image src={project.image} alt={project.title} />
+          </a>
+    )}
 
-      {projects.map((project) => (
+{/* 
         <a
           href={`${import.meta.env.SITE}${project.link}`}
-          class="project-card"
-          style={`--bg-color: ${project.color}`}
+          class={`${project.inProgress ? 'project-card--in-progress' : ''}`}
           transition:animate={fade({ duration: '0.4s' })}
         >
           <Image src={project.image} alt={project.title} />
+        </a> */}
+     
+      </div>
+       ))}
+<!-- 
+      {projects.map((project) => (
+        <a
+          href={`${import.meta.env.SITE}${project.link}`}
+          class={`project-card ${project.inProgress && 'project-card--in-progress'}`}
+          style={`--bg-color: ${project.color}`}
+          transition:animate={fade({ duration: '0.4s' })}
+        >
+          {project.inProgress && (
+              <span class="project-card__badge">En progreso</span>
+            )}
+          <Image src={project.image} alt={project.title} />
         </a>
-      ))}
+      ))} -->
     </div>
 </section>
 
@@ -115,17 +154,48 @@ const projects = [
 }
 
 .project-card {
-  position: relative;
+  // position: relative;
   height: 18.3rem;
   overflow: hidden;
   background-color: var(--bg-color);
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-
-  &:hover {
+  
+  &:not(.project-card--in-progress):hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
+  // &:hover {
+  //   transform: scale(1.05);
+  //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  // }
+
+  &--in-progress {
+    filter: blur(4px);
+    cursor: no-drop;
+    height: 100%;
+    
+  }
+
+  &--grayscale {
+    filter: grayscale(1);
+  }
+
+  
+  &__badge {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 0.3rem 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 0.3rem;
+      z-index: 999;   // 🔥 por encima del blur
+      pointer-events: none;
+      font-family: $font-poppins;
+
+    }
 
   // &__overlay {
   //   position: absolute;
