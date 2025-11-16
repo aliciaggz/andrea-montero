@@ -4,7 +4,7 @@ on:
   # Trigger the workflow every time you push to the `main` branch
   # Using a different branch name? Replace `main` with your branch’s name
   push:
-    branches: [ develop ]
+    branches: [develop]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
@@ -20,20 +20,23 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
+      - name: Set PUBLIC_ENV
+        run: echo "PUBLIC_ENV=dev" >> $GITHUB_ENV
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
           node-version: 23.7.0
 
       - name: Add .nojekyll
-        run: touch ./dist/.nojekyll  # <-- evita que Jekyll procese los archivos
+        run:
+          touch ./dist/.nojekyll # <-- evita que Jekyll procese los archivos
           # path: . # The root location of your Astro project inside the repository. (optional)
           # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    permissions:        
+    permissions:
       pages: write
       id-token: write
     environment:
@@ -43,6 +46,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          branch: gh-pages  
-          folder: dist      
+        # No additional inputs are required for this action

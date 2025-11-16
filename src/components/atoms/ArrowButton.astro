@@ -1,0 +1,82 @@
+---
+---
+
+<button id="scroll-top-btn" class="scroll-top-btn" aria-label="Volver arriba">
+  ↑
+</button>
+<script lang="js">
+  const btn = document.getElementById("scroll-top-btn");
+
+  // Mostrar cuando se baja
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      btn.classList.add("visible");
+    } else {
+      btn.classList.remove("visible");
+    }
+  });
+
+  // Scroll suave tipo iOS
+  const smoothScrollIOS = () => {
+    const start = window.pageYOffset;
+    const duration = 700;
+    let startTime = null;
+
+    const ease = (t) =>
+      t < 0.5
+        ? 4 * t * t * t
+        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const ani = (time) => {
+      if (!startTime) startTime = time;
+      const progress = Math.min((time - startTime) / duration, 1);
+      window.scrollTo(0, start * (1 - ease(progress)));
+      if (progress < 1) requestAnimationFrame(ani);
+    };
+
+    requestAnimationFrame(ani);
+  };
+
+  // Clic → subir arriba
+  btn.addEventListener("click", smoothScrollIOS);
+</script>
+
+<style lang="scss">
+  .scroll-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 999px;
+  border: none;
+  background-color: $color-red;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 200;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
+
+  z-index: 9999;
+
+  &:hover {
+    background-color: $color-turquoise;
+    color: $color-black;
+  }
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+</style>
