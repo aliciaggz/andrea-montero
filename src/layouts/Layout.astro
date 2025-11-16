@@ -9,7 +9,7 @@ import favicon from '@/assets/flower-blue.svg';
 import { ClientRouter } from 'astro:transitions';
 
 import '../styles/global.scss';
-import ArrowButton from '@/components/atoms/ArrowButton.astro';
+import ArrowButton from '@/components/atoms/ArrowButton.vue';
 import CookieBanner from '@/components/atoms/CookieBanner.vue';
 ---
 
@@ -49,7 +49,7 @@ import CookieBanner from '@/components/atoms/CookieBanner.vue';
 			<slot />
 		</div>
 		<Footer/>
-		<ArrowButton id="scroll-top-btn" />
+		<ArrowButton client:load />
     <CookieBanner client:load />
 
 	</body>

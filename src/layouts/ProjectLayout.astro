@@ -13,7 +13,7 @@ import Heart from '@/assets/heart.svg';
 import Arrow from '@/assets/arrow-right.svg';
 
 import '../styles/global.scss';
-import ArrowButton from '@/components/atoms/ArrowButton.astro';
+import ArrowButton from '@/components/atoms/ArrowButton.vue';
 
 
 const { currentProjectId } = Astro.props;
@@ -92,7 +92,7 @@ const nextProject = projects[nextIndex];
 			nextLink={nextProject?.link} 
 		/>
 		<Footer/>
-		<ArrowButton id="scroll-top-btn" />
+		<ArrowButton client:load />
 	</body>
 
 </html>
@@ -191,7 +191,7 @@ const nextProject = projects[nextIndex];
 	gap: 1rem;
 	font-family: $font-poppins;
 	font-size: $font-size-md;
-	margin-bottom: 20rem;
+	margin-bottom: 11rem;
 	align-items: center;
 	justify-content: center;
 
