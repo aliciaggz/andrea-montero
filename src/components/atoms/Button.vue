@@ -8,17 +8,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 
-// const props = defineProps({
-//   label: { type: String, default: 'Botón', required: true },
-//   href: { type: String, default: '' },
-//   target: { type: String, default: '_self' },
-//   type: { type: String, default: 'button' },
-//   extraClass: { type: String, default: '' },
-//   id: { type: String, default: '' },
-//   onClick: { type: Function, default: null },
-// });
-
-
 const props = defineProps<{
   label: string;
   href?: string;
@@ -29,7 +18,6 @@ const props = defineProps<{
   onClick?: (e: Event) => void;
 }>();
 
-// Valores por defecto
 const { label, href = '', target = '_self', type = 'button', extraClass = '', id = '', onClick = null } = props;
 
 
