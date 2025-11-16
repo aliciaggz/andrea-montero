@@ -85,34 +85,28 @@ import Peace from '@/assets/peace.svg';
 
     /* Tablets */
     @media (max-width: 1024px) {
-      margin: 2rem 0.5rem;
+      margin: 2rem 4rem;
 
       &__text {
-        font-size: 1.25rem;
-        width: 70%;
-        top: 50%;
+        font-size: $font-size-xl;  
+        margin-top: 0;
+        margin-bottom: 0;
       }
     }
 
     /* Móviles */
-    @media (max-width: 640px) {
-      margin: 2rem 0.5rem;
+    @media (max-width: 768px) {
+      margin: 2rem;
 
-      &__container {
-        width: 21rem;
-        height: 18rem;
-      }
 
       &__image {
-        width: 3rem;
-      }
-
-      &__ask {
-      font-size: $font-size-md;
+        width: 2rem;
+        margin-top: 0;
+        margin-bottom: 0;
       }
 
       &__text {
-        font-size: $font-size-sm;  
+        font-size: $font-size-xl;  
         width: 100%;
 
       }
@@ -126,6 +120,11 @@ import Peace from '@/assets/peace.svg';
         width: 4.5rem;
         height: 3rem;
         font-size: $font-size-xs;
+
+        &:hover {
+          height: 5rem; 
+          background-color: $color-turquoise;
+        }
       }
     }
     }

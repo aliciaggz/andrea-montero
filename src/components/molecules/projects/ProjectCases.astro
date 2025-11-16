@@ -12,7 +12,6 @@ const {
   } = Astro.props;
 
 import Flower from '@/assets/flower-blue.svg';
-import Face from '@/assets/face.svg';
 import MasonryShowcase from '@/components/molecules/projects/MasonryShowcase.astro';
 import Button from '@/components/atoms/Button.astro';
 
@@ -30,7 +29,7 @@ import Button from '@/components/atoms/Button.astro';
         <li class="project-phase__flower-list__item">
           <Flower class="project-phase__flower-list__icon" />
           <div><h4 class="project-phase__flower-list__title">{point.title}</h4>
-          <p class="project-phase__flower-list__text">{point.text}</p>
+          <p set:html={point.text} class="project-phase__flower-list__text"></p>
           </div>
         </li>
       ))}
