@@ -20,7 +20,7 @@ import CookieBanner from '@/components/atoms/CookieBanner.vue';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href={favicon.src} />
 		<meta name="generator" content={Astro.generator} />
-    {import.meta.env.PUBLIC_ENV === "prod" && (
+    {import.meta.env.PUBLIC_ENV === 'prod' && localStorage.getItem('cookieConsent') === 'true' && (
       <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){ (c[a].q=c[a].q||[]).push(arguments) };
